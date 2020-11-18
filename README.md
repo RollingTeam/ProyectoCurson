@@ -6,7 +6,9 @@ Repositorio creado para el desarrollo en equipo de CursOn utilizando React Js y 
 Proyecto desarrollado por Belén, Florencia, Gabriel, Leandro, Mary y Rodrigo. Estudiantes de Full Stack Web Dev en RollingCode School, Argentina.
 
 **_Paquetes npm utilizados en el proyecto, comandos de instalación:_**
--npm install
--npm install bootstrap
--npm install --save react-router-dom
--npm install react-icons
+```
+npm install
+npm install bootstrap
+npm install --save react-router-dom
+npm install react-icons
+```
