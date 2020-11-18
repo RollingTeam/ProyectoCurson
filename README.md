@@ -7,8 +7,8 @@ Proyecto desarrollado por Belén, Florencia, Gabriel, Leandro, Mary y Rodrigo. E
 
 **_Paquetes npm utilizados en el proyecto, comandos de instalación:_**
 ```
-npm install
-npm install bootstrap
-npm install --save react-router-dom
-npm install react-icons
+1. npm install
+2. npm install bootstrap
+3. npm install --save react-router-dom
+4. npm install react-icons
 ```
