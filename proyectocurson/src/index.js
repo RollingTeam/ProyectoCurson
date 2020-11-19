@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Cursos from './component/Cursos';
+import TodosCursos from './component/TodosCursos';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<Cursos />, document.getElementById('root'));
+ReactDOM.render(<TodosCursos />, document.getElementById('root'));
