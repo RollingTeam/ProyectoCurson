@@ -50,5 +50,4 @@ Estudiantes de Full Stack Web Dev en RollingCode School, Argentina.
 ## <a name="usage">Usage</a>
 
 ### Run Project
-bash
   npm start
