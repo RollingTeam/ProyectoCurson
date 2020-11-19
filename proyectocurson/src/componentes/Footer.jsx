@@ -1,6 +1,5 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
-import '../css/styles.css'
+import React from 'react';
+import '../css/footer.css';
 import {IconContext} from 'react-icons';
 import { FaDiscord, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'; 
 
