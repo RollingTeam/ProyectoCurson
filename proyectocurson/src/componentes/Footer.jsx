@@ -18,10 +18,10 @@ export default function Footer() {
                 </div>
                 <IconContext.Provider value={{ size:"2em" }}>
                 <div className="col-12 col-sm-6 text-white text-center m-0 pt-4">
-                    <FaDiscord /> 
-                    <FaTwitter  /> 
-                    <FaFacebook />
-                    <FaInstagram />
+                    <FaDiscord className="estilo-icon"/> 
+                    <FaTwitter className="estilo-icon"/> 
+                    <FaFacebook className="estilo-icon"/>
+                    <FaInstagram className="estilo-icon"/>
                 </div>
                 </IconContext.Provider>
             </div>
