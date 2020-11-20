@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Cursos() {
+export default function ContenidoDestacado() {
     return (
         <div className="col-12 col-md-6 col-lg-4">
             <div className="card-curso m-1">

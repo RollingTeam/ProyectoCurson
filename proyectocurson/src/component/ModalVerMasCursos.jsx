@@ -1,29 +1,61 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
-export default function ModalVerMasCursos() {
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
+
+// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#yourAppElement')
+
+function ModalVerMasCursos() {
+    var subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#f00';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     return (
         <div>
-        <div className="modal-header p-1">
-        <div className="nombreCurso">
-            <h5 className="modal-title p-2" id="staticBackdropLabel">CURSO DE PROG.</h5>
+            <button onClick={openModal}>Open Modal</button>
+            <Modal
+                isOpen={modalIsOpen}
+                onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+            >
+
+                <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
+                <button onClick={closeModal}>close</button>
+                <div>I am a modal</div>
+                <form>
+                    <input />
+                    <button>tab navigation</button>
+                    <button>stays</button>
+                    <button>inside</button>
+                    <button>the modal</button>
+                </form>
+            </Modal>
         </div>
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" className="white-text">&times;</span>
-        </button>
-    </div>
-    <div className="modal-body">
-    <img src="https://picsum.photos/400/200/" className="card-img-top img-fluid" alt="..."/>
-        <span className="badge badge-warning categorias"></span>
-        <span className="badge badge-pill badge-info cupos">Lugares Disponibles</span>
-        <div className="text-center">
-            <p>curso dedicado a la manufactura de cosas que no se venden nunca</p>
-        </div>
-        <div className="text-center">Contacto:<a href="link"></a></div>
-    </div>
-    <div className="modal-footer justify-content-center">
-        <button className="btn btn-primary-curso">Inscribirse<i class="far fa-user ml-1 white-text"></i></button>
-        <button className="btn btn-primary-curso">Agregar a mis Favoritos<i class="far fa-heart ml-1 white-text"></i></button>
-    </div>
-    </div>
-    )
+    );
 }
+
+ReactDOM.render(<ModalVerMasCursos />, appElement);
