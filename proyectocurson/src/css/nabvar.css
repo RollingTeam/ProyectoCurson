@@ -18,6 +18,10 @@
 .Navbar__brand-logo {
   margin-right: 10rem;
   font-size: 1.60rem;
+  
+    /* width: 45%;
+    height: 45%; */
+
 }
 
 .Navbar__brand-logo:hover{
@@ -53,3 +57,7 @@
 
 
 
+.logo{
+  width: 45%;
+  height: 45%;
+}
