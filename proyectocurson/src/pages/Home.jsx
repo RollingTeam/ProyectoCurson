@@ -2,13 +2,13 @@ import React from "react";
 import Footer from "../componentes/Footer"
 import Reviews from "../componentes/Reviews"
 import "bootstrap/dist/css/bootstrap.css";
-import Navbar from "../src/components/Navbar";
+import Navbar from "../componentes/Navbar";
 
 export default function Home() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Reviews />
       <Footer />
     </>
