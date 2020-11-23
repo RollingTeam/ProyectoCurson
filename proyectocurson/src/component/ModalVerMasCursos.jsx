@@ -1,40 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
+import React from "react";
+import ReactDOM from "react-dom";
+import Modal from "react-bootstrap/Modal";
+import ModalBody from "react-bootstrap/ModalBody";
+import ModalHeader from "react-bootstrap/ModalHeader";
+import ModalFooter from "react-bootstrap/ModalFooter";
+import ModalTitle from "react-bootstrap/ModalTitle";
 
+const ModalVerMasCursos = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
 
-export default function ModalVerMasCursos() {
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    function openModal() {
+    const showModal = () => {
         setIsOpen(true);
-    }
-
-
-    function closeModal() {
+    };
+    const hideModal = () => {
         setIsOpen(false);
-    }
+    };
 
     return (
-        <div>
-            <button onClick={openModal}>Open Modal</button>
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                contentLabel="Example Modal"
-            >
-
-                <button onClick={closeModal}>close</button>
-                <div>I am a modal</div>
-                <form>
-                    <input />
-                    <button>tab navigation</button>
-                    <button>stays</button>
-                    <button>inside</button>
-                    <button>the modal</button>
-                </form>
+        <>
+            <button className="btn btn-primary-curso" onClick={showModal}>Entrar</button>
+            <Modal show={isOpen} onHide={hideModal} size="">
+                <Modal.Header className="bg-ligth">
+                    <Modal.Title>asd</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>The body</Modal.Body>
+                <Modal.Footer>
+                    <button className="btn btn-primary-curso" onClick={hideModal}>Cancel</button>
+                    <button className="boton">Save</button>
+                </Modal.Footer>
             </Modal>
-        </div>
+        </>
     );
-}
-
-
+};
+export default ModalVerMasCursos;

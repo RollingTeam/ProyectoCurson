@@ -5,7 +5,7 @@ import Cursos from './Cursos'
 export default function CursosDestacados() {
     return (
         <div className="container">
-            <h1>Cursos Destacados</h1>
+            <h1>CURSOS DESTACADOS</h1>
             <div className="row">
                 <ContenidoDestacado />
             </div>
