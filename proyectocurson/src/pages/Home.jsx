@@ -1,16 +1,11 @@
 import React from "react";
-import Footer from "../componentes/Footer"
-import Reviews from "../componentes/Reviews"
 import "bootstrap/dist/css/bootstrap.css";
-import Navbar from "../componentes/Navbar";
-
+import Modal from '../componentes/Modal';
 export default function Home() {
 
   return (
     <>
-      <Navbar />
-      <Reviews />
-      <Footer />
+      <Modal />
     </>
   );
 }
