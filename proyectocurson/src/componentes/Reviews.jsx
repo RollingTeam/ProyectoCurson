@@ -1,17 +1,77 @@
 import React,{useState,useEffect} from 'react'
 import "../css/reviews.css";
 import ReviewList from "./ReviewList"
+import Review from "./Review"
 
 export default function Reviews() {
-    const [data, setData] = useState({
-        datos: []
-        // loading:true 
+  const [data, setData] = useState({
+    datos: []
+  });
+
+  const [loading, setLoading] = useState(true)
+
+  const [visibilidad, setVisibilidad] = useState(false)
+
+  const [reviewForm, setReviewForm] = useState({
+    form: {
+      id:"",
+      curso: "",
+      user: "",
+      imgUser: "",
+      comentario: "",
+      fecha: "",
+      calificacion: "",
+    },
+  });
+
+  useEffect(() => {
+    getData()
+  },[])
+
+  const showReview = ()=>{
+    setVisibilidad(true)
+  }
+
+  const hiddenReview = ()=>{
+    setVisibilidad(false)
+  }
+  
+  const handleChange = (e) => {
+    setReviewForm({
+      form: {
+        ...reviewForm.form,
+        [e.target.name]: e.target.value,
+      },
     });
-    
-    useEffect(() => {
-        getData()
-    },[])
-    
+  };
+
+  const cleanReview = (e)=>{
+    e.preventDefault()
+    setReviewForm({
+      form: {
+        id:"",
+        curso: "",
+        user: "",
+        imgUser: "",
+        comentario: "",
+        fecha: "",
+        calificacion: "",
+      }
+    })
+  }
+
+  const addReview = (e)=>{
+    e.preventDefault()
+    setData({
+      datos:[
+        ...data.datos,
+        reviewForm.form
+      ]}
+    )
+    cleanReview()
+    hiddenReview()
+  }
+
     // const getData= async ()=>{
     //     const resp= await fetch("http://localhost:3006/data")
     //     const data = await resp.json()
@@ -21,49 +81,56 @@ export default function Reviews() {
     //     loading:false
     //     })
     // }
+  const getData = ()=>{
+    setTimeout(() => {
+      setData({
+        datos: [ ...data.datos,
+            {
+              "id": "01",
+              "curso": "Introducción al diseño UX",
+              "user": "Florencia Pistan",
+              "imgUser":"https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png",
+              "comentario": "Es un curso completo con informacion util para proyectos",
+              "fecha": "2020-10-06",
+              "calificacion": 5
+            },
+            {
+              "id": "02",
+              "curso": "Caligrafía inglesa de la A a la Z",
+              "user": "Gabriel Moreira",
+              "imgUser":"https://c7.uihere.com/files/536/216/964/technical-support-computer-icons-user-avatar-avatar.jpg",
+              "comentario": "Me parecio un curso super interesante y con informacion muy completa",
+              "fecha": "2020-09-06",
+              "calificacion": 4
+            },
+            {
+              "id": "03",
+              "curso": "Desarrollo Web Responsive HTML y CSS",
+              "user": "Rodrigo",
+              "imgUser":"https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
+              "comentario": "Estuvo muy bueno y el material para cada tema esta muy completo",
+              "fecha": "2020-08-05",
+              "calificacion": 3
+            }      
+        ]
+      })
+      setLoading(false)
+    }, 3000);
+  }
 
-    const getData=()=>{
-        setData({
-            datos: [
-                {
-                  "id": "01",
-                  "cursoName": "Introducción al diseño UX",
-                  "userName": "Florencia Pistan",
-                  "imgUser":"https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png",
-                  "comentario": "Es un curso completo con informacion util para proyectos",
-                  "fecha": "2020-10-06",
-                  "calificacion": 5
-                },
-                {
-                  "id": "02",
-                  "cursoName": "Caligrafía inglesa de la A a la Z",
-                  "userName": "Gabriel Moreira",
-                  "imgUser":"https://c7.uihere.com/files/536/216/964/technical-support-computer-icons-user-avatar-avatar.jpg",
-                  "comentario": "Me parecio un curso super interesante y con informacion muy completa",
-                  "fecha": "2020-09-06",
-                  "calificacion": 4
-                },
-                {
-                  "id": "03",
-                  "cursoName": "Desarrollo Web Responsive HTML y CSS",
-                  "userName": "Rodrigo",
-                  "imgUser":"https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
-                  "comentario": "Estuvo muy bueno y el material para cada tema esta muy completo",
-                  "fecha": "2020-08-05",
-                  "calificacion": 3
-                }      
-              ]
-        })
-    }
     return (
     <>
       <div className="container">
-        <label class="color-rosa size-review">Reviews</label>
+        <label className="color-rosa size-review">Reviews</label>
         <div className="row">
-            {/* {data.loading ? <h3>Loading...</h3> :  */}
+            {loading ? <h3>Loading...</h3> :  
             <ReviewList data={data.datos} />
-            {/* } */}
+            } 
         </div>
+        <div className="row">
+          <button className="btn-review" onClick={showReview}>Nueva Review</button>
+        </div>
+        {visibilidad ? <Review handleChange = {handleChange} addReview = {addReview} formValues = {reviewForm.form} hiddenReview={hiddenReview} cleanReview={cleanReview}/>: null}
       </div>
     </>
     );
