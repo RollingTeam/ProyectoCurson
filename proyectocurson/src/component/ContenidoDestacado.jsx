@@ -7,6 +7,9 @@ export default function ContenidoDestacado() {
     const showModalCurso = () =>{
         setVisibilidad(true)
     }
+    const hiddenModalCurso = ()=>{
+        setVisibilidad(false)
+    }
 
     return (
         <div className="col-12 col-md-6 col-lg-4">
