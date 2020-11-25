@@ -1,6 +1,11 @@
 import React from 'react'
+import ModalVerMasCurso from './ModalVerMasCurso'
 
 export default function ContenidoDestacado() {
+
+    const showModal = () =>{
+        return <ModalVerMasCurso showModal={'true'}/>
+    }
     return (
         <div className="col-12 col-md-6 col-lg-4">
             <div className="card-curso m-1">
@@ -9,9 +14,9 @@ export default function ContenidoDestacado() {
                     <h5 className="card-title">Este es un curso dedico a la manufactura de telas rupestres siempre y cuando</h5>
                     <span class="badge badge-primary">Primary</span>
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" className="btn-primary-curso float-right">Ver Más</button>
+                    <button type="button" className="btn-primary-curso float-right" onClick={showModal}>Ver Más</button>
                 </div>
             </div>
-            </div>
+        </div>
     )
 }

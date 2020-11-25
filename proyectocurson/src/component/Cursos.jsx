@@ -12,6 +12,6 @@ export default function Cursos() {
                     <button type="button" className="btn-primary-curso float-right">Ver Más</button>
                 </div>
             </div>
-            </div>
+        </div>
     )
 }
