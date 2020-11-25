@@ -3,19 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import Form from 'react-bootstrap/Form';
 
 export default function ModalVerMasCurso({showModalCurso, hiddenModalCurso}) {
-    // const [isOpen, setIsOpen] = useState(true);
-    
-    // const showModal = () => {
-    //     setIsOpen(true);
-    // };
-
-    // const hideModal = () => {
-    //     setIsOpen(false);
-    // };
 
     return (
         <>
-        {/* <button className="btn btn-outline-danger" onClick={showModal}>Log In</button> */}
         <Modal show={showModalCurso} onHide={hiddenModalCurso} size="">
             <Modal.Header className="bg-light">
                 <Modal.Title>TITLE MODAL</Modal.Title>
