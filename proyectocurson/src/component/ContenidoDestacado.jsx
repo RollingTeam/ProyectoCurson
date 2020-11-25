@@ -4,7 +4,7 @@ import ModalVerMasCurso from './ModalVerMasCurso'
 export default function ContenidoDestacado() {
 
     const showModal = () =>{
-        return <ModalVerMasCurso showModal={'true'}/>
+        return <ModalVerMasCurso showModalCurso={true}/>
     }
     return (
         <div className="col-12 col-md-6 col-lg-4">
