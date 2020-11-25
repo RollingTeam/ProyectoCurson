@@ -1,10 +1,10 @@
-html, body{
+/* html, body{
     background-color: #8D99AE;
-    color: #EF233C;
+    color: #EF233C; 
     font-family: Helvetica,Arial,  sans-serif;
     font-size: 1rem;
     padding: 30px;
-}
+} */ 
 
 .card-text{
     overflow: hidden;

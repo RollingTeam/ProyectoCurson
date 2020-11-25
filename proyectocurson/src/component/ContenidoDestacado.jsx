@@ -4,8 +4,11 @@ import ModalVerMasCurso from './ModalVerMasCurso'
 export default function ContenidoDestacado() {
 
     const showModal = () =>{
+        console.log("Entre a ShowModal")
         return <ModalVerMasCurso showModalCurso={true}/>
     }
+
+    
     return (
         <div className="col-12 col-md-6 col-lg-4">
             <div className="card-curso m-1">
