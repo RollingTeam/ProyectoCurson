@@ -1,34 +1,22 @@
-import React from 'react'
+import React , {useState , useEffect} from 'react'
 import Modal from "react-bootstrap/Modal";
 import Form from 'react-bootstrap/Form';
 
-export default function ModalVerMasCurso({showModalCurso}) {
-    const [isOpen, setIsOpen] = React.useState(false);
+export default function ModalVerMasCurso() {
+    const [isOpen, setIsOpen] = useState(true);
     
-    // const showModal = () => {
-    //     setIsOpen(true);
-    // };
+    const showModal = () => {
+        setIsOpen(true);
+    };
 
     const hideModal = () => {
         setIsOpen(false);
     };
 
-    if(showModalCurso){
-        console.log("Vine por aqui")
-        console.log(showModalCurso)
-        setIsOpen(true);
-    }else{
-        setIsOpen(false);
-    }
-
-    // useEffect(() => {
-    //     showModal()
-    // }, [showModalCurso])
-
     return (
         <>
         {/* <button className="btn btn-outline-danger" onClick={showModal}>Log In</button> */}
-        <Modal show={isOpen} size="">
+        <Modal show={isOpen} onHide={hideModal} size="">
             <Modal.Header className="bg-light">
                 <Modal.Title>TITLE MODAL</Modal.Title>
             </Modal.Header>
