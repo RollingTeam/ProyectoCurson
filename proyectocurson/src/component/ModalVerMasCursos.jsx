@@ -1,35 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Modal from "react-bootstrap/Modal";
-import ModalBody from "react-bootstrap/ModalBody";
-import ModalHeader from "react-bootstrap/ModalHeader";
-import ModalFooter from "react-bootstrap/ModalFooter";
-import ModalTitle from "react-bootstrap/ModalTitle";
+import React from 'react'
+import '../index.css'
 
-const ModalVerMasCursos = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
-
-    const showModal = () => {
-        setIsOpen(true);
-    };
-    const hideModal = () => {
-        setIsOpen(false);
-    };
-
+export default function ModalVerMasCursos(props) {
     return (
-        <>
-            <button className="btn btn-primary-curso" onClick={showModal}>Entrar</button>
-            <Modal show={isOpen} onHide={hideModal} size="">
-                <Modal.Header className="bg-ligth">
-                    <Modal.Title>asd</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>The body</Modal.Body>
-                <Modal.Footer>
-                    <button className="btn btn-primary-curso" onClick={hideModal}>Cancel</button>
-                    <button className="boton">Save</button>
-                </Modal.Footer>
-            </Modal>
-        </>
-    );
-};
-export default ModalVerMasCursos;
+        <div className="Modal">
+            <div className="Modal__container">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Modal title</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={props.handleCloseModal}>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <p>Modal body text goes here.</p>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.handleCloseModal}>Close</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
