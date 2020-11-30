@@ -5,3 +5,9 @@
 [1130/105619.819:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
 [1130/105619.850:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\User\AppData\Local\AVAST Software\Browser\User Data\Crashpad\attachments\d11b9e3a-2b4f-4114-aa5d-8d2d3cb65841: El sistema no puede encontrar la ruta especificada. (0x3)
 [1130/105619.882:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\User\AppData\Local\AVAST Software\Browser\User Data\Crashpad\attachments\4f1609b5-f324-454e-b9cf-5899c632d920: El sistema no puede encontrar la ruta especificada. (0x3)
+[1130/115809.256:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1130/115809.255:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1130/115809.255:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1130/115809.316:ERROR:exception_snapshot_win.cc(99)] thread ID 3064 not found in process
+[1130/115809.316:ERROR:exception_snapshot_win.cc(99)] thread ID 13548 not found in process
+[1130/115809.316:ERROR:exception_snapshot_win.cc(99)] thread ID 9352 not found in process
