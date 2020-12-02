@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import "../css/reviews.css";
 
-export default function Review({handleChange , addReview, formValues , hiddenReview , cleanReview }) {
+export default function Review({handleChange , handleSubmit, formValues , hiddenReview , cleanReview }) {
     // let fec;
     // const getFecha = ()=>{
     //     let dia= new Date().getDate()
@@ -16,7 +16,7 @@ export default function Review({handleChange , addReview, formValues , hiddenRev
 
     return (
         <div>
-            <form autoComplete="off">
+            <form autoComplete="off" onSubmit={handleSubmit}>
                 <div className="row mt-3">
                     <div className="col-md-5">
                         <div className="form-group d-flex justify-content-center">
@@ -92,7 +92,7 @@ export default function Review({handleChange , addReview, formValues , hiddenRev
                 </div> 
                 <div className="mt-2 mb-3 d-flex justify-content-around">
                     <button className="btn-review-form" onClick={hiddenReview}>Cancelar</button>
-                    <button className="btn-review-form" onClick={addReview}>Enviar</button>
+                    <button className="btn-review-form" onClick={handleSubmit}>Enviar</button>
                     <button className="btn-review-form" onClick={cleanReview}>Resetear</button>
                 </div>
         </form>
