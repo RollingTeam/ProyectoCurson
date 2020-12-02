@@ -26,7 +26,7 @@ export default function Reviews() {
 
   useEffect(() => {
     getData()
-  },[])
+  }, [data.datos])
 
   const showReview = ()=>{
     setVisibilidad(true)
@@ -60,69 +60,88 @@ export default function Reviews() {
     })
   }
 
-  const addReview = (e)=>{
+  // const addReview = (e)=>{
+  //   e.preventDefault()
+  //   setData({
+  //     datos:[
+  //       ...data.datos,
+  //       reviewForm.form
+  //     ]}
+  //   )
+  //   cleanReview()
+  //   hiddenReview()
+  // }
+
+  const handleSubmit = async(e)=>{
     e.preventDefault()
-    setData({
-      datos:[
-        ...data.datos,
-        reviewForm.form
-      ]}
-    )
-    cleanReview()
-    hiddenReview()
+
+    try {
+      const resp = await fetch("http://localhost:3006/data", {
+        method: "POST",
+        body: JSON.stringify(reviewForm.form),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      console.log(resp)
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
-    // const getData= async ()=>{
-    //     const resp= await fetch("http://localhost:3006/data")
-    //     const data = await resp.json()
-    //     console.log(data)
-    //     setData({
-    //     datos:data,
-    //     loading:false
-    //     })
-    // }
-  const getData = ()=>{
-    setTimeout(() => {
+    const getData= async ()=>{
+      const resp= await fetch("http://localhost:3006/data")
+      const data = await resp.json()
+      console.log(data)
       setData({
-        datos: [ ...data.datos,
-            {
-              "id": "01",
-              "curso": "Introducción al diseño UX",
-              "user": "Florencia Pistan",
-              "imgUser":"https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png",
-              "comentario": "Es un curso completo con informacion util para proyectos",
-              "fecha": "2020-10-06",
-              "calificacion": 5
-            },
-            {
-              "id": "02",
-              "curso": "Caligrafía inglesa de la A a la Z",
-              "user": "Gabriel Moreira",
-              "imgUser":"https://c7.uihere.com/files/536/216/964/technical-support-computer-icons-user-avatar-avatar.jpg",
-              "comentario": "Me parecio un curso super interesante y con informacion muy completa",
-              "fecha": "2020-09-06",
-              "calificacion": 4
-            },
-            {
-              "id": "03",
-              "curso": "Desarrollo Web Responsive HTML y CSS",
-              "user": "Rodrigo",
-              "imgUser":"https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
-              "comentario": "Estuvo muy bueno y el material para cada tema esta muy completo",
-              "fecha": "2020-08-05",
-              "calificacion": 3
-            }      
-        ]
+      datos:data
       })
       setLoading(false)
-    }, 3000);
-  }
+    }
+    
+
+  // const getData = ()=>{
+  //   setTimeout(() => {
+  //     setData({
+  //       datos: [ ...data.datos,
+  //           {
+  //             "id": "01",
+  //             "curso": "Introducción al diseño UX",
+  //             "user": "Florencia Pistan",
+  //             "imgUser":"https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png",
+  //             "comentario": "Es un curso completo con informacion util para proyectos",
+  //             "fecha": "2020-10-06",
+  //             "calificacion": 5
+  //           },
+  //           {
+  //             "id": "02",
+  //             "curso": "Caligrafía inglesa de la A a la Z",
+  //             "user": "Gabriel Moreira",
+  //             "imgUser":"https://c7.uihere.com/files/536/216/964/technical-support-computer-icons-user-avatar-avatar.jpg",
+  //             "comentario": "Me parecio un curso super interesante y con informacion muy completa",
+  //             "fecha": "2020-09-06",
+  //             "calificacion": 4
+  //           },
+  //           {
+  //             "id": "03",
+  //             "curso": "Desarrollo Web Responsive HTML y CSS",
+  //             "user": "Rodrigo",
+  //             "imgUser":"https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
+  //             "comentario": "Estuvo muy bueno y el material para cada tema esta muy completo",
+  //             "fecha": "2020-08-05",
+  //             "calificacion": 3
+  //           }      
+  //       ]
+  //     })
+  //     setLoading(false)
+  //   }, 3000);
+  // }
 
     return (
     <>
       <div className="container">
         <label className="color-rosa size-review">Reviews</label>
-        <div className="row">
+        <div className="row" id="reviewList">
             {loading ? <h3>Loading...</h3> :  
             <ReviewList data={data.datos} />
             } 
@@ -130,7 +149,7 @@ export default function Reviews() {
         <div className="row">
           <button className="btn-review" onClick={showReview}>Nueva Review</button>
         </div>
-        {visibilidad ? <Review handleChange = {handleChange} addReview = {addReview} formValues = {reviewForm.form} hiddenReview={hiddenReview} cleanReview={cleanReview}/>: null}
+        {visibilidad ? <Review handleChange = {handleChange} handleSubmit = {handleSubmit} formValues = {reviewForm.form} hiddenReview={hiddenReview} cleanReview={cleanReview}/>: null}
       </div>
     </>
     );
