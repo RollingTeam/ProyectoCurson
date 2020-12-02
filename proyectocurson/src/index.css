@@ -30,8 +30,8 @@ html, body{
 } 
 .card-curso{
     border: 1px solid #2B2D42 !important;
-    min-height: 400px !important;
-    max-height: 400px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
 }
 
 /* BOTONES DE TODOS LOS CURSOS*/
@@ -66,10 +66,17 @@ html, body{
     align-items: center;
 }
 
+.modal-header{
+    background-color:#8D99AE;
+}
+
+.modal-footer{
+    background-color: #8D99AE;
+}
+
 .Modal__container {
     position: relative;
-    top: 10rem;
+    top: 8rem;
     background-color: #ffffff;
-    padding: 1rem;
     width: 400px;
 }
