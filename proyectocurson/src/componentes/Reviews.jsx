@@ -25,10 +25,8 @@ export default function Reviews() {
   });
 
   useEffect(() => {
-    const contReview = document.getElementById("reviewList")
-    contReview.innerHTML="";
     getData()
-  },[datos])
+  }, [data.datos])
 
   const showReview = ()=>{
     setVisibilidad(true)
@@ -92,14 +90,13 @@ export default function Reviews() {
   }
 
     const getData= async ()=>{
-      console.log("Entre a getData")
-        const resp= await fetch("http://localhost:3006/data")
-        const data = await resp.json()
-        console.log(data)
-        setData({
-        datos:data
-        })
-        setLoading(false)
+      const resp= await fetch("http://localhost:3006/data")
+      const data = await resp.json()
+      console.log(data)
+      setData({
+      datos:data
+      })
+      setLoading(false)
     }
     
 
