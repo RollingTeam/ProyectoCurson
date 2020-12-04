@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import Modal from '../component/Modal'
-import ModalVerMasCursos from '../component/ModalVerMasCursos'
+import Modal from '../componentes/Modal'
+import ModalVerMasCursos from '../componentes/ModalVerMasCursos'
 
 export default function Cursos() {
 

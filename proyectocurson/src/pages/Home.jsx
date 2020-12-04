@@ -1,12 +1,22 @@
-import React from 'react'
-import CursosDestacados from '../component/CursosDestacados'
-import TodosCursos from '../component/TodosCursos'
+import React from "react";
+import Footer from "../componentes/Footer"
+import Reviews from "../componentes/Reviews"
+import "bootstrap/dist/css/bootstrap.css";
+import Navbar from "../componentes/Navbar";
+import CursosDestacados from '../componentes/CursosDestacados'
+import TodosCursos from '../componentes/TodosCursos'
 
 export default function Home() {
-    return (
-        <>
-            <TodosCursos />
-            <CursosDestacados />
-        </>
-    )
+
+  return (
+    <>
+      <Navbar />
+      <TodosCursos />
+      <CursosDestacados />
+      <Reviews />
+      <Footer />
+    </>
+  );
 }
+
+
