@@ -6,10 +6,10 @@ import { IconContext } from 'react-icons';
 
 export default function Usuarios() {
     return (
-        <div className="container">
+        <div className="container table-responsive">
             <IconContext.Provider value={{ size: "1.5em" , color:"#EF233C" }}>
                 <div className="row d-flex justify-content-center mt-3 mb-3">
-                    <table className="table">
+                    <table className="table table-hover">
                         <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Nombre</th>
@@ -32,7 +32,7 @@ export default function Usuarios() {
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody id="cuerpoTabla">
+                        <tbody  id="cuerpoTabla">
                             <tr>
                                 <td>Florencia Pistán</td>
                                 <td>florpistan</td>
