@@ -1,13 +1,14 @@
 import React from 'react'
+import Carousel from 'react-bootstrap/Carousel'
 
-export default function Carousel() {
+export default function Carrousel() {
     return (
         <div className="container-fluid">
             <Carousel>
   <Carousel.Item interval={1000}>
     <img
       className="d-block w-100"
-      src="https://picsum.photos/200/300"
+      src="https://picsum.photos/10/10"
       alt="First slide"
     />
     <Carousel.Caption>

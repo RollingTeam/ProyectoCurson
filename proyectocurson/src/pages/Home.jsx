@@ -1,10 +1,11 @@
 import React from 'react'
-import Carousel from "../componentes/Carousel"
+import Carrousel from "../componentes/Carrousel"
 import "bootstrap/dist/css/bootstrap.css"
+
 export default function Home() {
     return (
         <>
-            <Carousel />
+            <Carrousel />
         </>
     )
 }
