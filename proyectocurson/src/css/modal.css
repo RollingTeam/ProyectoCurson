@@ -1,0 +1,33 @@
+.Modal-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Modal_container{
+    position: relative;
+    width: 400px;
+}
+
+.logo-modal{
+    width: 100px;
+}
+
+.Modal-register{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
