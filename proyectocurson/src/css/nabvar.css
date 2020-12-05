@@ -1,5 +1,8 @@
 
-
+.navbar-flex{
+  display: flex;
+  justify-content: space-between;
+}
 /* Color Class */
 .bg-blanco{
   background-color: #EDF2F4;

@@ -1,4 +1,4 @@
-import React from "react";
+import Rect from "react";
 import Footer from "../componentes/Footer"
 import Reviews from "../componentes/Reviews"
 import "bootstrap/dist/css/bootstrap.css";
