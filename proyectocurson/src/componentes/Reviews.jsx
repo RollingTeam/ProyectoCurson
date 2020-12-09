@@ -28,7 +28,7 @@ export default function Reviews() {
 
   useEffect(() => {
     getData()
-  }, [])
+  },[])
 
   useEffect(() => {
     getData()
@@ -95,14 +95,22 @@ export default function Reviews() {
     setNuevaReview(false)
     hiddenReview();
   }
-    const getData= async ()=>{
-      const resp= await fetch("http://localhost:3006/data")
-      const data = await resp.json()
-      setData({
-      datos:data
-      })
-      setLoading(false)
-    }
+  const getData= async ()=>{
+    const resp= await fetch("http://localhost:3006/data")
+    const data = await resp.json()
+    setData({
+    datos:data
+    })
+    setLoading(false)
+  }
+  // const borrarReview=async()=>{
+  //   try {
+  //     await fetch(`http://localhost:3006/data/EBBBoZN`,{
+  //     method:'DELETE',
+  //     })
+  //   } catch (error) {
+  //   }
+  // }
   // const getData = ()=>{
   //   setTimeout(() => {
   //     setData({
