@@ -24,9 +24,15 @@ export default function Reviews() {
     },
   });
 
+  const [nuevaReview, setNuevaReview] = useState(false);
+
   useEffect(() => {
     getData()
-  }, [data.datos])
+  },[])
+
+  useEffect(() => {
+    getData()
+  }, [nuevaReview])
 
   const showReview = ()=>{
     setVisibilidad(true)
@@ -74,32 +80,37 @@ export default function Reviews() {
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
-
+    setNuevaReview(true)
     try {
-      const resp = await fetch("http://localhost:3006/data", {
+        await fetch("http://localhost:3006/data", {
         method: "POST",
         body: JSON.stringify(reviewForm.form),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      console.log(resp)
     } catch (error) {
       console.warn(error);
     }
+    setNuevaReview(false)
+    hiddenReview();
   }
-
-    const getData= async ()=>{
-      const resp= await fetch("http://localhost:3006/data")
-      const data = await resp.json()
-      console.log(data)
-      setData({
-      datos:data
-      })
-      setLoading(false)
-    }
-    
-
+  const getData= async ()=>{
+    const resp= await fetch("http://localhost:3006/data")
+    const data = await resp.json()
+    setData({
+    datos:data
+    })
+    setLoading(false)
+  }
+  // const borrarReview=async()=>{
+  //   try {
+  //     await fetch(`http://localhost:3006/data/EBBBoZN`,{
+  //     method:'DELETE',
+  //     })
+  //   } catch (error) {
+  //   }
+  // }
   // const getData = ()=>{
   //   setTimeout(() => {
   //     setData({
