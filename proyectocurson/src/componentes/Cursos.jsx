@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Modal from '../componentes/Modal'
 import ModalVerMasCursos from '../componentes/ModalVerMasCursos'
+import "../css/cursos.css"
+import "../css/botones.css"
 
 export default function Cursos() {
 
@@ -21,7 +23,7 @@ export default function Cursos() {
                     <h5 className="card-title"><strong>Este es un curso dedico a la manufactura de telas rupestres siempre y cuando</strong></h5>
                     <span class="badge badge-primary">Primary</span>
                     <p className="card-text">¿Siempre has querido aprender a dibujar pero no sabes por dónde empezar? En este curso el ilustrador y educador Puño, te enseñará las claves para convertirte en dibujante desde cualquier nivel y a cualquier edad a través de una aproximación</p>
-                    <button type="button" className="btn-primary-curso float-right" onClick={handleOpenModal}>Ver Más</button>
+                    <button type="button" className="btn btn-primary-curso float-right" onClick={handleOpenModal}>Ver Más</button>
 
                     {openModal &&
                         <Modal>

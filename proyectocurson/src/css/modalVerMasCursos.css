@@ -1,0 +1,28 @@
+/*MODAL*/
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-header{
+    background-color: #ffffff;
+}
+
+.modal-footer{
+    background-color:  #ffffff;
+}
+
+.Modal__container {
+    position: relative;
+    top: 8rem;
+    background-color: #ffffff;
+    width: 400px;
+    height: 0px;
+}
