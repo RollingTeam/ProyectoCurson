@@ -38,6 +38,7 @@ export default function Navbar() {
       setOpenLoginModal(false)
   }
 
+
   const modalRegisterOpen = () =>{
     setOpenLoginModal(false)
     setOpenRegisterModal(true)
@@ -130,12 +131,9 @@ const handleSubmitRegistro = async () => {
           </Modal>}
         
     </>
-        
-  
   );
 }
-
-
+    
 
 
 
