@@ -19,7 +19,7 @@ export default function Cursos() {
                 <img src="https://picsum.photos/400/200/" className="card-img-top img-fluid" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title"><strong>Este es un curso dedico a la manufactura de telas rupestres siempre y cuando</strong></h5>
-                    <span class="badge badge-primary">Primary</span>
+                    <span className="badge badge-primary">Primary</span>
                     <p className="card-text">¿Siempre has querido aprender a dibujar pero no sabes por dónde empezar? En este curso el ilustrador y educador Puño, te enseñará las claves para convertirte en dibujante desde cualquier nivel y a cualquier edad a través de una aproximación</p>
                     <button type="button" className="btn-primary-curso float-right" onClick={handleOpenModal}>Ver Más</button>
 

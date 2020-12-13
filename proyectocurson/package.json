@@ -12,6 +12,8 @@
     "@testing-library/user-event": "^12.2.2",
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
+    "json-server": "^0.16.3",
+    "md5": "^2.3.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
@@ -22,7 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev":"json-server --watch db.json --port 3006",
+    "dev": "json-server --watch db.json --port 3006",
+    "users": "json-server --watch users.json --port 3005",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
