@@ -1,20 +1,20 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import "../css/reviews.css";
-import ReviewList from "./ReviewList"
-import Review from "./Review"
+import ReviewList from "./ReviewList";
+import Review from "./Review";
 
 export default function Reviews() {
   const [data, setData] = useState({
-    datos: []
+    datos: [],
   });
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
-  const [visibilidad, setVisibilidad] = useState(false)
+  const [visibilidad, setVisibilidad] = useState(false);
 
   const [reviewForm, setReviewForm] = useState({
     form: {
-      id:"",
+      id: "",
       curso: "",
       user: "",
       imgUser: "",
@@ -27,21 +27,21 @@ export default function Reviews() {
   const [nuevaReview, setNuevaReview] = useState(false);
 
   useEffect(() => {
-    getData()
-  },[])
+    getData();
+  }, []);
 
   useEffect(() => {
-    getData()
-  }, [nuevaReview])
+    getData();
+  }, [nuevaReview]);
 
-  const showReview = ()=>{
-    setVisibilidad(true)
-  }
+  const showReview = () => {
+    setVisibilidad(true);
+  };
 
-  const hiddenReview = ()=>{
-    setVisibilidad(false)
-  }
-  
+  const hiddenReview = () => {
+    setVisibilidad(false);
+  };
+
   const handleChange = (e) => {
     setReviewForm({
       form: {
@@ -51,20 +51,20 @@ export default function Reviews() {
     });
   };
 
-  const cleanReview = (e)=>{
-    e.preventDefault()
+  const cleanReview = (e) => {
+    e.preventDefault();
     setReviewForm({
       form: {
-        id:"",
+        id: "",
         curso: "",
         user: "",
         imgUser: "",
         comentario: "",
         fecha: "",
         calificacion: "",
-      }
-    })
-  }
+      },
+    });
+  };
 
   // const addReview = (e)=>{
   //   e.preventDefault()
@@ -78,11 +78,11 @@ export default function Reviews() {
   //   hiddenReview()
   // }
 
-  const handleSubmit = async(e)=>{
-    e.preventDefault()
-    setNuevaReview(true)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setNuevaReview(true);
     try {
-        await fetch("http://localhost:3006/data", {
+      await fetch("http://localhost:3006/data", {
         method: "POST",
         body: JSON.stringify(reviewForm.form),
         headers: {
@@ -92,17 +92,17 @@ export default function Reviews() {
     } catch (error) {
       console.warn(error);
     }
-    setNuevaReview(false)
+    setNuevaReview(false);
     hiddenReview();
-  }
-  const getData= async ()=>{
-    const resp= await fetch("http://localhost:3006/data")
-    const data = await resp.json()
+  };
+  const getData = async () => {
+    const resp = await fetch("http://localhost:3006/data");
+    const data = await resp.json();
     setData({
-    datos:data
-    })
-    setLoading(false)
-  }
+      datos: data,
+    });
+    setLoading(false);
+  };
   // const borrarReview=async()=>{
   //   try {
   //     await fetch(`http://localhost:3006/data/EBBBoZN`,{
@@ -141,31 +141,39 @@ export default function Reviews() {
   //             "comentario": "Estuvo muy bueno y el material para cada tema esta muy completo",
   //             "fecha": "2020-08-05",
   //             "calificacion": 3
-  //           }      
+  //           }
   //       ]
   //     })
   //     setLoading(false)
   //   }, 3000);
   // }
 
-    return (
+  return (
     <>
       <div className="container-fluid my-5">
         <div className="bd-negro d-flex justify-content-center my-5">
-        <label className="size-review">Reviews</label>
+          <label className="size-review">Reviews</label>
         </div>
         <div className="container">
-        <div className="row" id="reviewList">
-            {loading ? <h3>Loading...</h3> :  
-            <ReviewList data={data.datos} />
-            } 
+          <div className="row" id="reviewList">
+            {loading ? <h3>Loading...</h3> : <ReviewList data={data.datos} />}
+          </div>
+          <div className="row">
+            <button className="btn-review" onClick={showReview}>
+              Nueva Review
+            </button>
+          </div>
+          {visibilidad ? (
+            <Review
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              formValues={reviewForm.form}
+              hiddenReview={hiddenReview}
+              cleanReview={cleanReview}
+            />
+          ) : null}
         </div>
-        <div className="row">
-          <button className="btn-review" onClick={showReview}>Nueva Review</button>
-        </div>
-        {visibilidad ? <Review handleChange = {handleChange} handleSubmit = {handleSubmit} formValues = {reviewForm.form} hiddenReview={hiddenReview} cleanReview={cleanReview}/>: null}
-        </div>   
       </div>
     </>
-    );
+  );
 }
