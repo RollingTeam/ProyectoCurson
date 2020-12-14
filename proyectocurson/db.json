@@ -28,31 +28,13 @@
       "calificacion": 3
     },
     {
-      "id": "EBBBoZN",
-      "curso": "Curso de PHP",
-      "user": "Belen Neme",
+      "id": "ndUifyO",
+      "curso": "Test Curso",
+      "user": "Test Reviews",
       "imgUser": "",
-      "comentario": "Me parecio un curso super interesante y completo",
-      "fecha": "2020-12-02",
+      "comentario": "Test Comentario",
+      "fecha": "2020-12-07",
       "calificacion": "4"
-    },
-    {
-      "id": "BsQjMHC",
-      "curso": "HTML - CSS",
-      "user": "Florencia",
-      "imgUser": "",
-      "comentario": "Esto es un comentario",
-      "fecha": "2020-12-02",
-      "calificacion": "3"
-    },
-    {
-      "id": "kuRhLgY",
-      "curso": "JSX",
-      "user": "Mary",
-      "imgUser": "",
-      "comentario": "Esto es un comentario",
-      "fecha": "2020-12-02",
-      "calificacion": "2"
     }
   ]
 }

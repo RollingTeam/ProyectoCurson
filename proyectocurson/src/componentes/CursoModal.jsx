@@ -1,31 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react';
+import { useForm } from "react-hook-form";
 
-export default function NuevoCursoModal(props) {
 
-    const [nuevoCurso, setNuevoCurso] = useState({
-        nombreCurso: '',
-        contenidoCurso: '',
-        duracionCurso: '',
-        cuposCurso: '',
-        categoriaCurso: '',
-        nivelCurso:'',
-        imagenCurso: '',
-    });
+export default function CursoModal() {
 
-    const handleInputChange = (event) => {
-        console.log(event.target.value)
-        setNuevoCurso({
-            ...nuevoCurso,
-            [event.target.name]: event.target.value
-        })
+    const { register, errors, handleSubmit } = useForm();
+
+    const onSubmit = (nuevoCurso, e) => {
+        console.log(nuevoCurso)
+        e.target.reset()
     }
 
-    //probando procesar los datos del form
-    const enviarCurso = (event) => {
-        event.preventDefault()
-        console.log('enviando datos...' + nuevoCurso.nombreCurso)
-    }
-
+    
     return (
         <div>
             <div className="modal" tabindex="-1" id="exampleSolicitud" aria-hidden="true">
@@ -37,7 +23,7 @@ export default function NuevoCursoModal(props) {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form onSubmit={enviarCurso}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col">
@@ -49,8 +35,15 @@ export default function NuevoCursoModal(props) {
                                                     className="form-control"
                                                     id="nombreCursoInput"
                                                     placeholder="¿Nombre del curso?"
-                                                    onChange={handleInputChange}
+                                                    ref={
+                                                        register({
+                                                            required: { value: true, message: 'Campo obligatorio' }
+                                                        })
+                                                    }
                                                 />
+                                                <span className="text-danger text-small d-block mb-2">
+                                                    {errors?.nombreCurso?.message}
+                                                </span>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -60,9 +53,17 @@ export default function NuevoCursoModal(props) {
                                                     id="contenidoCursoInput"
                                                     className="form-control"
                                                     rows="3"
-                                                    placeholder="¿De que se tratan el curso?"
-                                                    onChange={handleInputChange}>    
-                                                    </textarea>
+                                                    placeholder="¿De que se trata el curso?"
+                                                    ref={
+                                                        register({
+                                                            required: { value: true, message: 'Campo obligatorio' }
+                                                        })
+                                                    }
+                                                >
+                                                </textarea>
+                                                <span className="text-danger text-small d-block mb-2">
+                                                    {errors?.contenidoCurso?.message}
+                                                </span>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -73,8 +74,15 @@ export default function NuevoCursoModal(props) {
                                                     className="form-control"
                                                     id="duracionCursoInput"
                                                     placeholder="Duración (horas)"
-                                                    onChange={handleInputChange}
+                                                    ref={
+                                                        register({
+                                                            required: { value: true, message: 'Campo obligatorio' }
+                                                        })
+                                                    }
                                                 />
+                                                <span className="text-danger text-small d-block mb-2">
+                                                    {errors?.duracionCurso?.message}
+                                                </span>
                                             </div>
                                             <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                                                 <input
@@ -83,13 +91,22 @@ export default function NuevoCursoModal(props) {
                                                     className="form-control"
                                                     id="cuposCursoInput"
                                                     placeholder="Cupo máximo"
-                                                    onChange={handleInputChange} />
+                                                    ref={
+                                                        register({
+                                                            required: { value: true, message: 'Campo obligatorio' }
+                                                        })
+                                                    }
+                                                />
+                                                <span className="text-danger text-small d-block mb-2">
+                                                    {errors?.cupoCurso?.message}
+                                                </span>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                                                 <label>Categoría del curso</label>
                                                 <select
+                                                    name="categoriaCurso" ref={register}
                                                     className="form-control"
                                                     id="categoriaCursoInput">
                                                     <option>Tecnología</option>
@@ -101,7 +118,8 @@ export default function NuevoCursoModal(props) {
                                             </div>
                                             <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                                                 <label>Nivel del Curso</label>
-                                                <select
+                                                <select 
+                                                    name="nivelCurso" ref={register}
                                                     className="form-control"
                                                     id="dificultadCursoInput">
                                                     <option>Principiante</option>
@@ -118,8 +136,15 @@ export default function NuevoCursoModal(props) {
                                                     type="file"
                                                     class="form-control-file"
                                                     id="imagenCursoInput"
-                                                    onChange={handleInputChange}
+                                                    ref={
+                                                        register({
+                                                            required: { value: true, message: 'Campo obligatorio' }
+                                                        })
+                                                    }
                                                 />
+                                                <span className="text-danger text-small d-block mb-2">
+                                                    {errors?.imagenCurso?.message}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +152,7 @@ export default function NuevoCursoModal(props) {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" className="btn cursonBtn" onClick={props.handleCloseModal}>Enviar solicitud</button>
+                                <button type="submit" className="btn cursonBtn">Enviar solicitud</button>
                             </div>
                         </form>
                     </div>

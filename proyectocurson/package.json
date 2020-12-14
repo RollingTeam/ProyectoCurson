@@ -15,6 +15,7 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^6.13.0",
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev":"json-server --watch db.json --port 3006",
+    "dev": "json-server --watch db.json --port 3006",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
