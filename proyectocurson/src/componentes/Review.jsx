@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "../css/reviews.css";
 
 export default function Review({handleChange , handleSubmit, formValues , hiddenReview , cleanReview }) {

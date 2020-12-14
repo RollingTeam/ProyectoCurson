@@ -150,8 +150,11 @@ export default function Reviews() {
 
     return (
     <>
-      <div className="container">
-        <label className="color-rosa size-review">Reviews</label>
+      <div className="container-fluid my-5">
+        <div className="bd-negro d-flex justify-content-center my-5">
+        <label className="size-review">Reviews</label>
+        </div>
+        <div className="container">
         <div className="row" id="reviewList">
             {loading ? <h3>Loading...</h3> :  
             <ReviewList data={data.datos} />
@@ -161,6 +164,7 @@ export default function Reviews() {
           <button className="btn-review" onClick={showReview}>Nueva Review</button>
         </div>
         {visibilidad ? <Review handleChange = {handleChange} handleSubmit = {handleSubmit} formValues = {reviewForm.form} hiddenReview={hiddenReview} cleanReview={cleanReview}/>: null}
+        </div>   
       </div>
     </>
     );
