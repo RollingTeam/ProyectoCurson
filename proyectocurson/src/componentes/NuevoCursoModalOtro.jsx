@@ -1,20 +1,40 @@
-import React,{useState} from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 
 import "../css/modal.css";
 
-export default function NuevoCursoModal(props) {
-  const { register, errors, handleSubmit } = useForm();
+export default function NuevoCursoModalOtro(props) {
+  const [nuevoCurso, setNuevoCurso] = useState({
+    nombreCurso: "",
+    contenidoCurso: "",
+    duracionCurso: "",
+    cuposCurso: "",
+    categoriaCurso: "",
+    nivelCurso: "",
+    imagenCurso: "",
+  });
 
-  const [NuevoCurso, setNuevoCurso] = useState([])
+  const {
+    nombreCurso,
+    contenidoCurso,
+    duracionCurso,
+    cuposCurso,
+    categoriaCurso,
+    nivelCurso,
+    imagenCurso,
+  } = nuevoCurso;
 
-  const onSubmit = (data, e) => {
-    console.log(data);
-    e.target.reset();
-    setNuevoCurso([
-        ...NuevoCurso,
-        data
-    ])
+  const handleInputChange = (event) => {
+    console.log(event.target.value);
+    setNuevoCurso({
+      ...nuevoCurso,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  //probando procesar los datos del form
+  const enviarCurso = (event) => {
+    event.preventDefault();
+    console.log("enviando datos..." + nuevoCurso.nombreCurso);
   };
 
   return (
@@ -33,7 +53,7 @@ export default function NuevoCursoModal(props) {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={enviarCurso}>
               <div className="modal-body">
                 <div className="row">
                   <div className="col">
@@ -41,131 +61,75 @@ export default function NuevoCursoModal(props) {
                       <div className="form-group col">
                         <input
                           name="nombreCurso"
+                          value={nombreCurso}
                           type="text"
                           className="form-control"
                           id="nombreCursoInput"
                           placeholder="¿Nombre del curso?"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
+                          onChange={handleInputChange}
                         />
-                        {errors.nombreCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.nombreCurso.message}
-                          </span>
-                        )}
                       </div>
                     </div>
                     <div className="row">
                       <div className="form-group col">
                         <textarea
                           name="contenidoCurso"
+                          value={contenidoCurso}
                           id="contenidoCursoInput"
                           className="form-control"
                           rows="3"
-                          placeholder="¿De que se trata el curso?"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
+                          placeholder="¿De que se tratan el curso?"
+                          onChange={handleInputChange}
                         ></textarea>
-                        {errors.contenidoCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.contenidoCurso.message}
-                          </span>
-                        )}
                       </div>
                     </div>
                     <div className="row">
                       <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                         <input
                           name="duracionCurso"
+                          value={duracionCurso}
                           type="number"
                           className="form-control"
                           id="duracionCursoInput"
                           placeholder="Duración (horas)"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
+                          onChange={handleInputChange}
                         />
-                        {errors.duracionCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.duracionCurso.message}
-                          </span>
-                        )}
                       </div>
                       <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                         <input
                           name="cuposCurso"
+                          value={cuposCurso}
                           type="number"
                           className="form-control"
                           id="cuposCursoInput"
                           placeholder="Cupo máximo"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
+                          onChange={handleInputChange}
                         />
-                        {errors.cuposCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.cuposCurso.message}
-                          </span>
-                        )}
                       </div>
                     </div>
                     <div className="row">
                       <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                         <label>Categoría del curso</label>
                         <select
-                          name="categoriaCurso"
-                          ref={register}
                           className="form-control"
                           id="categoriaCursoInput"
                         >
+                          value={categoriaCurso}
                           <option>Tecnología</option>
                           <option>Hogar</option>
                           <option>Arte</option>
                           <option>Salud</option>
                           <option>Marketing</option>
                         </select>
-                        {errors.categoriaCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.categoriaCurso.message}
-                          </span>
-                        )}
                       </div>
                       <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
                         <label>Nivel del Curso</label>
-                        <select
-                          name="nivelCurso"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
-                          className="form-control"
-                          id="dificultadCursoInput"
-                        >
+                        <select className="form-control" id="nivelCursoInput">
+                          value={nivelCurso}
                           <option>Principiante</option>
                           <option>Intermedio</option>
                           <option>Avanzado</option>
                         </select>
-                        {errors.nivelCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.nivelCurso.message}
-                          </span>
-                        )}
                       </div>
                     </div>
                     <div className="row">
@@ -173,21 +137,12 @@ export default function NuevoCursoModal(props) {
                         <label>Imagen de portada del curso:</label>
                         <input
                           name="imagenCurso"
+                          value={imagenCurso}
                           type="file"
                           class="form-control-file"
                           id="imagenCursoInput"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
+                          onChange={handleInputChange}
                         />
-                        {errors.imagenCurso && (
-                          <span className="text-danger text-small d-block mb-2">
-                            {errors.imagenCurso.message}
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -201,7 +156,11 @@ export default function NuevoCursoModal(props) {
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="btn cursonBtn">
+                <button
+                  type="submit"
+                  className="btn cursonBtn"
+                  onClick={props.handleCloseModal}
+                >
                   Enviar solicitud
                 </button>
               </div>

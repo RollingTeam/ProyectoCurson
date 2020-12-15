@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-// import NuevoCursoModal from "./NuevoCursoModal";
 import PasoAPaso from "./PasoAPaso";
 import Modal from "../componentes/Modal";
-import CursoModal from "./CursoModal"
+import NuevoCursoModal from "./NuevoCursoModal";
+// import NuevoCursoModalOtro from "./NuevoCursoModalOtro";
+
 
 export default function PublicarCurso() {
   const [openModal, setOpenModal] = useState(false);
@@ -52,7 +53,8 @@ export default function PublicarCurso() {
 
           {openModal && (
             <Modal>
-              <CursoModal handleCloseModal={handleCloseModal} />
+            <NuevoCursoModal handleCloseModal={handleCloseModal} />
+            {/* <NuevoCursoModalOtro handleCloseModal={handleCloseModal} /> */}
             </Modal>
           )}
         </div>
