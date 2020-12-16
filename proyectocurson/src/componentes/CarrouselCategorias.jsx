@@ -7,7 +7,7 @@ export default function CarrouselCategorias() {
     <div>
       <div className="container">
         <div className="row">
-          <div id="carousel" className="col-12 col-md-6 col-lg-4">
+          <div id="carousel" className="col-12 col-md-6 col-lg-6 col-xl-4">
             <Carousel indicators={false} controls={false}>
               <Carousel.Item>
                 <img
@@ -63,7 +63,7 @@ export default function CarrouselCategorias() {
               </Carousel.Item>
             </Carousel>
           </div>
-          <div id="carousel" className="col-12 col-md-6 col-lg-4">
+          <div id="carousel" className="col-12 col-md-6 col-lg-6 col-xl-4">
             <Carousel indicators={false} controls={false}>
               <Carousel.Item>
                 <img
@@ -93,7 +93,7 @@ export default function CarrouselCategorias() {
           </div>
         </div>
         <div className="row my-2">
-          <div id="carousel" className="col-12 col-md-6 col-lg-4">
+          <div id="carousel" className="col-12 col-md-6 col-lg-6 col-xl-4">
             <Carousel indicators={false} controls={false}>
               <Carousel.Item>
                 <img

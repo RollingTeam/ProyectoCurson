@@ -15,7 +15,7 @@ export default function ModalVerMasCursos(props) {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <img src="https://picsum.photos/400/200/" class="card-img-top img-fluid" alt="..."></img>
+                                <img src="https://picsum.photos/400/200/" class="card-img-top img-card img-fluid" alt="..."></img>
                                 <span class="badge badge-warning categorias">categorias</span>
                                 <span class="badge badge-pill badge-info cupos"> Lugares Disponibles</span>
                                 <div className="text-center mt-1">
