@@ -6,10 +6,10 @@ import Home from "../pages/Home";
 export default function App() {
   return (
     <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/cursos" component={VerCursos} />
-        </Switch>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/cursos" component={VerCursos} />
+      </Switch>
     </BrowserRouter>
   );
 }
