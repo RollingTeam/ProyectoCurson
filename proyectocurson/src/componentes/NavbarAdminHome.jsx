@@ -1,27 +1,38 @@
 import React from 'react';
 import Logo from '../img/logo-navbar.png';
 import '../css/navbar.css';
+import Navbar from 'react-bootstrap/Navbar'
+import Form from 'react-bootstrap/Form'
+import Nav from 'react-bootstrap/Nav'
+import Button from 'react-bootstrap/Button'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import FormControl from 'react-bootstrap/FormControl'
 
 export default function NavbarAdminHome() {
     return (
         <div>
-            <div className="navbar navbar-expand-lg navbar-light bg-blanco p-2">
-                <button className="navbar-toggler nav-menuHamb" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div className="navbar-brand m-0 d-none d-sm-none d-md-block" href="index.html"><img className="img-fluid logo" src={Logo} alt="logo curson navbar" />
-                </div>
-            </div>
-            <div className="navbar-nav bg-light">
-                <ul className="text-dark text-center my-auto">
-                    <li className="nav-item navbar-text m-1 pr-2 pl-2 active">Usuarios</li>
-                    <li className="nav-item navbar-text m-1 pr-2 pl-2">Cursos</li>
-                    <li className="nav-item navbar-text m-1 pr-2 pl-2">Categorías</li>
-                    <li className="nav-item navbar-text m-1 pr-2 pl-2">Solicitudes</li>
-                </ul>
-            </div>
+            <Navbar expand="lg" className="bg-blanco">
+                <Navbar.Brand className="p-0 m-0"><img className="img-fluid logo" src={Logo} alt="logo-curson"/></Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="#home">Usuarios</Nav.Link>
+                        <NavDropdown title="Cursos" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Ver Cursos</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Nuevo Curso</NavDropdown.Item>
+                        </NavDropdown>
+                        <NavDropdown title="Categorías" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Nueva Categoría</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Ver Categorías</NavDropdown.Item>
+                        </NavDropdown>
+                        <Nav.Link href="#home">Solicitudes</Nav.Link>
+                    </Nav>
+                    <Form inline>
+                        <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
+                        <Button variant="outline-dark">Buscar</Button>
+                    </Form>
+                </Navbar.Collapse>
+            </Navbar>
         </div>
     )
 }
