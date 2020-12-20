@@ -22,7 +22,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev":"json-server --watch db.json --port 3006",
+    "init-rev":"json-server --watch db.json --port 3006",
+    "init-cur":"json-server --watch cursos.json --port 3008",
+    "setup": "start npm run init-rev && start npm run init-cur",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

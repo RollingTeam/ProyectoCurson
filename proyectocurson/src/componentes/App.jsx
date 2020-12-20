@@ -6,6 +6,7 @@ import AdminHome from "../pages/AdminHome";
 import CursosAdmin from "../pages/CursosAdmin";
 import NuevoCursoAdmin from "../pages/NuevoCursoAdmin";
 import EditarCursoAdmin from "../pages/EditarCursoAdmin"
+import ModalVerDetalleCurso from "./ModalVerDetalleCurso";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route exact path="/admin/cursos" component={CursosAdmin} />
         <Route exact path="/admin/nuevoCurso" component={NuevoCursoAdmin} />
         <Route exact path="/admin/cursoDetails/:cursoId" component={EditarCursoAdmin} />
+        <Route exact path="/cursos/:cursoId" component={ModalVerDetalleCurso} />
       </Switch>
     </BrowserRouter>
   );

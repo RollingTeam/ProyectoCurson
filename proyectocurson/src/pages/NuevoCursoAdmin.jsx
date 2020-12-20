@@ -44,7 +44,6 @@ export default function NuevoCursoAdmin(props) {
   };
 
   const handleSubmit = async (e) => {
-    console.log("Me hiciste clic para guardar el curso");
     e.preventDefault();
     try {
       await fetch("http://localhost:3008/cursos", {

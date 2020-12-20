@@ -76,8 +76,6 @@ export default function EditarCursoAdmin(props) {
   };
 
   const borrarCurso = async (e) => {
-    console.log("Entre a borrar Curso");
-    console.log(e);
     try {
       await fetch(`http://localhost:3008/cursos/${cursoId}`, {
         method: "DELETE",

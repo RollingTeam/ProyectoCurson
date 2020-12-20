@@ -1,16 +1,10 @@
-import React, { useState } from "react";
-import Modal from "../componentes/Modal";
-import ModalVerMasCursos from "../componentes/ModalVerMasCursos";
+import React from "react";
+import { Link } from "react-router-dom";
+// import Modal from "../componentes/Modal";
+// import ModalVerMasCursos from "../componentes/ModalVerMasCursos";
 import "../css/cursos.css";
 
 export default function Curso({ curso }) {
-  const [openModal, setOpenModal] = useState(false);
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
   return (
     <div className="col-12 col-md-6 col-lg-4">
       <div className="card-curso m-2">
@@ -19,21 +13,30 @@ export default function Curso({ curso }) {
           <h5 className="card-title">
             <strong>{curso.nombre}</strong>
           </h5>
-          <span class="badge badge-primary">{curso.categoria}</span>
+          <span className="badge badge-primary">{curso.categoria}</span>
           <p className="card-text">{curso.descripcion}</p>
-          <button
+          {/* <button
             type="button"
             className="btn btn-primary-curso float-right"
             onClick={handleOpenModal}
           >
             Ver Más
-          </button>
-
-          {openModal && (
+          </button> */}
+          {/* {openModal && (
             <Modal>
-              <ModalVerMasCursos handleCloseModal={handleCloseModal} />
+              <ModalVerMasCursos
+                handleCloseModal={handleCloseModal}
+                curso={cursoSelected}
+              />
             </Modal>
-          )}
+          )} */}
+          <Link
+            to={`cursos/${curso.id}`}
+            className="btn btn-primary-curso float-right text-decoration-none"
+          >
+            Ver Mas
+          </Link>
+          {/* } */}
         </div>
       </div>
     </div>
