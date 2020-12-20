@@ -1,23 +1,31 @@
-import React from 'react'
-import "../css/cursos.css"
+import React, { useState, useEffect } from "react";
+import Curso from "./Curso";
+import "../css/cursos.css";
 
 export default function CursosDestacados() {
-    return (
-        <div className="container">
-            <h1>CURSOS DESTACADOS</h1>
-            <div className="row">
-                <div className="col-12 col-md-6 col-lg-4">
-                    <div className="card-curso m-2">
-                        <img src="https://picsum.photos/377/200/" className="card-img-top img-fluid" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title"><strong>Este es un curso dedico a la manufactura de telas rupestres siempre y cuando</strong></h5>
-                            <span class="badge badge-primary">Primary</span>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type="button" className="btn btn-primary-curso float-right">Ver Más</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+  const [data, setData] = useState({
+    cursos: [],
+  });
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const resp = await fetch("http://localhost:3008/cursos");
+    const data = await resp.json();
+    setData({
+      cursos: data,
+    });
+  };
+  return (
+    <div className="container">
+      <h1>CURSOS DESTACADOS</h1>
+      <div className="row">
+        {data.cursos.map((curso) => {
+          return <Curso curso={curso} />;
+        })}
+      </div>
+    </div>
+  );
 }

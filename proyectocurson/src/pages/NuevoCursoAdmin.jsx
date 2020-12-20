@@ -54,6 +54,7 @@ export default function NuevoCursoAdmin() {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+      props.history.push("/admin/cursos");
     } catch (error) {
       console.warn(error);
     }
