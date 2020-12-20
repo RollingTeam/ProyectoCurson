@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 body {
   font-family: "Questrial", sans-serif;
-}
+} */
 /* Color Class */
 .bg-blanco {
   background-color: #edf2f4;
@@ -32,14 +32,3 @@ body {
   width: 45%;
   height: 45%;
 }
-/* .navbar-nav {
-  background-color: transparent !important;
-  
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(43, 45, 66, 1) 50%,
-    rgba(141, 153, 174, 1) 100%
-  );
-} */
