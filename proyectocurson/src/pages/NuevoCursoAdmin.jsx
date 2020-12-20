@@ -26,8 +26,7 @@ export default function NuevoCursoAdmin() {
     });
   };
 
-  const cleanForm = (e) => {
-    e.preventDefault();
+  const cleanForm = () => {
     setCursoForm({
       form: {
         id: "",
@@ -45,7 +44,7 @@ export default function NuevoCursoAdmin() {
   };
 
   const handleSubmit = async (e) => {
-      console.log("Me hiciste clic para guardar el curso")
+    console.log("Me hiciste clic para guardar el curso");
     e.preventDefault();
     try {
       await fetch("http://localhost:3008/cursos", {
@@ -58,16 +57,27 @@ export default function NuevoCursoAdmin() {
     } catch (error) {
       console.warn(error);
     }
-    cleanForm()
+    cleanForm();
   };
   return (
     <div>
-      <NewCursoAdmin
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        formValues={cursoForm.form}
-        cleanForm={cleanForm}
-      />
+      <NewCursoAdmin handleChange={handleChange} formValues={cursoForm.form} />
+      <div className="form-group d-flex justify-content-center mt-4">
+        <button
+          type="button"
+          className="btn btn-secondary mr-3"
+          onClick={cleanForm}
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          className="btn btn-secondary ml-3"
+          onClick={handleSubmit}
+        >
+          Agregar
+        </button>
+      </div>
     </div>
   );
 }

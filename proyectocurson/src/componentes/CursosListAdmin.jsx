@@ -1,28 +1,7 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
-import ModalEditarCurso from "./ModalEditarCurso";
-import ModalVerMasCursos from "./ModalVerMasCursos";
+import { Link } from "react-router-dom";
 
 export default function CursosListAdmin({ data }) {
-  const [openModal, setOpenModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
-
-  const borrarCurso = async(e)=>{
-    console.log("Entre a borrar Curso")
-    console.log(e)
-    try {
-      await fetch(`http://localhost:3008/cursos/${data.id}`,{
-      method:'DELETE',
-      })
-    } catch (error) {
-    }
-  }
 
   return (
     <>
@@ -56,8 +35,10 @@ export default function CursosListAdmin({ data }) {
               <th scope="col">Cupo</th>
               <th scope="col">
                 Estado:
-                <select name="estado" id="estado" 
-                // onChange="filtrarDatos()"
+                <select
+                  name="estado"
+                  id="estado"
+                  // onChange="filtrarDatos()"
                 >
                   <option value="0">Todos</option>
                   <option value="1">Activo</option>
@@ -78,20 +59,12 @@ export default function CursosListAdmin({ data }) {
                   <td>{data.cupo}</td>
                   <td>{data.estado}</td>
                   <td>
-                    <button
-                      type="button"
-                      className="btn btn-dark mx-1"
-                      onClick={handleOpenModal}
+                    <Link
+                      to={`cursoDetails/${data.id}`}
+                      className="btn btn-dark mx-1 text-decoration-none"
                     >
-                      Editar
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-danger mr-1"
-                      onClick={borrarCurso}
-                    >
-                      Eliminar
-                    </button>
+                      Ver/Editar
+                    </Link>
                     {/* {btnSuspender} {btnActivar} */}
                   </td>
                 </tr>
@@ -99,11 +72,6 @@ export default function CursosListAdmin({ data }) {
             })}
           </tbody>
         </table>
-        {openModal && (
-          <Modal>
-            <ModalEditarCurso curso={data.id} handleCloseModal={handleCloseModal}/>
-          </Modal>
-        )}
       </div>
     </>
   );

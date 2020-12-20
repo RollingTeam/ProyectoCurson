@@ -1,11 +1,6 @@
 import React from "react";
 
-export default function NewCursoAdmin({
-  handleChange,
-  handleSubmit,
-  formValues,
-  cleanForm,
-}) {
+export default function NewCursoAdmin({ handleChange, formValues }) {
   return (
     <div className="container my-4">
       <form>
@@ -32,9 +27,8 @@ export default function NewCursoAdmin({
                     rows="3"
                     name="descripcion"
                     onChange={handleChange}
-                  >
-                    {formValues.descripcion}
-                  </textarea>
+                    value={formValues.descripcion}
+                  ></textarea>
                 </div>
               </div>
               <div className="row">
@@ -67,7 +61,10 @@ export default function NewCursoAdmin({
                     name="categoria"
                     onChange={handleChange}
                   >
-                    <option value={formValues.categoria} defaultValue></option>
+                    <option
+                      value={formValues.categoria}
+                      defaultChecked
+                    ></option>
                     <option>Tecnología</option>
                     <option>Hogar</option>
                     <option>Arte</option>
@@ -117,22 +114,6 @@ export default function NewCursoAdmin({
               </div>
             </div>
           </div>
-        </div>
-        <div className="form-group d-flex justify-content-center mt-4">
-          <button
-            type="button"
-            className="btn btn-secondary mr-3"
-            onClick={cleanForm}
-          >
-            Cancelar
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary ml-3"
-            onClick={handleSubmit}
-          >
-            Agregar
-          </button>
         </div>
       </form>
     </div>
