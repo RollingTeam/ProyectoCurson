@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NewCursoAdmin from "../componentes/NewCursoAdmin";
 
-export default function NuevoCursoAdmin() {
+export default function NuevoCursoAdmin(props) {
   const [cursoForm, setCursoForm] = useState({
     form: {
       id: "",
