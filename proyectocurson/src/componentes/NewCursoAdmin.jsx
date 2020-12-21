@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function NewCursoAdmin({ handleChange, formValues }) {
+  const [categorias, setData] = useState([]);
+  useEffect(() => {
+    getCategorias();
+  }, []);
+  const getCategorias = async () => {
+    const resp = await fetch("http://localhost:3009/categorias");
+    const datos = await resp.json();
+    console.log(datos);
+    setData(datos);
+  };
+
   return (
     <div className="container my-4">
       <form>
@@ -60,16 +71,12 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
                     className="form-control"
                     name="categoria"
                     onChange={handleChange}
+                    value={formValues.categoria}
+                    defaultValue
                   >
-                    <option
-                      value={formValues.categoria}
-                      defaultChecked
-                    ></option>
-                    <option>Tecnología</option>
-                    <option>Hogar</option>
-                    <option>Arte</option>
-                    <option>Salud</option>
-                    <option>Marketing</option>
+                    {categorias.map((cat) => {
+                      return <option>{cat.nombre}</option>;
+                    })}
                   </select>
                 </div>
                 <div className="form-group col-12 col-sm-12 col-md-6 col-md-6">
@@ -78,8 +85,9 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
                     className="form-control"
                     name="nivel"
                     onChange={handleChange}
+                    value={formValues.nivel}
+                    defaultValue
                   >
-                    <option value={formValues.nivel} defaultValue></option>
                     <option>Principiante</option>
                     <option>Intermedio</option>
                     <option>Avanzado</option>

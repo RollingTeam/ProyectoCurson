@@ -59,6 +59,7 @@ export default function NuevoCursoAdmin(props) {
     }
     cleanForm();
   };
+
   return (
     <div>
       <NewCursoAdmin handleChange={handleChange} formValues={cursoForm.form} />

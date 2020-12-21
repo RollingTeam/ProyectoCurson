@@ -26,7 +26,6 @@ export default function Curso({ curso }) {
             <Modal>
               <ModalVerMasCursos
                 handleCloseModal={handleCloseModal}
-                curso={cursoSelected}
               />
             </Modal>
           )} */}
@@ -36,7 +35,6 @@ export default function Curso({ curso }) {
           >
             Ver Mas
           </Link>
-          {/* } */}
         </div>
       </div>
     </div>
