@@ -1,12 +1,12 @@
 import React from "react";
 import Footer from "../componentes/Footer";
-import Navbar from "../componentes/Navbar";
+import BarraDeNavegacion from "../componentes/BarraDeNavegacion";
 import TodosCursos from "../componentes/TodosCursos";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <BarraDeNavegacion />
       <TodosCursos />
       <Footer />
     </>
