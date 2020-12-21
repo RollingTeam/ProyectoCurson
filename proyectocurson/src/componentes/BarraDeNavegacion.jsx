@@ -16,13 +16,13 @@ export default function BarraDeNavegacion() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <NavDropdown title="Cursos" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Destacados</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Todos los Cursos</NavDropdown.Item>
+                        <NavDropdown className="text-style" title="Cursos" id="basic-nav-dropdown">
+                            <NavDropdown.Item className="text-style" href="#action/3.1">Destacados</NavDropdown.Item>
+                            <NavDropdown.Item className="text-style" href="#action/3.2">Todos los Cursos</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#home">Categorías</Nav.Link>
-                        <Nav.Link href="#home">Publicá tu Curso</Nav.Link>
-                        <Nav.Link href="#home">Reviews</Nav.Link>
+                        <Nav.Link className="text-style" href="#home">Categorías</Nav.Link>
+                        <Nav.Link className="text-style" href="#home">Publicá tu Curso</Nav.Link>
+                        <Nav.Link className="text-style" href="#home">Reviews</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />

@@ -1,7 +1,7 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 body {
   font-family: "Questrial", sans-serif;
-} */
+}
 /* Color Class */
 .bg-blanco {
   background-color: #edf2f4;
@@ -31,4 +31,7 @@ body {
 .logo {
   width: 45%;
   height: 45%;
+}
+.text-style{
+  font-weight: 600;
 }
