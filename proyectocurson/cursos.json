@@ -47,18 +47,6 @@
       "imagen": "https://www.nbsbancosyseguros.com/wp-content/uploads/2019/06/economia.jpg",
       "estado": 1,
       "contacto": "economia.com"
-    },
-    {
-      "id": "QgY63r_",
-      "nombre": "Test Prueba Categoria",
-      "descripcion": "Test categoria descripcion",
-      "categoria": "Musica",
-      "nivel": "Principiante",
-      "cupo": "30",
-      "duracion": "30",
-      "imagen": "",
-      "estado": 1,
-      "contacto": "www.cursos.com"
     }
   ]
 }
