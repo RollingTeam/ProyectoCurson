@@ -1,0 +1,59 @@
+.bd-gris{
+    border: 2px solid #8D99AE;
+}
+.color-rosa{
+    color:#EF233C;
+}
+.color-gris{
+    color:#8D99AE;
+}
+.size-review{
+    font-size: 25px;
+}
+.bd-negro{
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+.card-multicolor{
+    border-top: 2px solid #2B2D42!important;
+    border-right: 2px solid #EF233C!important;
+    border-bottom: 2px solid #8D99AE!important;
+    border-left: 2px solid #8D99AE!important;
+    border-radius: 10px!important;
+}
+.btn-review{
+    color: #8D99AE;
+    background-color: #FFFFFF;
+    border-radius: 60px;
+    border-color: #2B2D42;
+    margin:14px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    width: 201px;
+    height: 32px;
+}
+.btn-review:focus{
+    outline: none;
+}
+.btn-review-form{
+    color: #8D99AE;
+    background-color: #FFFFFF;
+    border-radius: 60px;
+    border-color: #2B2D42;
+    width: 110px;
+}
+.btn-review-form:focus{
+    outline: none;
+}
+.form-review{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #cdd2db;
+    border-radius: 10px;
+}
+.input-review{
+    border-color: #8D99AE;
+    border-radius: 5px;
+}

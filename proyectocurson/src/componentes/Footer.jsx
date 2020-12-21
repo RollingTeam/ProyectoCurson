@@ -5,7 +5,7 @@ import { FaDiscord, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
     return (
-        <div className="container-fluid bg-negro fixed-bottom p-3">
+        <div className="container-fluid bg-negro p-3">
             <div className="row">
                 <div className="col-12 col-sm-6 text-white text-center">
                     <ul className="p-0">
