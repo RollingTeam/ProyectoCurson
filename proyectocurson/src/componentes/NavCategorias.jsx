@@ -11,12 +11,12 @@ export default function NavCategorias() {
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item active mx-5">
               <a className="nav-link" href="#!">
-                Arte
+                Tecnologia
               </a>
             </li>
             <li className="nav-item active mx-5">
               <a className="nav-link" href="#!">
-                Tecnologia
+                Arte
               </a>
             </li>
             <li className="nav-item active mx-5">
@@ -29,8 +29,8 @@ export default function NavCategorias() {
                 className="btn-categorias"
                 title="Mas..."
               >
-                <Dropdown.Item eventKey="option-1">option-1</Dropdown.Item>
-                <Dropdown.Item eventKey="option-2">option-2</Dropdown.Item>
+                <Dropdown.Item eventKey="option-1">Marketing</Dropdown.Item>
+                <Dropdown.Item eventKey="option-2">Musica</Dropdown.Item>
                 <Dropdown.Item eventKey="option-3">option 3</Dropdown.Item>
               </DropdownButton>
             </li>
