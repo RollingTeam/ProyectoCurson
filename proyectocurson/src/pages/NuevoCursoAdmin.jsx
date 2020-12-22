@@ -1,0 +1,86 @@
+import React, { useState } from "react";
+import NewCursoAdmin from "../componentes/NewCursoAdmin";
+import NavbarAdminHome from "../componentes/NavbarAdminHome"
+
+export default function NuevoCursoAdmin(props) {
+  const [cursoForm, setCursoForm] = useState({
+    form: {
+      id: "",
+      nombre: "",
+      descripcion: "",
+      categoria: "",
+      nivel: "",
+      cupo: "",
+      duracion: "",
+      imagen: "",
+      estado: 1,
+      contacto: "",
+    },
+  });
+
+  const handleChange = (e) => {
+    setCursoForm({
+      form: {
+        ...cursoForm.form,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  const cleanForm = () => {
+    setCursoForm({
+      form: {
+        id: "",
+        nombre: "",
+        descripcion: "",
+        categoria: "",
+        nivel: "",
+        cupo: "",
+        duracion: "",
+        imagen: "",
+        estado: 1,
+        contacto: "",
+      },
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await fetch("http://localhost:3008/cursos", {
+        method: "POST",
+        body: JSON.stringify(cursoForm.form),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      props.history.push("/admin/cursos");
+    } catch (error) {
+      console.warn(error);
+    }
+    cleanForm();
+  };
+
+  return (
+    <div>
+      <NavbarAdminHome />
+      <NewCursoAdmin handleChange={handleChange} formValues={cursoForm.form} />
+      <div className="form-group d-flex justify-content-center mt-4">
+        <button
+          type="button"
+          className="btn btn-secondary mr-3"
+          onClick={cleanForm}
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          className="btn btn-secondary ml-3"
+          onClick={handleSubmit}
+        >
+          Agregar
+        </button>
+      </div>
+    </div>
+  );
+}

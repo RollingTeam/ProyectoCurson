@@ -1,0 +1,21 @@
+.bd-negro{
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+a{
+    text-decoration: none;
+    /* font-size: 1.2rem; */
+}
+.nav-link:hover{
+    color: #EF233C !important;
+}
+.btn-categorias button ,.btn-categorias button:hover,.btn-categorias button:focus {
+    border-style: none !important;
+    background-color: #ffffff !important;
+    color:black !important;
+    box-shadow: none !important;
+}
+
+.btn-categorias button:hover,  .dropdown-item:hover{
+    color: #EF233C !important
+}
