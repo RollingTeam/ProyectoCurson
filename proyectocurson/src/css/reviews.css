@@ -10,6 +10,10 @@
 .size-review{
     font-size: 25px;
 }
+.bd-negro{
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
 .card-multicolor{
     border-top: 2px solid #2B2D42!important;
     border-right: 2px solid #EF233C!important;

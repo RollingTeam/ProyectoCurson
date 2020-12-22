@@ -1,16 +1,13 @@
 import React from "react";
-import Navbar from "../componentes/Navbar";
-import Footer from "../componentes/Footer"
-import PublicarCurso from "../componentes/PublicarCurso"
-
-
+import Footer from "../componentes/Footer";
+import BarraDeNavegacion from "../componentes/BarraDeNavegacion";
+import TodosCursos from "../componentes/TodosCursos";
 
 export default function Home() {
-
   return (
     <>
-      <Navbar />
-      <PublicarCurso />      
+      <BarraDeNavegacion />
+      <TodosCursos />
       <Footer />
     </>
   );

@@ -1,0 +1,24 @@
+{
+    "categorias": [
+      {
+        "id": "01",
+        "nombre": "Tecnologia"
+      },
+      {
+        "id": "02",
+        "nombre": "Arte"
+      },
+      {
+        "id": "03",
+        "nombre": "Idiomas"
+      },
+      {
+        "id": "04",
+        "nombre": "Marketing"
+      },
+      {
+        "id": "05",
+        "nombre": "Musica"
+      }
+    ]
+}
