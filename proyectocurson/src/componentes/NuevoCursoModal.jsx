@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import "../css/modal.css";
@@ -12,14 +12,14 @@ export default function NuevoCursoModal(props) {
     console.log(data);
     e.target.reset();
     setNuevoCurso([
-        ...NuevoCurso,
-        data
+      ...NuevoCurso,
+      data
     ])
   };
 
   return (
     <div className="Modal">
-      <div className="Modal_container">
+      <div>
         <div className="modal-dialog modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header text text-center">
