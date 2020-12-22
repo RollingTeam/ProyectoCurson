@@ -4,7 +4,7 @@ import CarrouselCategorias from "./CarrouselCategorias";
 
 export default function Categorias() {
   return (
-    <div>
+    <div id="categorias">
       <NavCategorias />
       <CarrouselCategorias />
     </div>

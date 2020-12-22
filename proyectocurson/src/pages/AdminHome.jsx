@@ -1,9 +1,10 @@
 import React from 'react'
+import NavbarAdminHome from '../componentes/NavbarAdminHome'
 
 export default function AdminHome() {
     return (
         <div>
-            <h2>ADMIN HOME</h2>
+            <NavbarAdminHome />
         </div>
     )
 }

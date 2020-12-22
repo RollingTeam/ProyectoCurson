@@ -20,7 +20,7 @@ export default function TodosCursos() {
     });
   };
   return (
-    <div className="container">
+    <div className="container" id="todosLosCursos">
       <h1>TODOS LOS CURSOS</h1>
       <div className="row">
         {data.cursos.map((curso) => {
