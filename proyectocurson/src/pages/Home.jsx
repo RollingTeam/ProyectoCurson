@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../componentes/Navbar";
 import CursosDestacados from '../componentes/CursosDestacados'
 import TodosCursos from '../componentes/TodosCursos'
-// import PublicarCurso from "../componentes/PublicarCurso";
+import PublicarCurso from "../componentes/PublicarCurso";
 
 
 
@@ -18,7 +18,7 @@ export default function Home() {
       <CursosDestacados />
       <Reviews />
       
-     {/* <PublicarCurso /> */}
+     <PublicarCurso />
 
       <Footer />
     </>
