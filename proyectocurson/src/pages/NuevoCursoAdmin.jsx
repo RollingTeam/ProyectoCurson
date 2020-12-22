@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NewCursoAdmin from "../componentes/NewCursoAdmin";
+import NavbarAdminHome from "../componentes/NavbarAdminHome"
 
 export default function NuevoCursoAdmin(props) {
   const [cursoForm, setCursoForm] = useState({
@@ -62,6 +63,7 @@ export default function NuevoCursoAdmin(props) {
 
   return (
     <div>
+      <NavbarAdminHome />
       <NewCursoAdmin handleChange={handleChange} formValues={cursoForm.form} />
       <div className="form-group d-flex justify-content-center mt-4">
         <button

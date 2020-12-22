@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NewCursoAdmin from "../componentes/NewCursoAdmin";
 import Modal from "../componentes/Modal";
 import ModalDeleteCurso from "../componentes/ModalDeleteCurso";
+import NavbarAdminHome from "../componentes/NavbarAdminHome"
 
 export default function EditarCursoAdmin(props) {
   const [openModal, setOpenModal] = useState(false);
@@ -86,6 +87,7 @@ export default function EditarCursoAdmin(props) {
 
   return (
     <div>
+      <NavbarAdminHome />
       <NewCursoAdmin handleChange={handleChange} formValues={cursoForm.form} />
       <div className="form-group d-flex justify-content-center mt-4">
         <button
