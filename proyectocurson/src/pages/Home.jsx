@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../componentes/Footer"
-import NavbarAdminHome from "../componentes/NavbarAdminHome";
+import BarraDeNavegacionAdmin from "../componentes/BarraDeNavegacionAdmin";
 import Reviews from "../componentes/Reviews"
 
 export default function Home() {
 
   return (
     <>
-      <NavbarAdminHome />
+      <BarraDeNavegacionAdmin />
       <Reviews />
       <Footer />
     </>
