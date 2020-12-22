@@ -150,7 +150,7 @@ export default function Reviews() {
 
   return (
     <>
-      <div className="container-fluid my-5">
+      <div className="container-fluid my-5" id="reviews">
         <div className="bd-negro d-flex justify-content-center my-5">
           <label className="size-review">Reviews</label>
         </div>

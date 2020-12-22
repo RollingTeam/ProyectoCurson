@@ -19,7 +19,7 @@ export default function CursosDestacados() {
     });
   };
   return (
-    <div className="container">
+    <div className="container" id="destacados">
       <h1>CURSOS DESTACADOS</h1>
       <div className="row">
         {data.cursos.map((curso) => {

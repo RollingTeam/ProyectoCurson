@@ -17,12 +17,12 @@ export default function BarraDeNavegacion() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <NavDropdown className="text-style" title="Cursos" id="basic-nav-dropdown">
-                            <NavDropdown.Item className="text-style" href="#action/3.1">Destacados</NavDropdown.Item>
-                            <NavDropdown.Item className="text-style" href="#action/3.2">Todos los Cursos</NavDropdown.Item>
+                            <NavDropdown.Item className="text-style" href="#destacados">Destacados</NavDropdown.Item>
+                            <NavDropdown.Item className="text-style" href="/cursos/#todosLosCursos">Todos los Cursos</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className="text-style" href="#home">Categorías</Nav.Link>
-                        <Nav.Link className="text-style" href="#home">Publicá tu Curso</Nav.Link>
-                        <Nav.Link className="text-style" href="#home">Reviews</Nav.Link>
+                        <Nav.Link className="text-style" href="#categorias">Categorías</Nav.Link>
+                        <Nav.Link className="text-style" href="/cursos">Publicá tu Curso</Nav.Link>
+                        <Nav.Link className="text-style" href="#reviews">Reviews</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
