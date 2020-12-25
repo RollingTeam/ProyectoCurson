@@ -6,16 +6,6 @@ import '../css/nabvar.css';
 
 export default function Navbar() {
 
-  const [openModal, setOpenModal] = useState(false)
-
-  const modalIsOpen = () =>{
-      setOpenModal(true)
-  }
-
-  const modalIsClose = () =>{
-      setOpenModal(false)
-  }
-
     return (
       <>
         <div className="navbar navbar-expand-lg navbar-light bg-blanco p-2 navbar-flex">
@@ -26,12 +16,7 @@ export default function Navbar() {
           </button>
           <div className="navbar-brand m-0 d-none d-sm-none d-md-block" href="index.html"><img    className="img-fluid logo" src={Logo} alt="logo curson navbar"/>
             </div>
-          <button className="btn btn-danger float-right" onClick={modalIsOpen}>Log in</button>
         </div>
-          {openModal &&
-            <Modal>
-              <LogIn modalIsClose={modalIsClose}/>
-            </Modal>}
       </>
           
   

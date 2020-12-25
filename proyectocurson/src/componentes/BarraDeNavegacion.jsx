@@ -1,5 +1,6 @@
 import React , { useState } from 'react';
 import Modal from './Modal';
+import LogIn from "../componentes/LogIn";
 import Logo from '../img/logo-navbar.png';
 import '../css/navbar.css';
 import Navbar from 'react-bootstrap/Navbar'
