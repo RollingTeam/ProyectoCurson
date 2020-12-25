@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Curso from "./Curso";
-import "../css/cursos.css";
+import CursosInfo from "../componentes/CursosInfo";
+import CursosListAdmin from "../componentes/CursosListAdmin";
+import NavbarAdminHome from "../componentes/NavbarAdminHome";
 
-export default function CursosDestacados() {
+export default function CursosAdmin() {
   const [data, setData] = useState({
     cursos: [],
   });
@@ -18,13 +19,13 @@ export default function CursosDestacados() {
       cursos: data,
     });
   };
+
   return (
-    <div className="container" id="destacados">
-      <h1>CURSOS DESTACADOS</h1>
-      <div className="row">
-        {data.cursos.map((curso) => {
-          return <Curso curso={curso} />;
-        })}
+    <div>
+      <NavbarAdminHome />
+      <div className="container">
+        <CursosInfo data={data.cursos} />
+        <CursosListAdmin data={data.cursos} />
       </div>
     </div>
   );

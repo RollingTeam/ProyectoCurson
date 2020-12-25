@@ -7,6 +7,7 @@ import '../css/nabvar.css';
 
 export default function Navbar() {
 
+<<<<<<< HEAD
   //Estados de modal
   const [openLoginModal, setOpenLoginModal] = useState(false)
   const [openRegisterModal, setOpenRegisterModal] = useState(false)
@@ -36,6 +37,23 @@ export default function Navbar() {
 
   const modalLoginClose = () =>{
       setOpenLoginModal(false)
+=======
+    return (
+      <>
+        <div className="navbar navbar-expand-lg navbar-light bg-blanco p-2 navbar-flex">
+          <button className="navbar-toggler nav-menuHamb" type="button" data-toggle="collapse"
+              data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="navbar-brand m-0 d-none d-sm-none d-md-block" href="index.html"><img    className="img-fluid logo" src={Logo} alt="logo curson navbar"/>
+            </div>
+        </div>
+      </>
+          
+  
+    );
+>>>>>>> develop
   }
 
 
