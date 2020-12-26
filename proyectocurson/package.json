@@ -24,8 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "init-rev":"json-server --watch db.json --port 3006",
-    "init-cur":"json-server --watch cursos.json --port 3008",
+    "init-rev": "json-server --watch db.json --port 3006",
+    "init-cur": "json-server --watch cursos.json --port 3008",
     "init-cat": "json-server --watch categorias.json --port 3009",
     "setup": "start npm run init-rev && start npm run init-cur && start npm run init-cat",
     "build": "react-scripts build",

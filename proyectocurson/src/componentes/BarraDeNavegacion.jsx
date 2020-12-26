@@ -134,7 +134,7 @@ export default function BarraDeNavegacion() {
                         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
                         <Button variant="outline-dark">Buscar</Button>
                     </Form>
-                    <Button className="btn btn-danger float-right" onClick={modalLoginOpen}>Log in</Button>
+                    <Button className="btn btn-danger float-right ml-2" onClick={modalLoginOpen}>Log in</Button>
                     {openLoginModal &&
                     <Modal>
                         <LogIn modalLoginClose={modalLoginClose}
