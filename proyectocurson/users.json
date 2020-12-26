@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "nombre": "Rodrigo",
+      "userName": "rodrigo10",
+      "email": "example@gmail.com",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055",
+      "passwordRepetir": "81dc9bdb52d04dc20036dbd8313ed055",
+      "logueado": false,
+      "estado": "activo",
+      "id": 1
+    }
+  ]
+}
