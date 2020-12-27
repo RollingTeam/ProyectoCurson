@@ -12,7 +12,7 @@ export default function WelcomeCarousel() {
             <Carousel className="carousel_content">
                 <Carousel.Item interval={1000}>
                     <img
-                        className="carousel_item img-fluid w-100"
+                        className="carousel-item-welcome img-fluid w-100"
                         src={Img1}
                         alt="First slide"
                     />
@@ -24,7 +24,7 @@ export default function WelcomeCarousel() {
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
                     <img
-                        className="carousel_item img-fluid w-100 img2"
+                        className="carousel-item-welcome img-fluid w-100 img2"
                         src={Img2}
                         alt="Third slide"
                     />
@@ -36,7 +36,7 @@ export default function WelcomeCarousel() {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="carousel_item img-fluid w-100"
+                        className="carousel-item-welcome img-fluid w-100"
                         src={Img3}
                         alt="Third slide"
                     />
