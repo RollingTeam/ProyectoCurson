@@ -19,12 +19,16 @@ export default function CursosDestacados() {
     });
   };
   return (
-    <div className="container" id="destacados">
-      <h1>CURSOS DESTACADOS</h1>
-      <div className="row">
-        {data.cursos.map((curso) => {
-          return <Curso curso={curso} />;
-        })}
+    <div className="container-fluid my-5" id="destacados">
+      <div className="bd-negro d-flex justify-content-center my-5">
+        <label className="size-titulo">Cursos Destacados</label>
+      </div>
+      <div className="container">
+        <div className="row">
+          {data.cursos.map((curso) => {
+            return <Curso curso={curso} />;
+          })}
+        </div>
       </div>
     </div>
   );
