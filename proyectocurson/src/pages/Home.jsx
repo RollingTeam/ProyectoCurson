@@ -1,17 +1,17 @@
 import React from "react";
 import Footer from "../componentes/Footer";
-import Reviews from "../componentes/Reviews";
 import BarraDeNavegacion from "../componentes/BarraDeNavegacion";
-import CursosDestacados from '../componentes/CursosDestacados';
+import PublicarCurso from '../componentes/PublicarCurso'
 import Categorias from "../componentes/Categorias";
+import Cursos from '../componentes/Cursos'
 
 export default function Home() {
   return (
     <>
       <BarraDeNavegacion />
-      <CursosDestacados />
       <Categorias />
-      <Reviews />
+      <Cursos />
+      <PublicarCurso />
       <Footer />
     </>
   );

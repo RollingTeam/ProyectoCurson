@@ -1,0 +1,52 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+    border-radius: 10%;
+}
+.pasos:hover .overlay{
+    opacity: 0.7;
+}
+.paso-paso{
+    min-height: 274px;
+    max-width: 274px;
+    max-height: 274px;
+}
+.paso{
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.cursonBtn{
+    color: white !important;
+    background-color: #EF233C !important;
+}
+.ocultarBtnSolicitud{
+    display: none;
+    color: white !important;
+    background-color: #EF233C !important;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+.ocultarBtnSolicitud:focus{
+    outline: none;
+}

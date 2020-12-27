@@ -5,8 +5,8 @@ import "../css/botones.css"
 export default function ModalVerMasCursos(props) {
     return (
         <div className="Modal">
-                <div className="Modal__container modal-dialog-scrollable">
-                    <div className="modal-dialog">
+                <div>
+                    <div className="modal-dialog modal-dialog-scrollable">
                         <div className="modal-content">
                             <div className="modal-header p-1">
                                 <h5 className="modal-title p-2"><strong>Curso de Mecánica Avanzada</strong></h5>

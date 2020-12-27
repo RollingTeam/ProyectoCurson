@@ -8,12 +8,14 @@ import NuevoCursoAdmin from "../pages/NuevoCursoAdmin";
 import EditarCursoAdmin from "../pages/EditarCursoAdmin"
 import ModalVerDetalleCurso from "./ModalVerDetalleCurso";
 import Error404 from '../pages/Error404'
+import LandingPage from '../pages/LandingPage'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/cursos" component={VerCursos} />
         <Route exact path="/admin" component={AdminHome} />
         <Route exact path="/admin/cursos" component={CursosAdmin} />
