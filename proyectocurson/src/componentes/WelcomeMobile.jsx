@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 
 export default function WelcomeMobile() {
     return (
-        <div>
+        <div className="d-block d-sm-none">
             <Jumbotron>
                 <h1>¡Bienvenido a Curson!</h1>
                 <p>
