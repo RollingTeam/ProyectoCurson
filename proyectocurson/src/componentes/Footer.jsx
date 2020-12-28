@@ -2,18 +2,18 @@ import React from 'react';
 import '../css/footer.css';
 import {IconContext} from 'react-icons';
 import { FaDiscord, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'; 
-
+import NavLink from 'react-bootstrap/NavLink'
 export default function Footer() {
     return (
         <div className="container-fluid bg-negro p-3">
             <div className="row">
                 <div className="col-12 col-sm-6 text-white text-center">
                     <ul className="p-0">
-                        <li>Inicio</li>
-                        <li>Cursos</li>
-                        <li>Categorías</li>
-                        <li>Publica tu curso</li>
-                        <li>Reviews</li>
+                    <NavLink href="#inicio" className="text-white p-0"><li>Inicio</li></NavLink>
+                    <NavLink href="#destacados" className="text-white p-0"><li>Cursos</li></NavLink>
+                    <NavLink href="#categorias" className="text-white p-0"><li>Categorías</li></NavLink>
+                    <NavLink href="#mainPublicarContainer" className="text-white p-0"><li>Publica tu curso</li></NavLink>   
+                    <NavLink href="#reviews" className="text-white p-0"><li>Reviews</li></NavLink>
                     </ul>
                 </div>
                 <IconContext.Provider value={{ size:"2em" }}>
