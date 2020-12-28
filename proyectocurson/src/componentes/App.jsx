@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import VerCursos from "../pages/VerCursos";
-import Home from "../pages/Home";
 import AdminHome from "../pages/AdminHome";
 import CursosAdmin from "../pages/CursosAdmin";
 import NuevoCursoAdmin from "../pages/NuevoCursoAdmin";
@@ -15,7 +14,6 @@ export default function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/home" component={Home} />
         <Route exact path="/cursos" component={VerCursos} />
         <Route exact path="/admin" component={AdminHome} />
         <Route exact path="/admin/cursos" component={CursosAdmin} />
