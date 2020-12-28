@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PasoAPaso from "./PasoAPaso";
 import Modal from "../componentes/Modal";
 import NuevoCursoModal from "./NuevoCursoModal";
-// import NuevoCursoModalOtro from "./NuevoCursoModalOtro";
 
 
 export default function PublicarCurso() {
@@ -16,7 +15,7 @@ export default function PublicarCurso() {
   };
 
   return (
-    <div className="container-fluid my-5" id="mainPublicarContainer">
+    <div className="container my-5" id="mainPublicarContainer">
       <hr className="bg-gris container-fluid" />
       <div className="container" id="mainPublicarContainer">
       <div className="row text-center mb-4">
