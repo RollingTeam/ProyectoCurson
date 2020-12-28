@@ -118,7 +118,7 @@ export default function BarraDeNavegacion() {
     return (
         <div>
             <Navbar expand="lg" className="bg-blanco">
-                <Navbar.Brand className="p-0 m-0"><img className="img-fluid logo" src={Logo} alt="logo-curson" /></Navbar.Brand>
+                <Navbar.Brand className="p-0 m-0 d-none d-sm-block"><img className="img-fluid logo" src={Logo} alt="logo-curson" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -134,7 +134,7 @@ export default function BarraDeNavegacion() {
                         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
                         <Button variant="outline-dark">Buscar</Button>
                     </Form>
-                    <Button className="btn btn-danger float-right" onClick={modalLoginOpen}>Log in</Button>
+                    <Button className="btn btn-danger float-right ml-2" onClick={modalLoginOpen}>Log in</Button>
                     {openLoginModal &&
                     <Modal>
                         <LogIn modalLoginClose={modalLoginClose}

@@ -152,7 +152,7 @@ export default function Reviews() {
     <>
       <div className="container-fluid my-5" id="reviews">
         <div className="bd-negro d-flex justify-content-center my-5">
-          <label className="size-review">Reviews</label>
+          <label className="size-titulo">Reviews</label>
         </div>
         <div className="container">
           <div className="row" id="reviewList">

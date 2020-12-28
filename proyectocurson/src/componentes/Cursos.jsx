@@ -15,6 +15,8 @@ export default function Cursos() {
     }
     return (
         <div className="col-12 col-md-6 col-lg-4">
+        <hr />
+            <h3>TODOS LOS CURSOS</h3>
             <div className="card-curso m-2">
                 <img src="https://picsum.photos/400/200/" className="card-img-top img-fluid" alt="..." />
                 <div className="card-body">
