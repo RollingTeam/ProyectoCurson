@@ -10,7 +10,7 @@ export default function WelcomeCarousel() {
     return (
         <div className="d-none d-sm-block container-fluid carousel_container ">
             <Carousel className="carousel_content">
-                <Carousel.Item interval={1000}>
+                <Carousel.Item interval={1000} className="carousel-item-welcome"> 
                     <img
                         className="carousel_item img-fluid w-100"
                         src={Img1}
@@ -22,7 +22,7 @@ export default function WelcomeCarousel() {
                         <Button className="btn btn-danger">Ver Cursos</Button>  <Button className="btn btn-secondary">Registrarse</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={500} className="carousel-item-welcome">
                     <img
                         className="carousel_item img-fluid w-100 img2"
                         src={Img2}
@@ -34,7 +34,7 @@ export default function WelcomeCarousel() {
                         <Button className="btn btn-danger">Ver Cursos</Button>  <Button className="btn btn-secondary">Registrarse</Button>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item className="carousel-item-welcome">
                     <img
                         className="carousel_item img-fluid w-100"
                         src={Img3}

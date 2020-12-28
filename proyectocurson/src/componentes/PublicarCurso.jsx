@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PasoAPaso from "./PasoAPaso";
 import Modal from "../componentes/Modal";
 import NuevoCursoModal from "./NuevoCursoModal";
-// import NuevoCursoModalOtro from "./NuevoCursoModalOtro";
 
 
 export default function PublicarCurso() {
@@ -16,8 +15,9 @@ export default function PublicarCurso() {
   };
 
   return (
-    <div className="container" id="mainPublicarContainer">
-      <hr className="bg-gris" />
+    <div className="container my-5" id="mainPublicarContainer">
+      <hr className="bg-gris container-fluid" />
+      <div className="container" id="mainPublicarContainer">
       <div className="row text-center mb-4">
         <div className="col">
           <h2>¿Tenés un curso para ofrecer?</h2>
@@ -59,6 +59,7 @@ export default function PublicarCurso() {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 }
