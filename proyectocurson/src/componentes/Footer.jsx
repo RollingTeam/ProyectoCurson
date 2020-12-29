@@ -3,6 +3,7 @@ import '../css/footer.css';
 import {IconContext} from 'react-icons';
 import { FaDiscord, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'; 
 import NavLink from 'react-bootstrap/NavLink'
+import '../css/iconsTable.css'
 export default function Footer() {
     return (
         <div className="container-fluid bg-negro p-3">
@@ -18,10 +19,10 @@ export default function Footer() {
                 </div>
                 <IconContext.Provider value={{ size:"2em" }}>
                 <div className="col-12 col-sm-6 text-white text-center m-0 pt-4">
-                    <FaDiscord className="estilo-icon"/> 
-                    <FaTwitter className="estilo-icon"/> 
-                    <FaFacebook className="estilo-icon"/>
-                    <FaInstagram className="estilo-icon"/>
+                    <FaDiscord className="estilo-icon icons-footer"/>
+                    <FaTwitter className="estilo-icon icons-footer"/> 
+                    <FaFacebook className="estilo-icon icons-footer"/>
+                    <FaInstagram className="estilo-icon icons-footer"/>
                 </div>
                 </IconContext.Provider>
             </div>
