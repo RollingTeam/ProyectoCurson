@@ -1,14 +1,15 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
-
+import Video1 from '../componentes/recursosCarousel/recursoNoche.mp4'
 export default function Carrousel() {
     return (
         <div className="container-fluid">
             <Carousel>
   <Carousel.Item interval={1000}>
-    <img
-      className="d-block w-100"
-      src="https://picsum.photos/10/10"
+    
+    <video 
+      className="d-block w-50 container-fluid"
+      controls loop autoPlay src= {Video1}
       alt="First slide"
     />
     <Carousel.Caption>
@@ -17,9 +18,9 @@ export default function Carrousel() {
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item interval={500}>
-    <img
-      className="d-block w-100"
-      src="https://picsum.photos/200/300"
+    <video 
+      className="d-block w-50 container-fluid"
+      controls autoPlay muted src="../proyectocurson/src/componentes/recursosCarousel/recursoOficinaDesenfocada.mp4"
       alt="Third slide"
     />
     <Carousel.Caption>
@@ -28,9 +29,9 @@ export default function Carrousel() {
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://picsum.photos/200/300"
+    <video 
+      className="d-block w-50 container-fluid"
+      controls autoPlay src="../proyectocurson/src/componentes/recursosCarousel/recursoOficina"
       alt="Third slide"
     />
     <Carousel.Caption>
