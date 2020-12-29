@@ -40,7 +40,7 @@ export default function ModalVerDetalleCurso(props) {
   return (
     <Modal>
       <div className="Modal">
-        <div className="Modal__container modal-dialog-scrollable">
+        <div className="modal-dialog-scrollable">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header p-1">
