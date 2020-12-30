@@ -171,7 +171,22 @@ export default function NuevoCursoModal(props) {
                     <div className="row">
                       <div className="form-group col">
                         <label>Imagen de portada del curso:</label>
+
                         <input
+                          name="imagenCurso"
+                          type="text"
+                          className="form-control"
+                          id="imagenCursoInput"
+                          placeholder="Ingrese la URL de la imagen"
+                          ref={register({
+                            required: {
+                              value: true,
+                              message: "Campo obligatorio",
+                            },
+                          })}
+                        />
+
+                        {/* <input
                           name="imagenCurso"
                           type="file"
                           class="form-control-file"
@@ -182,7 +197,7 @@ export default function NuevoCursoModal(props) {
                               message: "Campo obligatorio",
                             },
                           })}
-                        />
+                        /> */}
                         {errors.imagenCurso && (
                           <span className="text-danger text-small d-block mb-2">
                             {errors.imagenCurso.message}

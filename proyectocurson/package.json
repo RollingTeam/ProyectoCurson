@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.2.2",
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
+    "md5": "^2.3.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
@@ -23,8 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "init-rev":"json-server --watch db.json --port 3006",
-    "init-cur":"json-server --watch cursos.json --port 3008",
+    "init-rev": "json-server --watch db.json --port 3006",
+    "init-cur": "json-server --watch cursos.json --port 3008",
     "init-cat": "json-server --watch categorias.json --port 3009",
     "setup": "start npm run init-rev && start npm run init-cur && start npm run init-cat",
     "build": "react-scripts build",
