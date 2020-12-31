@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <BarraDeNavegacion />
       <CursosDestacados />
-      <Categorias />
+      {/* <Categorias /> */}
       <Reviews />
       <Footer />
     </>
