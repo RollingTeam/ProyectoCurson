@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function NewCursoAdmin({ handleChange, formValues , categorias}) {
-
   return (
     <>
       <form>
@@ -62,7 +61,6 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="categoria"
                     onChange={handleChange}
                     value={formValues.categoria._id}
-                    // defaultValue
                   >
                     {categorias.map((cat) => {
                       return <option value={cat._id}>{cat.nombre}</option>;
@@ -76,7 +74,6 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="nivel"
                     onChange={handleChange}
                     value={formValues.nivel}
-                    // defaultValue
                   >
                     <option>Basico</option>
                     <option>Intermedio</option>
