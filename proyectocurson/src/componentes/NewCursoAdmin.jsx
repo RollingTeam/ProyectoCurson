@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-export default function NewCursoAdmin({ handleChange, formValues }) {
-  const [categorias, setData] = useState([]);
-  useEffect(() => {
-    getCategorias();
-  }, []);
-  const getCategorias = async () => {
-    const resp = await fetch("http://localhost:3009/categorias");
-    const datos = await resp.json();
-    console.log(datos);
-    setData(datos);
-  };
+export default function NewCursoAdmin({ handleChange, formValues , categorias}) {
 
   return (
-    <div className="container my-4">
+    <>
       <form>
         <div className="container">
           <div className="row">
@@ -44,7 +34,7 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
               </div>
               <div className="row">
                 <div className="form-group col-12 col-sm-12 col-md-6 col-md-4">
-                  <label className="color-rosa">Duracion</label>
+                  <label className="color-rosa">Duracion en Horas</label>
                   <input
                     type="number"
                     className="form-control"
@@ -71,11 +61,11 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
                     className="form-control"
                     name="categoria"
                     onChange={handleChange}
-                    value={formValues.categoria}
-                    defaultValue
+                    value={formValues.categoria._id}
+                    // defaultValue
                   >
                     {categorias.map((cat) => {
-                      return <option>{cat.nombre}</option>;
+                      return <option value={cat._id}>{cat.nombre}</option>;
                     })}
                   </select>
                 </div>
@@ -86,9 +76,9 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
                     name="nivel"
                     onChange={handleChange}
                     value={formValues.nivel}
-                    defaultValue
+                    // defaultValue
                   >
-                    <option>Principiante</option>
+                    <option>Basico</option>
                     <option>Intermedio</option>
                     <option>Avanzado</option>
                   </select>
@@ -102,9 +92,9 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
                   <input
                     type="url"
                     className="form-control"
-                    name="imagen"
+                    name="img"
                     onChange={handleChange}
-                    value={formValues.imagen}
+                    value={formValues.img}
                   />
                 </div>
               </div>
@@ -124,6 +114,6 @@ export default function NewCursoAdmin({ handleChange, formValues }) {
           </div>
         </div>
       </form>
-    </div>
+    </>
   );
 }

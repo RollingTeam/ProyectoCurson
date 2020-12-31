@@ -17,7 +17,7 @@ export default function PublicarCurso() {
 
   return (
     <div className="container-fluid my-5" id="mainPublicarContainer">
-      <hr className="bg-gris container-fluid" />
+      <hr className="bg-gris" />
       <div className="container" id="mainPublicarContainer">
       <div className="row text-center mb-4">
         <div className="col">
