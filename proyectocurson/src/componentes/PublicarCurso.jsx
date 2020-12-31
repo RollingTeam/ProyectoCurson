@@ -53,8 +53,7 @@ export default function PublicarCurso() {
 
           {openModal && (
             <Modal>
-            <NuevoCursoModal handleCloseModal={handleCloseModal} />
-            {/* <NuevoCursoModalOtro handleCloseModal={handleCloseModal} /> */}
+            <NuevoCursoModal handleCloseModal={handleCloseModal} />            
             </Modal>
           )}
         </div>

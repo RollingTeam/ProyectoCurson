@@ -18,8 +18,8 @@ export default function NuevoCursoModal(props) {
   };
 
   return (
-    <div className="Modal">
-      <div>
+    <>
+      <div className="Modal">
         <div className="modal-dialog modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header text text-center">
@@ -224,6 +224,6 @@ export default function NuevoCursoModal(props) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
