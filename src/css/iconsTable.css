@@ -1,0 +1,7 @@
+.icons-table{
+    font-size: 20px;
+}
+.icons-table:hover{
+    cursor: pointer;
+    color: #EF233C;
+}

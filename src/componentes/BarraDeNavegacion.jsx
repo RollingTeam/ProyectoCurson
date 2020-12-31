@@ -127,7 +127,7 @@ export default function BarraDeNavegacion() {
                             <NavDropdown.Item className="text-style" href="/cursos/#todosLosCursos">Todos los Cursos</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link className="text-style" href="#categorias">Categorías</Nav.Link>
-                        <Nav.Link className="text-style" href="#mainPublicarContainer">Publicá tu Curso</Nav.Link>
+                        <Nav.Link className="text-style" href="/cursos">Publicá tu Curso</Nav.Link>
                         <Nav.Link className="text-style" href="#reviews">Reviews</Nav.Link>
                     </Nav>
                     <Form inline>

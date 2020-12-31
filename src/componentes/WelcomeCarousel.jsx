@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 
 export default function WelcomeCarousel() {
     return (
-        <div className="d-none d-sm-block container-fluid carousel_container " id="inicio">
+        <div className="d-none d-sm-block container-fluid carousel_container ">
             <Carousel className="carousel_content">
                 <Carousel.Item interval={1000} className="carousel-item-welcome"> 
                     <img
