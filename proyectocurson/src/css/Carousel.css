@@ -7,3 +7,13 @@
     -o-background-size: cover;
     background-size: cover;
   }
+.jumbotron{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('../img/teaching.svg');
+    background-size: auto;    
+  }
+.bg-cover {
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
