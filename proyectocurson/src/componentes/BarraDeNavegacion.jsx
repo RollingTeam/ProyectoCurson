@@ -91,7 +91,7 @@ export default function BarraDeNavegacion(props) {
     return (
         <div>
             <Navbar expand="lg" className="bg-blanco">
-                <Navbar.Brand className="p-0 m-0"><img className="img-fluid logo" src={Logo} alt="logo-curson" /></Navbar.Brand>
+                <Navbar.Brand className="p-0 m-0 d-none d-sm-block"><img className="img-fluid logo" src={Logo} alt="logo-curson" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
