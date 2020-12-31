@@ -15,13 +15,8 @@ export default function PublicarCurso() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="container-fluid my-5" id="mainPublicarContainer">
-      <hr className="bg-gris" />
-=======
     <div className="container my-5" id="mainPublicarContainer">
       <hr className="bg-gris container mr-0 p-0" />
->>>>>>> develop
       <div className="container" id="mainPublicarContainer">
       <div className="row text-center mb-4">
         <div className="col">
