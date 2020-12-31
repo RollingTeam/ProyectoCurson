@@ -7,36 +7,41 @@ export default function ModalVerDetalleCurso(props) {
   const cursoId = props.match.params.cursoId;
   // console.log(cursoId)
   const handleCloseModal = () => {
-    props.history.push("/cursos");
+    props.history.push("/");
   };
   const [cursoForm, setCursoForm] = useState({
     form: {
-      id: "",
       nombre: "",
       descripcion: "",
-      categoria: "",
+      categoria: {},
       nivel: "",
       cupo: "",
       duracion: "",
-      imagen: "",
-      estado: 1,
+      img: "",
       contacto: "",
     },
   });
   const getDataId = async () => {
     try {
-      const resp = await fetch(`http://localhost:3008/cursos?id=${cursoId}`);
+      const resp = await fetch(`http://localhost:3005/curso/${cursoId}`,{
+        method: 'GET',
+        headers:{
+          "Content-type": "application/json; charset=UTF-8"
+        },
+      });
       const data = await resp.json();
       setCursoForm({
-        form: data[0],
+        form: data.curso,
       });
     } catch (error) {
       console.warn(error);
     }
   };
+
   useEffect(() => {
     getDataId();
   }, []);
+
   return (
     <Modal>
       <div className="Modal">
@@ -59,14 +64,17 @@ export default function ModalVerDetalleCurso(props) {
               </div>
               <div className="modal-body">
                 <img
-                  src={cursoForm.form.imagen}
+                  src={cursoForm.form.img}
                   className="card-img-top img-card img-fluid"
                   alt="..."
                 ></img>
-                <span className="badge badge-warning categorias">
-                  {cursoForm.form.categoria}
+                <span className="badge badge-danger categorias">
+                  {cursoForm.form.categoria.nombre}
                 </span>
-                <span className="badge badge-pill badge-info cupos">
+                <span className="badge badge-warning ml-2">
+                  {cursoForm.form.nivel}
+                </span>
+                <span className="badge badge-pill badge-secondary cupos ml-2">
                   {cursoForm.form.cupo} Lugares
                 </span>
                 <div className="text-center mt-1">
