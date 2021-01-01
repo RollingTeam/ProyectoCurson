@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/footer.css';
 import '../css/iconsTable.css'
+import NavLink from 'react-bootstrap/NavLink';
 import {IconContext} from 'react-icons';
 import { FaDiscord, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'; 
 
@@ -10,11 +11,11 @@ export default function Footer() {
             <div className="row">
                 <div className="col-12 col-sm-6 text-white text-center">
                     <ul className="p-0">
-                        <li>Inicio</li>
-                        <li>Cursos</li>
-                        <li>Categorías</li>
-                        <li>Publica tu curso</li>
-                        <li>Reviews</li>
+                    <NavLink href="#inicio" className="p-0 text-white"><li>Inicio</li></NavLink>
+                    <NavLink href="#destacados" className="p-0 text-white"><li>Cursos</li></NavLink>
+                    <NavLink href="#categorias" className="p-0 text-white"><li>Categorías</li></NavLink>
+                    <NavLink href="#mainPublicarContainer" className="p-0 text-white"><li>Publica tu curso</li></NavLink>
+                    <NavLink href="#reviews" className="p-0 text-white"><li>Reviews</li></NavLink>
                     </ul>
                 </div>
                 <IconContext.Provider value={{ size:"2em" }}>
