@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import NewCursoAdmin from "../componentes/NewCursoAdmin";
 import Modal from "../componentes/Modal";
 import ModalDeleteCurso from "../componentes/ModalDeleteCurso";
-import NavbarAdminHome from "../componentes/NavbarAdminHome"
+import NavbarAdminHome from "../componentes/NavbarAdminHome";
+import { getCategoria } from "../helpers/Categorias";
 
 export default function EditarCursoAdmin(props) {
   const [openModal, setOpenModal] = useState(false);
@@ -14,29 +15,30 @@ export default function EditarCursoAdmin(props) {
     setOpenModal(false);
   };
   const cursoId = props.match.params.cursoId;
-  const [cursoForm, setCursoForm] = useState({
-    form: {
-      id: "",
-      nombre: "",
-      descripcion: "",
-      categoria: "",
-      nivel: "",
-      cupo: "",
-      duracion: "",
-      imagen: "",
-      estado: 1,
-      contacto: "",
-    },
+
+  const [actualizado, setActualizado] = useState({
+    nombre: "",
+    estado: true,
+    categoria: {},
+    descripcion: "",
+    cupo: 0,
+    nivel: "",
+    contacto: "",
+    img: "",
   });
+
+  const [cat, setCat] = useState([]);
 
   const getDataId = async () => {
     try {
-      const resp = await fetch(`http://localhost:3008/cursos?id=${cursoId}`);
-      const data = await resp.json();
-      console.log(data);
-      setCursoForm({
-        form: data[0],
+      const resp = await fetch(`http://localhost:3005/curso/${cursoId}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
       });
+      const data = await resp.json();
+      setActualizado(data.curso);
     } catch (error) {
       console.warn(error);
     }
@@ -44,14 +46,15 @@ export default function EditarCursoAdmin(props) {
 
   useEffect(() => {
     getDataId();
+    getCategoria()
+      .then((response) => setCat(response))
+      .catch((error) => console.log(error));
   }, []);
 
-  const handleChange = (e) => {
-    setCursoForm({
-      form: {
-        ...cursoForm.form,
-        [e.target.name]: e.target.value,
-      },
+  const handleChange = ({ target }) => {
+    setActualizado({
+      ...actualizado,
+      [target.name]: target.value,
     });
   };
 
@@ -63,9 +66,9 @@ export default function EditarCursoAdmin(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`http://localhost:3008/cursos/${cursoId}`, {
+      await fetch(`http://localhost:3005/curso/${cursoId}`, {
         method: "PUT",
-        body: JSON.stringify(cursoForm.form),
+        body: JSON.stringify(actualizado),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
@@ -78,39 +81,75 @@ export default function EditarCursoAdmin(props) {
 
   const borrarCurso = async (e) => {
     try {
-      await fetch(`http://localhost:3008/cursos/${cursoId}`, {
+      await fetch(`http://localhost:3005/curso/${cursoId}`, {
         method: "DELETE",
       });
       props.history.push("/admin/cursos");
-    } catch (error) {}
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
+  const activarCurso = async (e) => {
+    e.preventDefault();
+    try {
+      await fetch(`http://localhost:3005/curso/${cursoId}`, {
+        method: "PUT",
+        body: JSON.stringify({
+          estado: true,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      props.history.push("/admin/cursos");
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   return (
-    <div>
+    <>
       <NavbarAdminHome />
-      <NewCursoAdmin handleChange={handleChange} formValues={cursoForm.form} />
+      <div className="container-fluid mt-5">
+      <NewCursoAdmin
+        handleChange={handleChange}
+        formValues={actualizado}
+        categorias={cat}
+      />
       <div className="form-group d-flex justify-content-center mt-4">
         <button
           type="button"
-          className="btn btn-secondary mr-3"
+          className="btn btn-secondary mx-3"
           onClick={cleanForm}
         >
           Cancelar
         </button>
         <button
           type="button"
-          className="btn btn-secondary ml-3"
+          className="btn btn-secondary mx-3"
           onClick={handleSubmit}
         >
-          Editar
+          Guardar
         </button>
-        <button
-          type="button"
-          className="btn btn-secondary ml-3"
-          onClick={handleOpenModal}
-        >
-          Eliminar
-        </button>
+        {actualizado.estado === true && (
+          <button
+            type="button"
+            className="btn btn-danger mx-3"
+            onClick={handleOpenModal}
+          >
+            Eliminar
+          </button>
+        )}
+        {actualizado.estado === false && (
+          <button
+            type="button"
+            className="btn btn-success mx-3"
+            onClick={activarCurso}
+          >
+            Activar
+          </button>
+        )}
         {openModal && (
           <Modal>
             <ModalDeleteCurso
@@ -120,6 +159,7 @@ export default function EditarCursoAdmin(props) {
           </Modal>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
