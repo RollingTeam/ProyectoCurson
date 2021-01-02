@@ -14,7 +14,7 @@ import FormControl from 'react-bootstrap/FormControl'
 
 export default function BarraDeNavegacion(props) {
 
-    const token = localStorage.getItem("token") || "";
+    const token = JSON.parse(localStorage.getItem("token")) || "";
 
     const [ingreso, setIngreso] = useState({
         token: "",
@@ -24,40 +24,42 @@ export default function BarraDeNavegacion(props) {
     useEffect(() => {
         if (ingreso.token.length > 0) {
           localStorage.setItem("id", JSON.stringify(ingreso.id));
-          setVisibilidad(true);
+          consultarRole();
         }
-        console.log(ingreso.token.length)
       }, [ingreso]);
 
 
-    const [visibilidad, setVisibilidad] = useState(false);
+      const LogOut = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('id')
+        setIngreso({
+            token: "",
+            id: "",
+        })
+    };
 
-        //Estados de modal
+    //------------ Role de usuario-------------//
+
+    const [usuarioRole, setUsuarioRole] = useState("")
+
+    const consultarRole = async() => {
+        let id = JSON.parse(localStorage.getItem('id'))
+        try {
+            const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+            const data = await resp.json();
+            console.log(data)
+            setUsuarioRole(data.usuario.role)
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    //------------ Estados de modal-------------//
+
     const [openLoginModal, setOpenLoginModal] = useState(false)
     const [openRegisterModal, setOpenRegisterModal] = useState(false)
-    
-    const [registro, setRegistro] = useState({
-        formulario:{
-        nombre:"",
-        apellido:"",
-        userName:"",
-        email:"",
-        password:"",
-        passwordRepetir:"",
-        }
-    })
-    
-    const [openModal, setOpenModal] = useState(false)
 
-    const modalIsOpen = () =>{
-        setOpenModal(true)
-    }
-
-    const modalIsClose = () =>{
-        setOpenModal(false)
-    }
-
-    //Funciones para controlar apertura y cierre de modales
 
     const modalLoginOpen = () =>{
         setOpenLoginModal(true)
@@ -66,7 +68,6 @@ export default function BarraDeNavegacion(props) {
     const modalLoginClose = () =>{
         setOpenLoginModal(false)
     }
-
 
     const modalRegisterOpen = () =>{
     setOpenLoginModal(false)
@@ -77,16 +78,6 @@ export default function BarraDeNavegacion(props) {
     setOpenRegisterModal(false)
     }
 
-    //Funciones para controlar cambios de estados de modales
-
-    const handleChangeRegistro = (e) => {
-    setRegistro({
-    formulario:{
-        ...registro.formulario,
-        [e.target.name] : e.target.value
-    }
-    })
-    }
         
     return (
         <div>
@@ -107,16 +98,11 @@ export default function BarraDeNavegacion(props) {
                         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
                         <Button variant="outline-dark">Buscar</Button>
                     </Form>
-                    {visibilidad ? (
-                        <UserMenu />
+                    {token ? (
+                        <UserMenu LogOut={LogOut} usuarioRole={usuarioRole}/>
                         ) : (
                         <Button className="btn btn-danger ml-2 float-right" onClick={modalLoginOpen}>Log in</Button>       
                     )}
-                        {/* {ingreso.token.lenght > 0 ? (
-                        <UserMenu />
-                    ) : (
-                        <Button className="btn btn-danger ml-2 float-right" onClick={modalLoginOpen}>Log in</Button>                        
-                    )} */}
                     {openLoginModal &&
                     <Modal>
                         <LogIn modalLoginClose={modalLoginClose}
@@ -126,9 +112,7 @@ export default function BarraDeNavegacion(props) {
             
                     {openRegisterModal &&
                     <Modal>
-                        <Register modalRegisterClose={modalRegisterClose} 
-                                    datosRegistro={registro.formulario} 
-                                    setRegistro={setRegistro}/>
+                        <Register modalRegisterClose={modalRegisterClose} />
                     </Modal>}
                 </Navbar.Collapse>
             </Navbar>
