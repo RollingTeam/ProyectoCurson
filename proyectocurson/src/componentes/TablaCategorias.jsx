@@ -31,27 +31,26 @@ export default function TablaCategorias({ cat }) {
                     )}
                   </td>
                   <td>
-                  {categoria.estado && (
-                    <MdDeleteForever
-                      className="icons-table icons-table__delete"
-                      onClick={async (e) => {
-                        try {
-                          await fetch(
-                            `http://localhost:3005/categoria/${categoria._id}`,
-                            {
-                              method: "DELETE",
-                            }
-                          );
-                          alert("La categoria fue eliminada correctamente")
-                        } catch (error) {
-                          console.warn(error);
-                        }
-                      }}
-                    />)}
-                    <Link
-                      to={`categoriaDetails/${categoria._id}`}
-                    >
-                      <FaEdit className="icons-table icons-table__edit"/>
+                    {categoria.estado && (
+                      <MdDeleteForever
+                        className="icons-table icons-table__delete"
+                        onClick={async (e) => {
+                          try {
+                            await fetch(
+                              `http://localhost:3005/categoria/${categoria._id}`,
+                              {
+                                method: "DELETE",
+                              }
+                            );
+                            alert("La categoria fue eliminada correctamente");
+                          } catch (error) {
+                            console.warn(error);
+                          }
+                        }}
+                      />
+                    )}
+                    <Link to={`categoriaDetails/${categoria._id}`}>
+                      <FaEdit className="icons-table icons-table__edit" />
                     </Link>
                   </td>
                 </tr>

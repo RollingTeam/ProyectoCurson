@@ -5,6 +5,7 @@ import { getCategoria } from "../helpers/Categorias";
 
 export default function CursosListAdmin() {
   const [cat, setCat] = useState([]);
+  const [activeCat, setActiveCat] = useState([]);
   //Estado para manejar la paginación
   const [page, setPage] = useState(0);
 
@@ -26,6 +27,11 @@ export default function CursosListAdmin() {
     getCategoria()
       .then((response) => setCat(response))
       .catch((error) => console.log(error));
+
+    let categorias = cat.filter((c) => {
+      return c.estado === true;
+    });
+    setActiveCat(categorias);
   }, [page]);
 
   //Obtengo los datos de los cursos usando helpers
@@ -101,7 +107,7 @@ export default function CursosListAdmin() {
                   <th scope="col">
                     Categoria:
                     <select name="categoria" /*onChange={filtrarCategoria}*/>
-                      {cat.map((categoria) => (
+                      {activeCat.map((categoria) => (
                         <option key={categoria._id} value={categoria._id}>
                           {categoria.nombre}
                         </option>
