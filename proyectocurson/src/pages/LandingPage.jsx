@@ -15,7 +15,7 @@ export default function LandingPage() {
             <WelcomeCarousel />
             <WelcomeMobile />
             <CursosDestacados />
-            {/* <Categorias /> */}
+            <Categorias />
             <PublicarCurso />
             <Reviews />
             <Footer />
