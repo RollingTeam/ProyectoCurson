@@ -1,7 +1,8 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import Modal from './Modal';
 import LogIn from "../componentes/LogIn";
 import Register from "../componentes/Register";
+import UserMenu from './UserMenu'
 import Logo from '../img/logo-navbar.png';
 import '../css/navbar.css';
 import Navbar from 'react-bootstrap/Navbar'
@@ -11,26 +12,38 @@ import Button from 'react-bootstrap/Button'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import FormControl from 'react-bootstrap/FormControl'
 
-export default function BarraDeNavegacion() {
+export default function BarraDeNavegacion(props) {
+
+    const token = localStorage.getItem("token") || "";
+
+    const [ingreso, setIngreso] = useState({
+        token: "",
+        id: "",
+    });
+
+    useEffect(() => {
+        if (ingreso.token.length > 0) {
+          localStorage.setItem("id", JSON.stringify(ingreso.id));
+          setVisibilidad(true);
+        }
+        console.log(ingreso.token.length)
+      }, [ingreso]);
+
+
+    const [visibilidad, setVisibilidad] = useState(false);
 
         //Estados de modal
     const [openLoginModal, setOpenLoginModal] = useState(false)
     const [openRegisterModal, setOpenRegisterModal] = useState(false)
-    const [login, setLogin] = useState({
-        credenciales:{
-        userName:"",
-        password:""
-        }
-    })
+    
     const [registro, setRegistro] = useState({
         formulario:{
         nombre:"",
+        apellido:"",
         userName:"",
         email:"",
         password:"",
         passwordRepetir:"",
-        logueado: false,
-        estado: "activo"
         }
     })
     
@@ -66,15 +79,6 @@ export default function BarraDeNavegacion() {
 
     //Funciones para controlar cambios de estados de modales
 
-    const handleChangeLogin = (e) => {
-    setLogin({
-    credenciales:{
-        ...login.credenciales,
-        [e.target.name] : e.target.value
-    }
-    })
-    }
-
     const handleChangeRegistro = (e) => {
     setRegistro({
     formulario:{
@@ -83,38 +87,7 @@ export default function BarraDeNavegacion() {
     }
     })
     }
-
-    //Funciones para controlar submit de modales
-
-    const inciarSesion = async(e) => {
-
-    e.preventDefault()
-
-    try {
-    const resp = await fetch(`http://localhost:3005/users?userName=${login.credenciales.userName}`)
-    const data = resp.json()
-
-    } catch (error) {
-    console.warn(error)
-    };
-    };
-
-    const handleSubmitRegistro = async () => {
-
-    try {
-    const resp = await fetch("http://localhost:3005/users", {
-        method: "POST",
-        body: JSON.stringify(registro.formulario),
-        headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        },
-    });
-    console.log('Hiciste submit');
-    } catch (error) {
-    console.warn(error);
-    };
-    };
-    
+        
     return (
         <div>
             <Navbar expand="lg" className="bg-blanco">
@@ -134,22 +107,27 @@ export default function BarraDeNavegacion() {
                         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
                         <Button variant="outline-dark">Buscar</Button>
                     </Form>
-                    <Button className="btn btn-danger float-right ml-2" onClick={modalLoginOpen}>Log in</Button>
+                    {visibilidad ? (
+                        <UserMenu />
+                        ) : (
+                        <Button className="btn btn-danger ml-2 float-right" onClick={modalLoginOpen}>Log in</Button>       
+                    )}
+                        {/* {ingreso.token.lenght > 0 ? (
+                        <UserMenu />
+                    ) : (
+                        <Button className="btn btn-danger ml-2 float-right" onClick={modalLoginOpen}>Log in</Button>                        
+                    )} */}
                     {openLoginModal &&
                     <Modal>
                         <LogIn modalLoginClose={modalLoginClose}
                             modalRegisterOpen={modalRegisterOpen} 
-                            credencialesValue={login.credenciales} 
-                            handleChangeLogin={handleChangeLogin}
-                            inciarSesion={inciarSesion}/>
+                            setIngreso={setIngreso}/>
                     </Modal>}
             
                     {openRegisterModal &&
                     <Modal>
                         <Register modalRegisterClose={modalRegisterClose} 
                                     datosRegistro={registro.formulario} 
-                                    handleChangeRegistro={handleChangeRegistro}
-                                    handleSubmitRegistro={handleSubmitRegistro}
                                     setRegistro={setRegistro}/>
                     </Modal>}
                 </Navbar.Collapse>

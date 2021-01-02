@@ -14,12 +14,11 @@ export default function Register({modalRegisterClose, datosRegistro, handleChang
             setRegistro({
                 formulario:{
                     nombre:"",
+                    apellido:"",
                     userName:"",
                     email:"",
                     password:"",
                     passwordRepetir:"",
-                    logueado: false,
-                    estado: "activo"
                   }
                 })
             modalRegisterClose()
@@ -42,8 +41,12 @@ export default function Register({modalRegisterClose, datosRegistro, handleChang
                         <div className="modal-body">
                             <form onSubmit={verificarClave}>
                                 <div className="form-group">
-                                    <label>Nombre completo:</label>
+                                    <label>Nombre:</label>
                                     <input type="text" name="nombre" value={datosRegistro.nombre} onChange={handleChangeRegistro} className="form-control" autoComplete="off"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Apellido:</label>
+                                    <input type="text" name="nombre" value={datosRegistro.apellido} onChange={handleChangeRegistro} className="form-control" autoComplete="off"/>
                                 </div>
                                 <div className="form-group">
                                     <label>Usuario:</label>
