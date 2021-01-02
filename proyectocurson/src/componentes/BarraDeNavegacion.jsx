@@ -112,7 +112,8 @@ export default function BarraDeNavegacion(props) {
             
                     {openRegisterModal &&
                     <Modal>
-                        <Register modalRegisterClose={modalRegisterClose} />
+                        <Register modalRegisterClose={modalRegisterClose}
+                                  setIngreso={setIngreso} />
                     </Modal>}
                 </Navbar.Collapse>
             </Navbar>

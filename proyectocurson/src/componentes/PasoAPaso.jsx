@@ -9,7 +9,7 @@ export default function PasoAPaso() {
         <div className="row mb-4 container-img">
             <div className="col-12 col-sm-12 col-md-6 col-lg-3 mt-4 mb-4 mx-auto">
                 <div className="pasos mx-auto">
-                    <img class="img-fluid paso-paso paso_paso"
+                    <img className="img-fluid paso-paso paso_paso"
                         src={`${url}1Vrx01P1j-DoceKlWOKQ1h6lQ5EjOKqsT`} alt="pasos para cargar tu curso" />
                     <div className="overlay">
                         <div className="text-center paso"><strong>1. Registro</strong> <br /> Debes registarte como

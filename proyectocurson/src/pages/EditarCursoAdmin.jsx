@@ -65,12 +65,14 @@ export default function EditarCursoAdmin(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       await fetch(`http://localhost:3005/curso/${cursoId}`, {
         method: "PUT",
         body: JSON.stringify(actualizado),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          token: `${token}`,
         },
       });
       props.history.push("/admin/cursos");
@@ -80,9 +82,13 @@ export default function EditarCursoAdmin(props) {
   };
 
   const borrarCurso = async (e) => {
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       await fetch(`http://localhost:3005/curso/${cursoId}`, {
         method: "DELETE",
+        headers: {
+          token: `${token}`,
+        },
       });
       props.history.push("/admin/cursos");
     } catch (error) {
@@ -92,6 +98,7 @@ export default function EditarCursoAdmin(props) {
 
   const activarCurso = async (e) => {
     e.preventDefault();
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       await fetch(`http://localhost:3005/curso/${cursoId}`, {
         method: "PUT",
@@ -100,6 +107,7 @@ export default function EditarCursoAdmin(props) {
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          token: `${token}`,
         },
       });
       props.history.push("/admin/cursos");

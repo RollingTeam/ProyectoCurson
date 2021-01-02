@@ -22,10 +22,18 @@ export default function NuevoCursoAdmin(props) {
   });
 
   const [cat, setCat] = useState([]);
+  const [activeCat, setActiveCat] = useState([]);
 
   useEffect(() => {
     getCategoria();
   }, []);
+
+  useEffect(() => {
+    let categorias = cat.filter((c) => {
+      return c.estado === true;
+    });
+    setActiveCat(categorias);
+  }, [cat])
 
   const handleChange = (e) => {
     setCursoForm({
@@ -58,7 +66,6 @@ export default function NuevoCursoAdmin(props) {
         },
       });
       const data = await resp.json();
-      console.log(data.categorias);
       setCat(data.categorias);
     } catch (error) {
       console.log(error);
@@ -76,7 +83,6 @@ export default function NuevoCursoAdmin(props) {
         },
       });
       const data = await resp.json();
-      // console.log(data);
       setEstados({
         loading: false,
         error: null,
@@ -101,7 +107,7 @@ export default function NuevoCursoAdmin(props) {
       <NewCursoAdmin
         handleChange={handleChange}
         formValues={cursoForm.form}
-        categorias={cat}
+        categorias={activeCat}
       />
       <div className="form-group d-flex justify-content-center mt-4">
         <button

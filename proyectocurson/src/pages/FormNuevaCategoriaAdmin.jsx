@@ -31,12 +31,14 @@ export default function FormNuevaCategoriaAdmin(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       const resp = await fetch("http://localhost:3005/categoria", {
         method: "POST",
         body: JSON.stringify(catForm.form),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          token: `${token}`,
         },
       });
       const data = await resp.json();

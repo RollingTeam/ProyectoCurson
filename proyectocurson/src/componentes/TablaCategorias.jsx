@@ -35,11 +35,16 @@ export default function TablaCategorias({ cat }) {
                       <MdDeleteForever
                         className="icons-table icons-table__delete"
                         onClick={async (e) => {
+                          let token = JSON.parse(localStorage.getItem("token"));
                           try {
                             await fetch(
                               `http://localhost:3005/categoria/${categoria._id}`,
                               {
                                 method: "DELETE",
+                                headers: {
+                                  "Content-type": "application/json; charset=UTF-8",
+                                  token: `${token}`
+                                },
                               }
                             );
                             alert("La categoria fue eliminada correctamente");
