@@ -1,6 +1,7 @@
 import React from 'react'
 import md5 from "md5";
 import Logo from "../img/logo-navbar.png"
+import '../css/modal.css'
 
 export default function Register({modalRegisterClose, datosRegistro, handleChangeRegistro, handleSubmitRegistro, setRegistro}) {
     

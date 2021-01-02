@@ -3,7 +3,7 @@ import Logo from "../img/logo-navbar.png"
 import "../css/modal.css"
 
 
-export default function LogIn({modalRegisterOpen, modalLoginClose, inciarSesion, setIngreso}) {
+export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) {
 
     const [usuario, setUsuario] = useState({
         credenciales:{
@@ -61,6 +61,9 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, inciarSesion,
                     token: JSON.parse(localStorage.getItem('token')),
                     id: data.usuario._id
                 })
+
+                modalLoginClose()
+
             } else {
                 setLogin({
                     token: "",
