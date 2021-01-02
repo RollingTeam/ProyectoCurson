@@ -27,12 +27,14 @@ export default function CursosListAdmin() {
     getCategoria()
       .then((response) => setCat(response))
       .catch((error) => console.log(error));
+  }, [page]);
 
+  useEffect(() => {
     let categorias = cat.filter((c) => {
       return c.estado === true;
     });
     setActiveCat(categorias);
-  }, [page]);
+  }, [cat]);
 
   //Obtengo los datos de los cursos usando helpers
   const actualizaLista = (page) => {

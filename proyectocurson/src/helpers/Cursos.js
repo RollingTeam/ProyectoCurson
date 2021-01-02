@@ -1,6 +1,6 @@
 //Obtengo los datos de los cursos----------------------
 export const getCursos = async (page) => {
-    // let token = JSON.parse(localStorage.getItem("token"));
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
@@ -9,7 +9,8 @@ export const getCursos = async (page) => {
         {
           method: "GET",
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8",
+            token: `${token}`,
           },
         }
       );

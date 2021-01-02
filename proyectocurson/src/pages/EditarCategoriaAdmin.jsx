@@ -45,12 +45,14 @@ export default function EditarCategoriaAdmin(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       await fetch(`http://localhost:3005/categoria/${categoriaId}`, {
         method: "PUT",
         body: JSON.stringify(actualizada),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          token: `${token}`
         },
       });
       props.history.push("/admin/categorias");
@@ -61,6 +63,7 @@ export default function EditarCategoriaAdmin(props) {
 
   const activarCategoria = async (e) => {
     e.preventDefault();
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       await fetch(`http://localhost:3005/categoria/${categoriaId}`, {
         method: "PUT",
@@ -69,6 +72,7 @@ export default function EditarCategoriaAdmin(props) {
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          token: `${token}`
         },
       });
       props.history.push("/admin/categorias");
