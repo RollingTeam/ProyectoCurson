@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import Logo from "../img/logo-navbar.png"
-import "../css/modal.css"
+// import "../css/modal.css"
 
 
 export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) {
@@ -39,7 +39,7 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) 
         try {
             const resp = await fetch("http://localhost:3005/login", {
                 method: "POST",
-                body: JSON.stringify(usuario.credenciales ),
+                body: JSON.stringify(usuario.credenciales),
                 headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 },
