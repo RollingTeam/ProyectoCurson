@@ -19,7 +19,10 @@ export default function NavbarAdminHome() {
                             <NavDropdown.Item className="text-style" href="/admin/nuevoCurso">Nuevo Curso</NavDropdown.Item>
                             <NavDropdown.Item className="text-style" href="/admin/cursos">Ver Cursos</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className="text-style" href="/">Categorías</Nav.Link>
+                        <NavDropdown className="text-style" title="Categorías" id="basic-nav-dropdown">
+                            <NavDropdown.Item className="text-style" href="/admin/nuevaCategoria">Nueva Categoria</NavDropdown.Item>
+                            <NavDropdown.Item className="text-style" href="/admin/categorias">Ver Categorias</NavDropdown.Item>
+                        </NavDropdown>
                         <Nav.Link className="text-style" href="/">Solicitudes</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
