@@ -1,7 +1,7 @@
 import React from 'react'
 import BarraDeNavegacion from '../componentes/BarraDeNavegacion'
 import CursosDestacados from '../componentes/CursosDestacados'
-import Categorias from '../componentes/Categorias'
+// import Categorias from '../componentes/Categorias'
 import PublicarCurso from '../componentes/PublicarCurso'
 import Reviews from '../componentes/Reviews'
 import Footer from '../componentes/Footer'
@@ -15,7 +15,7 @@ export default function LandingPage() {
             <WelcomeCarousel />
             <WelcomeMobile />
             <CursosDestacados />
-            <Categorias />
+            {/* <Categorias /> */}
             <PublicarCurso />
             <Reviews />
             <Footer />
