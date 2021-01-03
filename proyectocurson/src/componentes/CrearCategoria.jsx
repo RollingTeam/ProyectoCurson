@@ -24,6 +24,7 @@ export default function CrearCategoria({
                 onChange={handleChange}
                 value={formValues.nombre}
                 required
+                autoComplete="off"
               />
             </Form.Group>
           </Form>

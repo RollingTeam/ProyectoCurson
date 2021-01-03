@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CrearCategoria from "../componentes/CrearCategoria";
 import NavbarAdminHome from "../componentes/NavbarAdminHome";
 
+
 export default function FormNuevaCategoriaAdmin(props) {
   const [catForm, setCatForm] = useState({
     form: {
@@ -30,6 +31,10 @@ export default function FormNuevaCategoriaAdmin(props) {
   };
 
   const handleSubmit = async (e) => {
+
+    if(catForm.form.nombre==""){
+      alert("El nombre es obligatorio")
+    }else{
     e.preventDefault();
     let token = JSON.parse(localStorage.getItem("token"));
     try {
@@ -59,6 +64,7 @@ export default function FormNuevaCategoriaAdmin(props) {
       console.warn(error);
     }
     cleanForm();
+  }
   };
 
   return (
