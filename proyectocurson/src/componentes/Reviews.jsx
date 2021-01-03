@@ -159,7 +159,7 @@ export default function Reviews() {
             {loading ? <h3>Loading...</h3> : <ReviewList data={data.datos} />}
           </div>
           <div className="row">
-            <button className="btn-review" onClick={showReview}>
+            <button className="btn btn-danger mx-auto" onClick={showReview}>
               Nueva Review
             </button>
           </div>

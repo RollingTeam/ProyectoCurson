@@ -146,13 +146,13 @@ export default function Review({
           </div>
         </div>
         <div className="mt-2 mb-3 d-flex justify-content-around">
-          <button className="btn-review-form" onClick={hiddenReview}>
+          <button className="btn btn-dark mx-auto" onClick={hiddenReview}>
             Cancelar
           </button>
-          <button className="btn-review-form" onClick={handleSubmit}>
+          <button className="btn btn-danger mx-auto" onClick={handleSubmit}>
             Enviar
           </button>
-          <button className="btn-review-form" onClick={cleanReview}>
+          <button className="btn btn-dark mx-auto" onClick={cleanReview}>
             Resetear
           </button>
         </div>
