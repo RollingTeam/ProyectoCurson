@@ -66,7 +66,7 @@ useEffect(() => {
             </Modal>
           )} */}
           <Link
-            to={`cursos/${cursoForm.form._id}`}
+            to={`${cursoForm.form._id}`}
             className="btn btn-primary-curso float-right text-decoration-none"
           >
             Ver Mas

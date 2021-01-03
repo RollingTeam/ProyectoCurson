@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function NewCursoAdmin({ handleChange, formValues , categorias}) {
+export default function NewCursoAdmin({
+  handleChange,
+  formValues,
+  categorias,
+}) {
   return (
     <>
       <form>
@@ -16,6 +20,8 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="nombre"
                     onChange={handleChange}
                     value={formValues.nombre}
+                    required
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -28,6 +34,8 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="descripcion"
                     onChange={handleChange}
                     value={formValues.descripcion}
+                    required
+                    autoComplete="off"
                   ></textarea>
                 </div>
               </div>
@@ -40,6 +48,8 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="duracion"
                     onChange={handleChange}
                     value={formValues.duracion}
+                    required
+                    autoComplete="off"
                   />
                 </div>
                 <div className="form-group col-12 col-sm-12 col-md-6 col-md-4">
@@ -50,6 +60,8 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="cupo"
                     onChange={handleChange}
                     value={formValues.cupo}
+                    required
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -92,6 +104,8 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="img"
                     onChange={handleChange}
                     value={formValues.img}
+                    required
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -104,6 +118,8 @@ export default function NewCursoAdmin({ handleChange, formValues , categorias}) 
                     name="contacto"
                     onChange={handleChange}
                     value={formValues.contacto}
+                    required
+                    autoComplete="off"
                   />
                 </div>
               </div>

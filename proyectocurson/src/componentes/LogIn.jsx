@@ -103,7 +103,7 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) 
                                     </div>
                                     {login.ok === false && <h5>{login.error}</h5>}
                                 </form>
-                                <button className="btn btn-outline-primary" onClick = {modalRegisterOpen}>¿No eres usuario? Resgistrate</button>
+                                <button className="btn btn-outline-dark" onClick = {modalRegisterOpen}>¿No eres usuario? Resgistrate</button>
                             </div>
                         </div>
                     </div>
