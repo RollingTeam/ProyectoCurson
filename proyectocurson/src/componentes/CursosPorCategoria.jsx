@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Curso from "./Curso";
+import CursoInfo from "./CursoInfo";
 import { getCategoria } from "../helpers/Categorias";
 
 export default function CursosPorCategoria() {
@@ -23,16 +23,15 @@ export default function CursosPorCategoria() {
   const filtrarCursosPorCategoria = (e) => {
     console.log(e.target.value);
     setCatValue(e.target.value);
+    console.log("entre de nuevo a filtrar cursos")
+    console.log(page)
     console.log(catValue);
     ejecutarFiltrado(e.target.value);
   };
-//   console.log(`catvalue: ${catValue}`);
 
   useEffect(() => {
-    if (catValue !== "") {
-      setPage(0);
-    }
-  }, [catValue]);
+    setPage(0);
+  }, [filtrarCursosPorCategoria]);
 
 
   const ejecutarFiltrado = (e) => {
@@ -135,7 +134,7 @@ export default function CursosPorCategoria() {
         }
       );
       const data = await resp.json();
-
+        console.log(data.cursos)
       //Almaceno en el estado lista los datos obtenidos
       return {
         datos: data.cursos,
@@ -185,7 +184,7 @@ export default function CursosPorCategoria() {
           <div className="col-10 col-md-10 col-lg-10">
             <div className="row">
               {lista.datos.map((curso, _id) => {
-                return <Curso _id={curso._id} />;
+                return <CursoInfo _id={curso._id} />;
               })}
             </div>
             <div className="row text-center mb-4 display-flex justify-content-center my-2">
