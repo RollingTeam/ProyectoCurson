@@ -42,7 +42,7 @@ export default function CrearCategoria({
               </Button>
             )}
             <Button
-              variant="secondary"
+              variant="danger"
               type="submit"
               size="xs"
               block

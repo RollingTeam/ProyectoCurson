@@ -173,9 +173,10 @@ export default function NuevoCursoModal(props) {
                         <label>Imagen de portada del curso:</label>
                         <input
                           name="imagenCurso"
-                          type="file"
-                          class="form-control-file"
+                          type="text"
+                          className="form-control"
                           id="imagenCursoInput"
+                          placeholder="Ingrese la URL de la imagen"
                           ref={register({
                             required: {
                               value: true,
