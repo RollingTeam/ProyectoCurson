@@ -12,26 +12,9 @@ export default function CursosDestacados() {
     cantidad: 0,
   });
 
-  // const [activeCursos, setActiveCursos] = useState([]);
-
   useEffect(() => {
     getCursos();
-    // let cursos = lista.datos.filter((c) => {
-    //   return c.estado === true;
-    // });
-    // setActiveCursos(cursos);
   }, [page]);
-
-  // // // useEffect(() => {
-  // // //   let cursos = lista.datos.filter((c) => {
-  // // //     return c.estado === true;
-  // // //   });
-  // // //   setActiveCursos(cursos);
-  // // //   console.log(cursos.length)
-  // // //   // while(cursos.length <6){
-  // // //   //   setPage(page + 5)
-  // // //   // }
-  // // // }, [lista.datos]);
 
   console.log(lista.datos)
 

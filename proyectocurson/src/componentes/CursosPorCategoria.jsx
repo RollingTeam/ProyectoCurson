@@ -6,12 +6,13 @@ export default function CursosPorCategoria() {
   const [cat, setCat] = useState([]);
   const [activeCat, setActiveCat] = useState([]);
   const [catValue, setCatValue] = useState("");
-  useEffect(() => {
-    getCategoria()
-      .then((response) => setCat(response))
-      .catch((error) => console.log(error));
-    actualizaLista(page);
-  }, []);
+  const [page, setPage] = useState(0);
+  const [lista, setLista] = useState({
+    datos: [],
+    error: null,
+    loading: true,
+    cantidad: 0,
+  });
 
   useEffect(() => {
     let categorias = cat.filter((c) => {
@@ -21,18 +22,17 @@ export default function CursosPorCategoria() {
   }, [cat]);
 
   const filtrarCursosPorCategoria = (e) => {
-    console.log(e.target.value);
     setCatValue(e.target.value);
     ejecutarFiltrado(e.target.value);
   };
 
   useEffect(() => {
     setPage(0);
+    console.log(catValue)
   }, [filtrarCursosPorCategoria]);
 
 
   const ejecutarFiltrado = (e) => {
-    console.log(catValue);
     if (e !== "") {
       getCursosXCategoria(e, page)
         .then((response) => {
@@ -44,16 +44,10 @@ export default function CursosPorCategoria() {
     }
   };
 
-  const [page, setPage] = useState(0);
-
-  const [lista, setLista] = useState({
-    datos: [],
-    error: null,
-    loading: true,
-    cantidad: 0,
-  });
-
   useEffect(() => {
+    getCategoria()
+    .then((response) => setCat(response))
+    .catch((error) => console.log(error));
     if (catValue !== "") {
       getCursosXCategoria(catValue, page);
     } else {
@@ -170,7 +164,6 @@ export default function CursosPorCategoria() {
                 <option
                   key={categoria._id}
                   value={categoria._id}
-                  //   onChange={filtrarCursosPorCategoria}
                 >
                   {categoria.nombre}
                 </option>
