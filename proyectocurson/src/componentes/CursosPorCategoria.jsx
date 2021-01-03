@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Curso from "./Curso";
+import CursoInfo from "./CursoInfo";
 import { getCategoria } from "../helpers/Categorias";
 
 export default function CursosPorCategoria() {
   const [cat, setCat] = useState([]);
   const [activeCat, setActiveCat] = useState([]);
   const [catValue, setCatValue] = useState("");
-  useEffect(() => {
-    getCategoria()
-      .then((response) => setCat(response))
-      .catch((error) => console.log(error));
-    actualizaLista(page);
-  }, []);
+  const [page, setPage] = useState(0);
+  const [lista, setLista] = useState({
+    datos: [],
+    error: null,
+    loading: true,
+    cantidad: 0,
+  });
 
   useEffect(() => {
     let categorias = cat.filter((c) => {
@@ -21,22 +22,17 @@ export default function CursosPorCategoria() {
   }, [cat]);
 
   const filtrarCursosPorCategoria = (e) => {
-    console.log(e.target.value);
     setCatValue(e.target.value);
-    console.log(catValue);
     ejecutarFiltrado(e.target.value);
   };
-//   console.log(`catvalue: ${catValue}`);
 
   useEffect(() => {
-    if (catValue !== "") {
-      setPage(0);
-    }
-  }, [catValue]);
+    setPage(0);
+    console.log(catValue)
+  }, [filtrarCursosPorCategoria]);
 
 
   const ejecutarFiltrado = (e) => {
-    console.log(catValue);
     if (e !== "") {
       getCursosXCategoria(e, page)
         .then((response) => {
@@ -48,16 +44,10 @@ export default function CursosPorCategoria() {
     }
   };
 
-  const [page, setPage] = useState(0);
-
-  const [lista, setLista] = useState({
-    datos: [],
-    error: null,
-    loading: true,
-    cantidad: 0,
-  });
-
   useEffect(() => {
+    getCategoria()
+    .then((response) => setCat(response))
+    .catch((error) => console.log(error));
     if (catValue !== "") {
       getCursosXCategoria(catValue, page);
     } else {
@@ -135,7 +125,7 @@ export default function CursosPorCategoria() {
         }
       );
       const data = await resp.json();
-
+        console.log(data.cursos)
       //Almaceno en el estado lista los datos obtenidos
       return {
         datos: data.cursos,
@@ -174,7 +164,6 @@ export default function CursosPorCategoria() {
                 <option
                   key={categoria._id}
                   value={categoria._id}
-                  //   onChange={filtrarCursosPorCategoria}
                 >
                   {categoria.nombre}
                 </option>
@@ -185,7 +174,7 @@ export default function CursosPorCategoria() {
           <div className="col-10 col-md-10 col-lg-10">
             <div className="row">
               {lista.datos.map((curso, _id) => {
-                return <Curso _id={curso._id} />;
+                return <CursoInfo _id={curso._id} />;
               })}
             </div>
             <div className="row text-center mb-4 display-flex justify-content-center my-2">
