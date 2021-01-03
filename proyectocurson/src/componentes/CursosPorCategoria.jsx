@@ -23,9 +23,6 @@ export default function CursosPorCategoria() {
   const filtrarCursosPorCategoria = (e) => {
     console.log(e.target.value);
     setCatValue(e.target.value);
-    console.log("entre de nuevo a filtrar cursos")
-    console.log(page)
-    console.log(catValue);
     ejecutarFiltrado(e.target.value);
   };
 
