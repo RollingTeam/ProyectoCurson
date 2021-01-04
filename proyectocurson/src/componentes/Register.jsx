@@ -146,27 +146,27 @@ export default function Register({modalRegisterClose, setIngreso}) {
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label>Nombre:</label>
-                                    <input type="text" name="nombre" value={registro.formulario.nombre} onChange={handleChange} className="form-control" autoComplete="off"/>
+                                    <input type="text" name="nombre" value={registro.formulario.nombre} onChange={handleChange} className="form-control" autoComplete="off" required/>
                                 </div>
                                 <div className="form-group">
                                     <label>Apellido:</label>
-                                    <input type="text" name="apellido" value={registro.formulario.apellido} onChange={handleChange} className="form-control" autoComplete="off"/>
+                                    <input type="text" name="apellido" value={registro.formulario.apellido} onChange={handleChange} className="form-control" autoComplete="off" required/>
                                 </div>
                                 <div className="form-group">
                                     <label>Usuario:</label>
-                                    <input type="text" name="userName" value={registro.formulario.userName} onChange={handleChange} className="form-control" autoComplete="off"/>
+                                    <input type="text" name="userName" value={registro.formulario.userName} onChange={handleChange} className="form-control" autoComplete="off" required/>
                                 </div>
                                 <div className="form-group">
                                     <label>E-mail</label>
-                                    <input type="email" name="email" value={registro.formulario.email} onChange={handleChange} className="form-control" autoComplete="off"/>
+                                    <input type="email" name="email" value={registro.formulario.email} onChange={handleChange} className="form-control" autoComplete="off" required/>
                                 </div>
                                 <div className="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" name="password" value={registro.formulario.password} onChange={handleChange} className="form-control" autoComplete="off"/>
+                                    <input type="password" name="password" value={registro.formulario.password} onChange={handleChange} className="form-control" autoComplete="off" required/>
                                 </div>
                                 <div className="form-group">
                                     <label>Repetir contraseña</label>
-                                    <input type="password" name="passwordRepetir" value={repetir.contraseña.passwordRepetir} onChange={handleChangeRepetir} className="form-control" autoComplete="off"/>
+                                    <input type="password" name="passwordRepetir" value={repetir.contraseña.passwordRepetir} onChange={handleChangeRepetir} className="form-control" autoComplete="off" required/>
                                 </div>
                                 <div className="modal-footer">
                                     <button type="submit" className="btn btn-danger btn-block">Registrarse</button>
