@@ -6,7 +6,7 @@ export default function UserMenu({LogOut, usuarioRole}) {
     return (
         <>
             <Dropdown>
-                <Dropdown.Toggle variant="outline-success ml-2">
+                <Dropdown.Toggle variant="outline-danger ml-2">
                     <i class='fa fa-user-circle fa-lg' aria-hidden="true"></i>
                 </Dropdown.Toggle>
 

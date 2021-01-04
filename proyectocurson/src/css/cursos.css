@@ -21,6 +21,7 @@
     max-height: 200px !important;   
 } 
 .card-curso{
+    box-shadow: 0px 3px 15px -3px #000000;
     border: 1px solid #2B2D42 !important;
     min-height: 400px !important;
     max-height: 450px !important;

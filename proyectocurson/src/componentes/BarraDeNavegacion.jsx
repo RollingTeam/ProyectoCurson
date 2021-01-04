@@ -6,11 +6,10 @@ import UserMenu from './UserMenu'
 import Logo from '../img/logo-navbar.png';
 import '../css/navbar.css';
 import Navbar from 'react-bootstrap/Navbar'
-import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import FormControl from 'react-bootstrap/FormControl'
+import {Link} from 'react-router-dom'
 
 export default function BarraDeNavegacion(props) {
 
@@ -45,7 +44,8 @@ export default function BarraDeNavegacion(props) {
     const consultarRole = async() => {
         let id = JSON.parse(localStorage.getItem('id'))
         try {
-            const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+            // const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+            const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
             const data = await resp.json();
             console.log(data)
             setUsuarioRole(data.usuario.role)
@@ -82,7 +82,8 @@ export default function BarraDeNavegacion(props) {
     return (
         <div>
             <Navbar expand="lg" className="bg-blanco">
-                <Navbar.Brand className="p-0 m-0 d-none d-sm-block"><img className="img-fluid logo" src={Logo} alt="logo-curson" /></Navbar.Brand>
+                <Navbar.Brand className="p-0 m-0 d-none d-sm-block"><Link to="/"><img className="img-fluid logo" src={Logo} alt="logo-curson" /></Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -91,13 +92,10 @@ export default function BarraDeNavegacion(props) {
                             <NavDropdown.Item className="text-style" href="/cursos/#todosLosCursos">Todos los Cursos</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link className="text-style" href="#categorias">Categorías</Nav.Link>
-                        <Nav.Link className="text-style" href="/cursos">Publicá tu Curso</Nav.Link>
+                        <Nav.Link className="text-style" href="#mainPublicarContainer">Publicá tu Curso</Nav.Link>
                         <Nav.Link className="text-style" href="#reviews">Reviews</Nav.Link>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
-                        <Button variant="outline-dark">Buscar</Button>
-                    </Form>
+                    
                     {token ? (
                         <UserMenu LogOut={LogOut} usuarioRole={usuarioRole}/>
                         ) : (

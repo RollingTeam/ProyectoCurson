@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getCursos } from "../helpers/Cursos";
 import { getCategoria } from "../helpers/Categorias";
+import Spinner from 'react-bootstrap/Spinner'
 
 export default function CursosListAdmin() {
   const [cat, setCat] = useState([]);
@@ -16,9 +17,6 @@ export default function CursosListAdmin() {
     loading: true,
     cantidad: 0,
   });
-
-  // //Estado para manejar el filtro de categoria
-  // const [ca, setCa] = useState("");
 
   // Si cambia el estado de Page vuelvo a cargar los datos
   // de los cursos usando el helper
@@ -60,39 +58,11 @@ export default function CursosListAdmin() {
       setPage(page - 5);
     }
   };
-  // let cate="" ;
-  // const filtrarCategoria = (e) => {
-  //   console.log(e.target.value)
-  //   cate = e.target.value
-  //   console.log("Entre a filtrar categoria");
-  //   setCa(cate);
-  //   console.log(ca)
-  //   filtrarDatos(cate);
-  // };
-
-  // const filtrarDatos = () => {
-  //   console.log(cate)
-  //   console.log("Entre a filtrar datos");
-  //   if (cate !== "") {
-  //     lista.datos.filter((c) => {
-  //       return setLista({
-  //         datos:c.categoria.id === cate,
-  //       });
-  //     });
-  //   }
-  // };
-
-  // // useEffect(() => {
-  // //   actualizaLista(page);
-  // //   getCategoria()
-  // //     .then((response) => setCat(response))
-  // //     .catch((error) => console.log(error));
-  // // }, [lista.datos]);
 
   return (
     <>
       {lista.loading ? (
-        <h2>Loading...</h2>
+        <Spinner animation="grow" variant="dark" className="mx-auto m-4" />
       ) : (
         <>
           <hr />
@@ -106,30 +76,10 @@ export default function CursosListAdmin() {
               <thead className="thead-dark">
                 <tr>
                   <th scope="col">Curso</th>
-                  <th scope="col">
-                    Categoria:
-                    <select name="categoria" /*onChange={filtrarCategoria}*/>
-                      {activeCat.map((categoria) => (
-                        <option key={categoria._id} value={categoria._id}>
-                          {categoria.nombre}
-                        </option>
-                      ))}
-                    </select>
-                  </th>
+                  <th scope="col">Categoria</th>
                   <th scope="col">Nivel</th>
                   <th scope="col">Cupo</th>
-                  <th scope="col">
-                    Estado:
-                    <select
-                      name="estado"
-                      id="estado"
-                      // onChange="filtrarDatos()"
-                    >
-                      <option value="0">Todos</option>
-                      <option value="1">Activo</option>
-                      <option value="2">Inactivo</option>
-                    </select>
-                  </th>
+                  <th scope="col">Estado</th>
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>

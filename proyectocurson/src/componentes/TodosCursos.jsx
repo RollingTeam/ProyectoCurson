@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Curso from "./Curso";
+import CursoInfo from "./CursoInfo";
 import "../css/cursos.css";
 import "../css/botones.css";
 
@@ -48,7 +48,8 @@ export default function TodosCursos() {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        `http://localhost:3005/curso?limite=6&desde=${page}`,
+        // `http://localhost:3005/curso?limite=6&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/curso?limite=6&desde=${page}`,
         {
           method: "GET",
           headers: {
@@ -82,7 +83,7 @@ export default function TodosCursos() {
       <div className="container">
         <div className="row">
           {lista.datos.map((curso) => {
-            return <Curso _id={curso._id} />;
+            return <CursoInfo _id={curso._id} />;
           })}
         </div>
         <div className="container d-flex justify-content-center">

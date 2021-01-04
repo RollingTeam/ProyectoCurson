@@ -12,33 +12,17 @@ export default function CursosDestacados() {
     cantidad: 0,
   });
 
-  // const [activeCursos, setActiveCursos] = useState([]);
-
   useEffect(() => {
     getCursos();
-    // let cursos = lista.datos.filter((c) => {
-    //   return c.estado === true;
-    // });
-    // setActiveCursos(cursos);
   }, [page]);
-
-  // // // useEffect(() => {
-  // // //   let cursos = lista.datos.filter((c) => {
-  // // //     return c.estado === true;
-  // // //   });
-  // // //   setActiveCursos(cursos);
-  // // //   console.log(cursos.length)
-  // // //   // while(cursos.length <6){
-  // // //   //   setPage(page + 5)
-  // // //   // }
-  // // // }, [lista.datos]);
 
   console.log(lista.datos)
 
   const getCursos = async (page) => {
     try {
       const resp = await fetch(
-        `http://localhost:3005/curso?limite=6&desde=${page}`,
+        // `http://localhost:3005/curso?limite=6&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/curso?limite=6&desde=${page}`,
         {
           method: "GET",
           headers: {
@@ -63,7 +47,7 @@ export default function CursosDestacados() {
   };
 
   return (
-    <div className="container-fluid my-5">
+    <div className="container-fluid my-5" id="destacados">
       <div className="bd-negro d-flex justify-content-center my-5">
         <label className="size-titulo">Cursos Destacados</label>
       </div>

@@ -24,6 +24,7 @@ export default function CrearCategoria({
                 onChange={handleChange}
                 value={formValues.nombre}
                 required
+                autoComplete="off"
               />
             </Form.Group>
           </Form>
@@ -41,7 +42,7 @@ export default function CrearCategoria({
               </Button>
             )}
             <Button
-              variant="secondary"
+              variant="danger"
               type="submit"
               size="xs"
               block
