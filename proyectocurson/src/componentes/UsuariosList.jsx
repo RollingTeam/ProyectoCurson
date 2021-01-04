@@ -5,20 +5,6 @@ import {FaUserCheck} from "react-icons/fa";
 
 export default function UsuariosList({usuarios}) {
 
-    // console.log(datos)
-
-    // const [lista, setLista] = useState({
-    //     datos:{},
-    //     error: null,
-    //     loading: true,
-    // })
-
-    
-    // const actualizaLista = () => {
-    //     getUsuarios()
-    //     .then((response)=>{setLista(response)})
-    //     .catch((response)=>{setLista(response)})
-    // }
     
     return (
         <>
