@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import "../css/modalVerMasCursos.css";
-// import "../css/botones.css";
 
 export default function ModalVerDetalleCurso(props) {
   const cursoId = props.match.params.cursoId;
-  // console.log(cursoId)
   const handleCloseModal = () => {
     props.history.push("/");
   };

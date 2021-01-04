@@ -85,7 +85,8 @@ export default function CursosPorCategoria() {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        `http://localhost:3005/curso?limite=3&desde=${page}`,
+        // `http://localhost:3005/curso?limite=3&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/curso?limite=3&desde=${page}`,
         {
           method: "GET",
           headers: {
@@ -116,7 +117,8 @@ export default function CursosPorCategoria() {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        `http://localhost:3005/cursos/${e}?limite=3&desde=${page}`,
+        // `http://localhost:3005/cursos/${e}?limite=3&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/cursos/${e}?limite=3&desde=${page}`,
         {
           method: "GET",
           headers: {

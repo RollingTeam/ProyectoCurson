@@ -56,7 +56,8 @@ export default function Register({modalRegisterClose, setIngreso}) {
         if(registro.formulario.password === repetir.contraseña.passwordRepetir){
             
             try {
-                const resp = await fetch("http://localhost:3005/usuarios", {
+                // const resp = await fetch("http://localhost:3005/usuarios", {
+                    const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/usuarios", {
                     method: "POST",
                     body: JSON.stringify(registro.formulario),
                     headers: {
@@ -80,7 +81,8 @@ export default function Register({modalRegisterClose, setIngreso}) {
                     });
     
                     try {
-                        const resp = await fetch("http://localhost:3005/login", {
+                        // const resp = await fetch("http://localhost:3005/login", {
+                            const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/login", {
                             method: "POST",
                             body: JSON.stringify(credenciales),
                             headers: {
