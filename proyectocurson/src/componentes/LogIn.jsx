@@ -1,6 +1,5 @@
 import React, { useState }from 'react'
 import Logo from "../img/logo-navbar.png"
-// import "../css/modal.css"
 import Alert from 'react-bootstrap/Alert'
 
 export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) {
