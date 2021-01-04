@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-// import {getUsuarios} from '../helpers/getUsuarios'
 import {FaUserMinus} from "react-icons/fa";
 import {FaUserCheck} from "react-icons/fa";
 
