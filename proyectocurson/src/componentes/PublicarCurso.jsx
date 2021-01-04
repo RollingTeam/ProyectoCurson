@@ -8,8 +8,6 @@ import Register from "../componentes/Register"
 
 export default function PublicarCurso(props) {
 
-  const [openModal, setOpenModal] = useState(false);
-
   const token = JSON.parse(localStorage.getItem("token")) || "";
 
   const [ingreso, setIngreso] = useState({
@@ -24,6 +22,29 @@ export default function PublicarCurso(props) {
     }
   }, [ingreso]);
 
+  
+    //------------ Role de usuario-------------//
+
+    // const [usuarioRole, setUsuarioRole] = useState("")
+
+    // const consultarRole = async() => {
+    //     let id = JSON.parse(localStorage.getItem('id'))
+    //     try {
+    //         // const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+    //         const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
+    //         const data = await resp.json();
+    //         console.log(data)
+    //         setUsuarioRole(data.usuario.role)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+
+    // }
+
+    //---------- Estados de los modales--------//
+  const [openModal, setOpenModal] = useState(false);  
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openRegisterModal, setOpenRegisterModal] = useState(false);
 
 
   const handleOpenModal = () => {
@@ -33,8 +54,6 @@ export default function PublicarCurso(props) {
     setOpenModal(false);
   };
 
-  const [openLoginModal, setOpenLoginModal] = useState(false);
-  const [openRegisterModal, setOpenRegisterModal] = useState(false)
 
   const modalLoginOpen = () => {
     setOpenLoginModal(true);
@@ -125,19 +144,4 @@ export default function PublicarCurso(props) {
   );
 }
 
-{
-  /* {visibilidad ? (
-                        <Button className="btn cursonBtn" onClick={handleOpenModal}>Publicar Curso</Button>
-                        ) : (
-                        <Button className="btn btn-danger ml-2" onClick={modalLoginOpen}>Log in</Button>       
-                    )} */
-}
-{
-  /* <button
-            type="button"
-            className="btn cursonBtn"
-            onClick={handleOpenModal}
-          >
-            Publicar Curso
-          </button> */
-}
+
