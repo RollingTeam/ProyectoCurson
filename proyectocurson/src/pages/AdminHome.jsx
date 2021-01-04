@@ -16,7 +16,7 @@ export default function AdminHome() {
     return (
         <div>
             <NavbarAdminHome />
-            <div className="container">
+            <div className="container mt-5">
                 <UsuariosList usuarios={usuarios} />
             </div>
         </div>

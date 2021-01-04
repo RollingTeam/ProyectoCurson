@@ -1,11 +1,24 @@
 .icons-table{
     font-size: 20px;
     color: #2B2D42;
+    margin-right: 5px;
 }
 .icons-table:hover{
     cursor: pointer;
     color: #EF233C;
 }
+
+.icons_table_approve:hover{
+    font-size: 20px;
+    color: #2ABB16;
+}
+
+.icons_table_admin:hover{
+    font-size: 20px;
+    color: #1643BB;
+}
+
+
 .icons-footer:hover{
     cursor: pointer;
     color: #EF233C;
