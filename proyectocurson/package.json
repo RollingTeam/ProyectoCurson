@@ -12,10 +12,7 @@
     "@testing-library/user-event": "^12.2.2",
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
-<<<<<<< HEAD
-=======
     "json-server": "^0.16.3",
->>>>>>> a404adf101a6a19bde4649b78ada3148fa16f6f7
     "md5": "^2.3.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
