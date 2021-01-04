@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/reviews.css";
 import ReviewList from "./ReviewList";
 import Review from "./Review";
+import Spinner from 'react-bootstrap/Spinner'
 
 export default function Reviews() {
   const [data, setData] = useState({
@@ -156,7 +157,7 @@ export default function Reviews() {
         </div>
         <div className="container">
           <div className="row" id="reviewList">
-            {loading ? <h3>Loading...</h3> : <ReviewList data={data.datos} />}
+            {loading ?  <Spinner animation="grow" variant="dark" className="mx-auto m-4" /> : <ReviewList data={data.datos} />}
           </div>
           <div className="row">
             <button className="btn btn-danger mx-auto" onClick={showReview}>

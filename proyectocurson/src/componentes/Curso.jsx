@@ -1,7 +1,5 @@
 import React , {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-// import Modal from "../componentes/Modal";
-// import ModalVerMasCursos from "../componentes/ModalVerMasCursos";
 import "../css/cursos.css";
 
 export default function Curso({_id}) {
@@ -51,20 +49,6 @@ useEffect(() => {
           <span className="badge badge-danger">{cursoForm.form.categoria.nombre}</span>
           <span className="ml-2 badge badge-warning">{cursoForm.form.nivel}</span>
           <p className="card-text">{cursoForm.form.descripcion}</p>
-          {/* <button
-            type="button"
-            className="btn btn-primary-curso float-right"
-            onClick={handleOpenModal}
-          >
-            Ver Más
-          </button> */}
-          {/* {openModal && (
-            <Modal>
-              <ModalVerMasCursos
-                handleCloseModal={handleCloseModal}
-              />
-            </Modal>
-          )} */}
           <Link
             to={`cursos/${cursoForm.form._id}`}
             className="btn btn-primary-curso float-right text-decoration-none"
