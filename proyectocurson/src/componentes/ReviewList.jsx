@@ -32,7 +32,7 @@ export default function ReviewList({ data }) {
                 <div className="col-10 col-md-8">
                   <div className="card-body">
                     <h5 className="card-title text-center mt-2">
-                      {review.curso}<i className="fas fa-star fa-start-color"></i>
+                      {review.curso}
                     </h5>
                     <p className="card-text">{review.comentario}</p>
                     <p className="card-text">
