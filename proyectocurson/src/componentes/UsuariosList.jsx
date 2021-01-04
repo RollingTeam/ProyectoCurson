@@ -94,13 +94,13 @@ export default function UsuariosList({usuarios}) {
                                         className="icons-table icons-table__delete"
                                         onClick={ async(e) => {
                                             let token = JSON.parse(localStorage.getItem("token"));
-                                            let usuarioHabilitado = {
-                                                estado: true
-                                            }
+                                            
                                             try {
                                                 await fetch(`http://localhost:3005/usuarios/${usuario._id}`,{
                                                     method: 'PUT',
-                                                    body: usuarioHabilitado,
+                                                    body: JSON.stringify({
+                                                        estado: true
+                                                    }),
                                                     headers: {
                                                         "Content-type": "application/json; charset=UTF-8",
                                                         token: `${token}`

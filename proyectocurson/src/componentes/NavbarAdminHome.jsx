@@ -1,4 +1,5 @@
 import React from 'react';
+import UserMenu from './UserMenu'
 import Logo from '../img/logo-navbar.png';
 import '../css/navbar.css';
 import Navbar from 'react-bootstrap/Navbar'
@@ -7,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
 export default function NavbarAdminHome() {
+
     return (
         <div>
             <Navbar expand="lg" className="bg-blanco">
@@ -25,6 +27,7 @@ export default function NavbarAdminHome() {
                         </NavDropdown>
                         <Nav.Link className="text-style" href="/">Solicitudes</Nav.Link>
                     </Nav>
+                    <UserMenu />
                 </Navbar.Collapse>
             </Navbar>
         </div>
