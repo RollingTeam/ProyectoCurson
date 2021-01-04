@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../componentes/Footer";
-import BarraDeNavegacion from "../componentes/BarraDeNavegacion";
+import NavVerCursos from "../componentes/NavVerCursos";
 import TodosCursos from "../componentes/TodosCursos";
 import CursosPorCategoria from "../componentes/CursosPorCategoria"
 
 export default function Home() {
   return (
     <>
-      <BarraDeNavegacion />
+      <NavVerCursos />
       <TodosCursos />
       <CursosPorCategoria/>
       <Footer />
