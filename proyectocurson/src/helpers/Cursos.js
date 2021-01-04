@@ -5,7 +5,8 @@ export const getCursos = async (page) => {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        `http://localhost:3005/admin/curso?limite=5&desde=${page}`,
+        // `http://localhost:3005/admin/curso?limite=5&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/admin/curso?limite=5&desde=${page}`,
         {
           method: "GET",
           headers: {

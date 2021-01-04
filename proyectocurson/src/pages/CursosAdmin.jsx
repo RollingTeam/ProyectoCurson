@@ -9,7 +9,7 @@ export default function CursosAdmin() {
     <div>
       <NavbarAdminHome />
       <div className="container">
-        <CursosInfo />
+        {/* <CursosInfo /> */}
         <CursosListAdmin />
       </div>
     </div>

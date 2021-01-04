@@ -38,7 +38,8 @@ export default function TablaCategorias({ cat }) {
                           let token = JSON.parse(localStorage.getItem("token"));
                           try {
                             await fetch(
-                              `http://localhost:3005/categoria/${categoria._id}`,
+                              // `http://localhost:3005/categoria/${categoria._id}`,
+                              ` https://afternoon-fjord-84174.herokuapp.com/categoria/${categoria._id}`,
                               {
                                 method: "DELETE",
                                 headers: {

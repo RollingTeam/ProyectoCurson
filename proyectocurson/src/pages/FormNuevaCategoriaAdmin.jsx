@@ -38,7 +38,8 @@ export default function FormNuevaCategoriaAdmin(props) {
     e.preventDefault();
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      const resp = await fetch("http://localhost:3005/categoria", {
+      // const resp = await fetch("http://localhost:3005/categoria", {
+        const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/categoria", {
         method: "POST",
         body: JSON.stringify(catForm.form),
         headers: {

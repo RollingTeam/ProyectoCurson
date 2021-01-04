@@ -21,7 +21,8 @@ export default function CursosDestacados() {
   const getCursos = async (page) => {
     try {
       const resp = await fetch(
-        `http://localhost:3005/curso?limite=6&desde=${page}`,
+        // `http://localhost:3005/curso?limite=6&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/curso?limite=6&desde=${page}`,
         {
           method: "GET",
           headers: {

@@ -59,7 +59,8 @@ export default function NuevoCursoAdmin(props) {
 
   const getCategoria = async () => {
     try {
-      const resp = await fetch("http://localhost:3005/categoria", {
+      // const resp = await fetch("http://localhost:3005/categoria", {
+        const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/categoria", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -87,7 +88,8 @@ export default function NuevoCursoAdmin(props) {
       let token = JSON.parse(localStorage.getItem("token"));
       e.preventDefault();
       try {
-        const resp = await fetch("http://localhost:3005/curso", {
+        // const resp = await fetch("http://localhost:3005/curso", {
+          const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/curso", {
           method: "POST",
           body: JSON.stringify(cursoForm.form),
           headers: {
