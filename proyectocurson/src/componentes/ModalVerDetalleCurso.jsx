@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import "../css/modalVerMasCursos.css";
-// import "../css/botones.css";
 
 export default function ModalVerDetalleCurso(props) {
   const cursoId = props.match.params.cursoId;
-  // console.log(cursoId)
   const handleCloseModal = () => {
     props.history.push("/");
   };
@@ -23,7 +21,8 @@ export default function ModalVerDetalleCurso(props) {
   });
   const getDataId = async () => {
     try {
-      const resp = await fetch(`http://localhost:3005/curso/${cursoId}`,{
+      // const resp = await fetch(`http://localhost:3005/curso/${cursoId}`,{
+        const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`,{
         method: 'GET',
         headers:{
           "Content-type": "application/json; charset=UTF-8"

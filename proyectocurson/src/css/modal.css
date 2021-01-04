@@ -5,6 +5,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 16;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -12,7 +13,7 @@
 
 .modal_container {
   position: relative;
-  width: 400px;
+  width: 90%;
 }
 
 .logo-modal {
@@ -26,10 +27,11 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-
+  z-index: 16;
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: auto;
 }
 .Modal {
   position: fixed;

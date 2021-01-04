@@ -22,10 +22,18 @@ export default function NuevoCursoAdmin(props) {
   });
 
   const [cat, setCat] = useState([]);
+  const [activeCat, setActiveCat] = useState([]);
 
   useEffect(() => {
     getCategoria();
   }, []);
+
+  useEffect(() => {
+    let categorias = cat.filter((c) => {
+      return c.estado === true;
+    });
+    setActiveCat(categorias);
+  }, [cat]);
 
   const handleChange = (e) => {
     setCursoForm({
@@ -51,14 +59,14 @@ export default function NuevoCursoAdmin(props) {
 
   const getCategoria = async () => {
     try {
-      const resp = await fetch("http://localhost:3005/categoria", {
+      // const resp = await fetch("http://localhost:3005/categoria", {
+        const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/categoria", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
       const data = await resp.json();
-      console.log(data.categorias);
       setCat(data.categorias);
     } catch (error) {
       console.log(error);
@@ -66,33 +74,47 @@ export default function NuevoCursoAdmin(props) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const resp = await fetch("http://localhost:3005/curso", {
-        method: "POST",
-        body: JSON.stringify(cursoForm.form),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
-      const data = await resp.json();
-      // console.log(data);
-      setEstados({
-        loading: false,
-        error: null,
-      });
-      if (data.ok) {
-        props.history.push("/admin/cursos");
-      } else {
+    if (
+      cursoForm.form.nombre == "" ||
+      cursoForm.form.descripcion == "" ||
+      cursoForm.form.cupo == "" ||
+      cursoForm.form.nivel == "" ||
+      cursoForm.form.contacto == "" ||
+      cursoForm.form.duracion == "" ||
+      cursoForm.form.img==""
+    ) {
+      alert("Debes completar todos los Campos");
+    } else {
+      let token = JSON.parse(localStorage.getItem("token"));
+      e.preventDefault();
+      try {
+        // const resp = await fetch("http://localhost:3005/curso", {
+          const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/curso", {
+          method: "POST",
+          body: JSON.stringify(cursoForm.form),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            token: `${token}`,
+          },
+        });
+        const data = await resp.json();
         setEstados({
           loading: false,
-          error: data.ok,
+          error: null,
         });
+        if (data.ok) {
+          props.history.push("/admin/cursos");
+        } else {
+          setEstados({
+            loading: false,
+            error: data.ok,
+          });
+        }
+      } catch (error) {
+        console.warn(error);
       }
-    } catch (error) {
-      console.warn(error);
+      // cleanForm();
     }
-    cleanForm();
   };
 
   return (
@@ -101,7 +123,7 @@ export default function NuevoCursoAdmin(props) {
       <NewCursoAdmin
         handleChange={handleChange}
         formValues={cursoForm.form}
-        categorias={cat}
+        categorias={activeCat}
       />
       <div className="form-group d-flex justify-content-center mt-4">
         <button
@@ -109,7 +131,7 @@ export default function NuevoCursoAdmin(props) {
           className="btn btn-secondary mx-3"
           onClick={cleanForm}
         >
-          Restaurar
+          Resetear
         </button>
         <button
           type="button"

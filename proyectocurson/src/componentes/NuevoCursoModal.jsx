@@ -185,19 +185,7 @@ export default function NuevoCursoModal(props) {
                             },
                           })}
                         />
-
-                        {/* <input
-                          name="imagenCurso"
-                          type="file"
-                          class="form-control-file"
-                          id="imagenCursoInput"
-                          ref={register({
-                            required: {
-                              value: true,
-                              message: "Campo obligatorio",
-                            },
-                          })}
-                        /> */}
+     
                         {errors.imagenCurso && (
                           <span className="text-danger text-small d-block mb-2">
                             {errors.imagenCurso.message}

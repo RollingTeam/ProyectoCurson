@@ -1,15 +1,17 @@
 //Obtengo los datos de los cursos----------------------
 export const getCursos = async (page) => {
-    // let token = JSON.parse(localStorage.getItem("token"));
+    let token = JSON.parse(localStorage.getItem("token"));
     try {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        `http://localhost:3005/curso?limite=5&desde=${page}`,
+        // `http://localhost:3005/admin/curso?limite=5&desde=${page}`,
+        `https://afternoon-fjord-84174.herokuapp.com/admin/curso?limite=5&desde=${page}`,
         {
           method: "GET",
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8",
+            token: `${token}`,
           },
         }
       );

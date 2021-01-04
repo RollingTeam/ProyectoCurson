@@ -1,9 +1,8 @@
 import React, { useState }from 'react'
 import Logo from "../img/logo-navbar.png"
-import "../css/modal.css"
+import Alert from 'react-bootstrap/Alert'
 
-
-export default function LogIn({modalRegisterOpen, modalLoginClose, inciarSesion, setIngreso}) {
+export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) {
 
     const [usuario, setUsuario] = useState({
         credenciales:{
@@ -37,9 +36,10 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, inciarSesion,
         });
 
         try {
-            const resp = await fetch("http://localhost:3005/login", {
+            // const resp = await fetch("http://localhost:3005/login", {
+                const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/login", {
                 method: "POST",
-                body: JSON.stringify(usuario.credenciales ),
+                body: JSON.stringify(usuario.credenciales),
                 headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 },
@@ -61,6 +61,9 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, inciarSesion,
                     token: JSON.parse(localStorage.getItem('token')),
                     id: data.usuario._id
                 })
+
+                modalLoginClose()
+
             } else {
                 setLogin({
                     token: "",
@@ -94,13 +97,17 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, inciarSesion,
                                     </div>
                                     <div className="form-group">
                                         <input type="password" name="password" value={usuario.credenciales.password} onChange={handleChangeLogin} className="form-control" placeholder="Contraseña" autoComplete="off"/>
-                                    </div>
+                                    </div> 
+                                    {login.ok === false && 
+                                    <Alert variant="warning">
+                                        {login.error}
+                                    </Alert>
+                                    }
                                     <div className="modal-footer">
                                         <button type="submit" className="btn btn-danger btn-block">Ingresar</button>
                                     </div>
-                                    {login.ok === false && <h5>{login.error}</h5>}
                                 </form>
-                                <button className="btn btn-outline-primary" onClick = {modalRegisterOpen}>¿No eres usuario? Resgistrate</button>
+                                <button className="btn btn-outline-dark" onClick = {modalRegisterOpen}>¿No eres usuario? Resgistrate</button>
                             </div>
                         </div>
                     </div>

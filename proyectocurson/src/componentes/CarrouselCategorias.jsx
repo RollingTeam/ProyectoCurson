@@ -1,8 +1,24 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
+import img1 from '../img/art2-min.jpg'
+import img2 from '../img/english1-min.jpg'
+import img3 from '../img/english2-min.jpg'
+import img4 from '../img/music1-min.jpg'
+import img5 from '../img/teach2-min.jpg'
+import img6 from '../img/tecnologia1-min.jpg'
+import img7 from '../img/tecnologia10-min.jpg'
+import img8 from '../img/tecnologia11-min.jpg'
+import img9 from '../img/tecnologia12-min.jpg'
+import img10 from '../img/tecnologia2-min.jpg'
+import img11 from '../img/tecnologia3-min.jpg'
+import img12 from '../img/tecnologia4-min.jpg'
+import img13 from '../img/tecnologia5-min.jpg'
+import img14 from '../img/tecnologia6-min.jpg'
+import img15 from '../img/tecnologia7-min.jpg'
+import img16 from '../img/tecnologia8-min.jpg'
+import img17 from '../img/tecnologia9-min.jpg'
 
 export default function CarrouselCategorias() {
-  const url = "https://drive.google.com/uc?export=view&id=";
   return (
     <div>
       <div className="container">
@@ -12,25 +28,25 @@ export default function CarrouselCategorias() {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1MBwt8mmlHjlq3vH6GNddCjXFdCYiGluS`}
+                  src={img1} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}17EXGVAy9GjhkO5pRwMNdSVR0AAdT9oSv`}
+                  src={img2} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1R63KrPOSQ3nqwgHmgSaT0_8ERg4HZImf`}
+                  src={img3} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1xR_Ge3XI25j9MgMLRfYM54B78yhPvCKF`}
+                  src={img4} alt="img del carousel categorias"
                 />
               </Carousel.Item>
             </Carousel>
@@ -40,25 +56,25 @@ export default function CarrouselCategorias() {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}10l_V44RLq8SqaF8gkXdlFR1IN5OeCu3C`}
+                  src={img5} alt="img del carousel"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1jRuglx2fQuO2F-xslEFoJ9Kim47q1oF3`}
+                  src={img6} alt="img del carousel"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1SJ-EaArJbcx61AVdPNLHkQX09Zm5lK16`}
+                  src={img7} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1-Xf8Qo80kyqbiU6QYSZp7pO2SaaJ97DZ`}
+                  src={img8} alt="img del carousel categorias"
                 />
               </Carousel.Item>
             </Carousel>
@@ -68,25 +84,25 @@ export default function CarrouselCategorias() {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1MHViCYa7YSPsEiX1Cgcax45Z6jNBSckI`}
+                  src={img9} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1voDsyK-qDhAlz7YiR2n00zh1bT3Nrmn0`}
+                  src={img10} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}16udTYlh5NgjyYyowyX4_SL3q-k-wIttC`}
+                  src={img11} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1V8oVGQxhGkBBIy1yHxN3qgzpViF-6G-8`}
+                  src={img12} alt="img del carousel categorias"
                 />
               </Carousel.Item>
             </Carousel>
@@ -98,53 +114,25 @@ export default function CarrouselCategorias() {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1BLh7dZQZvPa4zKqvhz8fZSqTNCCsY0gv`}
+                  src={img13} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1CArvOEDabRyng0VnnDPyrrCbPJTOdfz1`}
+                  src={img14} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}10xqp9XmfGF1MWzdUYpeSuICOV2GSXoV_`}
+                  src={img15} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1eFFowRulhMz4VZmTdxCJyaRGOAPbxBy6`}
-                />
-              </Carousel.Item>
-            </Carousel>
-          </div>
-          <div id="carousel" className="col-12 col-md-6 col-lg-4">
-            <Carousel indicators={false} controls={false}>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={`${url}1xR_Ge3XI25j9MgMLRfYM54B78yhPvCKF`}
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={`${url}1SJ-EaArJbcx61AVdPNLHkQX09Zm5lK16`}
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={`${url}1KNkiyiDZMZg8pLqx4itpekdmQuwmJI9c`}
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={`${url}1V8oVGQxhGkBBIy1yHxN3qgzpViF-6G-8`}
+                  src={img16} alt="img del carousel categorias"
                 />
               </Carousel.Item>
             </Carousel>
@@ -152,24 +140,52 @@ export default function CarrouselCategorias() {
           <div id="carousel" className="col-12 col-md-6 col-lg-4">
             <Carousel indicators={false} controls={false}>
               <Carousel.Item>
-                <img className="d-block w-100" src={`${url}`} />
-              </Carousel.Item>
-              <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1jRuglx2fQuO2F-xslEFoJ9Kim47q1oF3`}
+                  src={img17} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}10xqp9XmfGF1MWzdUYpeSuICOV2GSXoV_`}
+                  src={img1} alt="img del carousel categorias"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={`${url}1MHViCYa7YSPsEiX1Cgcax45Z6jNBSckI`}
+                  src={img2} alt="img del carousel categorias"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={img3} alt="img del carousel categorias"
+                />
+              </Carousel.Item>
+            </Carousel>
+          </div>
+          <div id="carousel" className="col-12 col-md-6 col-lg-4">
+            <Carousel indicators={false} controls={false}>
+              <Carousel.Item>
+                <img className="d-block w-100" src={img4} alt="img del carousel categorias" />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={img5} alt="img del carousel categorias"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={img6} alt="img del carousel categorias"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={img7} alt="img del carousel categorias"
                 />
               </Carousel.Item>
             </Carousel>

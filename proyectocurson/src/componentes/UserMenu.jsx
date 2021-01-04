@@ -1,14 +1,23 @@
 import React from 'react'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import Dropdown from 'react-bootstrap/Dropdown'
+import '../css/modal.css'
 
-export default function UserMenu() {
+export default function UserMenu({LogOut, usuarioRole}) {
     return (
         <>
-            <NavDropdown class="menu_usuario">
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-                <NavDropdown.Item href="#">Mi Perfil</NavDropdown.Item>
-                <NavDropdown.Item href="#">Mis cursos</NavDropdown.Item>    
-            </NavDropdown>   
+            <Dropdown>
+                <Dropdown.Toggle variant="outline-danger ml-2">
+                    <i class='fa fa-user-circle fa-lg' aria-hidden="true"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu className="dropdown-menu-right mt-2">
+                    {usuarioRole === 'ADMIN_ROLE' &&
+                        <Dropdown.Item href="/admin">Sección Admin</Dropdown.Item>
+                    }
+                    <Dropdown.Item href="#/action-1">Mis cursos</Dropdown.Item>
+                    <Dropdown.Item onClick={LogOut}>Log Out</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
         </>
     )
 }
