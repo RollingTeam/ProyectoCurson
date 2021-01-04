@@ -1,24 +1,9 @@
-import React, {useEffect, useState} from 'react'
-// import {getUsuarios} from '../helpers/getUsuarios'
+import React from 'react'
 import {FaUserMinus} from "react-icons/fa";
 import {FaUserCheck} from "react-icons/fa";
 
 export default function UsuariosList({usuarios}) {
 
-    // console.log(datos)
-
-    // const [lista, setLista] = useState({
-    //     datos:{},
-    //     error: null,
-    //     loading: true,
-    // })
-
-    
-    // const actualizaLista = () => {
-    //     getUsuarios()
-    //     .then((response)=>{setLista(response)})
-    //     .catch((response)=>{setLista(response)})
-    // }
     
     return (
         <>
@@ -73,7 +58,8 @@ export default function UsuariosList({usuarios}) {
                                             if(valor){
                                                 try {
                                                   await fetch(
-                                                    `http://localhost:3005/usuarios/${usuario._id}`,
+                                                    // `http://localhost:3005/usuarios/${usuario._id}`,
+                                                    `https://afternoon-fjord-84174.herokuapp.com/usuarios/${usuario._id}`,
                                                     {
                                                       method: "DELETE",
                                                       headers: {
@@ -96,7 +82,8 @@ export default function UsuariosList({usuarios}) {
                                             let token = JSON.parse(localStorage.getItem("token"));
                                             
                                             try {
-                                                await fetch(`http://localhost:3005/usuarios/${usuario._id}`,{
+                                                // await fetch(`http://localhost:3005/usuarios/${usuario._id}`,{
+                                                    await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${usuario._id}`,{
                                                     method: 'PUT',
                                                     body: JSON.stringify({
                                                         estado: true
