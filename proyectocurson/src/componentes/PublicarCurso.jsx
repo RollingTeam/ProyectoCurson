@@ -18,28 +18,12 @@ export default function PublicarCurso(props) {
  useEffect(() => {
     if (ingreso.token.length > 0) {
       localStorage.setItem("id", JSON.stringify(ingreso.id));
-      // consultarRole();
+      
     }
   }, [ingreso]);
 
   
-    //------------ Role de usuario-------------//
-
-    // const [usuarioRole, setUsuarioRole] = useState("")
-
-    // const consultarRole = async() => {
-    //     let id = JSON.parse(localStorage.getItem('id'))
-    //     try {
-    //         // const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
-    //         const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
-    //         const data = await resp.json();
-    //         console.log(data)
-    //         setUsuarioRole(data.usuario.role)
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-
-    // }
+    
 
     //---------- Estados de los modales--------//
   const [openModal, setOpenModal] = useState(false);  
