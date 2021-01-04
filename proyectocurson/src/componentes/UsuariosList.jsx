@@ -1,6 +1,7 @@
 import React from 'react'
-import {FaUserMinus} from "react-icons/fa";
+import {FaUserAltSlash} from "react-icons/fa";
 import {FaUserCheck} from "react-icons/fa";
+import {FaUserCog} from "react-icons/fa";
 
 export default function UsuariosList({usuarios}) {
 
@@ -39,7 +40,7 @@ export default function UsuariosList({usuarios}) {
                             <tr key={usuario._id} className="text-center">
                                 <td>{`${usuario.nombre} ${usuario.apellido}`}</td>
                                 <td>{usuario.userName}</td>
-                                <td>{usuario.role}</td>
+                                <td>{usuario.role === 'ADMIN_ROLE'? 'Administrador' : 'Usuario'}</td>
                                 <td>
                                     {usuario.estado ? (
                                         <span className="text-success">Activo</span>
@@ -49,7 +50,7 @@ export default function UsuariosList({usuarios}) {
                                 </td>
                                 <td>
                                     {usuario.estado ? (
-                                        <FaUserMinus 
+                                        <FaUserAltSlash 
                                         className="icons-table icons-table__delete"
                                         onClick={async (e) => {
                                             let token = JSON.parse(localStorage.getItem("token"));
@@ -77,7 +78,7 @@ export default function UsuariosList({usuarios}) {
                                         />
                                     ) : (
                                         <FaUserCheck 
-                                        className="icons-table icons-table__delete"
+                                        className="icons-table icons_table_approve"
                                         onClick={ async(e) => {
                                             let token = JSON.parse(localStorage.getItem("token"));
                                             
@@ -100,6 +101,29 @@ export default function UsuariosList({usuarios}) {
                                         }}
                                         />
                                     )}
+                                    <FaUserCog 
+                                    className="icons-table icons_table_admin"
+                                    onClick={ async(e) => {
+                                        let token = JSON.parse(localStorage.getItem("token"));
+                                        
+                                        try {
+                                            // await fetch(`http://localhost:3005/usuarios/${usuario._id}`,{
+                                                await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${usuario._id}`,{
+                                                method: 'PUT',
+                                                body: JSON.stringify({
+                                                    role: "ADMIN_ROLE"
+                                                }),
+                                                headers: {
+                                                    "Content-type": "application/json; charset=UTF-8",
+                                                    token: `${token}`
+                                                },
+                                            })
+                                            alert(`Ahora ${usuario.userName} es un administrador!`)
+                                        } catch (error) {
+                                            console.warn(error)
+                                        }
+                                    }}
+                                    />
                                 </td>
                             </tr>
                             )
