@@ -14,7 +14,7 @@ export default function WelcomeMobile() {
                     Podrás encontrar gran variedad de cursos de diversas categorías, desde arte y música hasta ciencia y programación.</p>
                     <hr className="my-4"/>
                     <p className="font-weight-bold">Time to learn!</p>
-                    <Button variant="danger"><Link to="/cursos" className="text-white">Ver Cursos</Link></Button> <Button variant="dark">Registrarse</Button>
+                    <Button variant="danger"><Link to="/cursos" className="text-white">Ver Cursos</Link></Button>
 
                 </div>
             </Jumbotron>

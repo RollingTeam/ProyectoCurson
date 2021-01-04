@@ -143,7 +143,7 @@ export default function CursosPorCategoria() {
   };
 
   return (
-    <div>
+    <div id="curosPorCategoria">
       <div className="container mb-4">
         <br />
         <hr className="bg-gris" />
