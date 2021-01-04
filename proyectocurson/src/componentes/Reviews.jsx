@@ -3,6 +3,7 @@ import "../css/reviews.css";
 import ReviewList from "./ReviewList";
 import Review from "./Review";
 import md5 from "md5";
+import Spinner from 'react-bootstrap/Spinner'
 
 export default function Reviews() {
   const token = JSON.parse(localStorage.getItem("token")) || "";
@@ -145,7 +146,7 @@ export default function Reviews() {
         </div>
         <div className="container">
           <div className="row" id="reviewList">
-            {loading ? <h3>Loading...</h3> : <ReviewList data={data} />}
+            {loading ?  <Spinner animation="grow" variant="dark" className="mx-auto m-4" /> : <ReviewList data={data.datos} />}
           </div>
           {token && (
             <div className="row">

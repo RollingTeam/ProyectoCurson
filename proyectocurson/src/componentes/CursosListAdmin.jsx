@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getCursos } from "../helpers/Cursos";
 import { getCategoria } from "../helpers/Categorias";
+import Spinner from 'react-bootstrap/Spinner'
 
 export default function CursosListAdmin() {
   const [cat, setCat] = useState([]);
@@ -61,7 +62,7 @@ export default function CursosListAdmin() {
   return (
     <>
       {lista.loading ? (
-        <h2>Loading...</h2>
+        <Spinner animation="grow" variant="dark" className="mx-auto m-4" />
       ) : (
         <>
           <hr />
