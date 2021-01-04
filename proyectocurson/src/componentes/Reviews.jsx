@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../css/reviews.css";
 import ReviewList from "./ReviewList";
 import Review from "./Review";
+import md5 from "md5";
 
 export default function Reviews() {
-  const [data, setData] = useState({
-    datos: [],
-  });
-
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [visibilidad, setVisibilidad] = useState(false);
 
   const [reviewForm, setReviewForm] = useState({
@@ -17,9 +15,9 @@ export default function Reviews() {
       id: "",
       curso: "",
       user: "",
-      imgUser: "",
+      img: "",
       comentario: "",
-      fecha: "",
+      created_at: "",
       calificacion: "",
     },
   });
@@ -27,11 +25,21 @@ export default function Reviews() {
   const [nuevaReview, setNuevaReview] = useState(false);
 
   useEffect(() => {
-    getData();
+    getData()
+      .then((response) => setData(response))
+      .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    getData();
+    if (data.length > 0) {
+      setLoading(false);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    getData()
+      .then((response) => setData(response))
+      .catch((error) => console.log(error));
   }, [nuevaReview]);
 
   const showReview = () => {
@@ -55,98 +63,79 @@ export default function Reviews() {
     e.preventDefault();
     setReviewForm({
       form: {
-        id: "",
         curso: "",
         user: "",
-        imgUser: "",
+        img: "",
         comentario: "",
-        fecha: "",
+        created_at: "",
         calificacion: "",
       },
     });
   };
 
-  // const addReview = (e)=>{
-  //   e.preventDefault()
-  //   setData({
-  //     datos:[
-  //       ...data.datos,
-  //       reviewForm.form
-  //     ]}
-  //   )
-  //   cleanReview()
-  //   hiddenReview()
-  // }
+  const getUser = async () => {
+    let id = JSON.parse(localStorage.getItem("id"));
+    try {
+      const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+      const data = await resp.json();
+      console.log(data);
+      const hash = md5(data.usuario.email);
+      let imagen = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+      setReviewForm({
+        ...reviewForm,
+        form: {
+          user: data.usuario.nombre,
+          img: imagen,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setNuevaReview(true);
+    if (
+      reviewForm.form.comentario == "" ||
+      reviewForm.form.calificacion == "" ||
+      reviewForm.form.curso == ""
+    ) {
+      alert("Debes completar todos los Campos");
+    } else {
+      let token = JSON.parse(localStorage.getItem("token"));
+      getUser();
+      e.preventDefault();
+      try {
+        await fetch("http://localhost:3005/review", {
+          method: "POST",
+          body: JSON.stringify(reviewForm.form),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            token: `${token}`,
+          },
+        });
+      } catch (error) {
+        console.warn(error);
+      }
+      hiddenReview();
+      setNuevaReview(true);
+    }
+    console.log(nuevaReview)
+  };
+
+  const getData = async () => {
     try {
-      await fetch("http://localhost:3006/data", {
-        method: "POST",
-        body: JSON.stringify(reviewForm.form),
+      const resp = await fetch("http://localhost:3005/review", {
+        method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+      const data = await resp.json();
+      return data.reviews;
     } catch (error) {
-      console.warn(error);
+      return error;
     }
-    setNuevaReview(false);
-    hiddenReview();
   };
-  const getData = async () => {
-    const resp = await fetch("http://localhost:3006/data");
-    const data = await resp.json();
-    setData({
-      datos: data,
-    });
-    setLoading(false);
-  };
-  // const borrarReview=async()=>{
-  //   try {
-  //     await fetch(`http://localhost:3006/data/EBBBoZN`,{
-  //     method:'DELETE',
-  //     })
-  //   } catch (error) {
-  //   }
-  // }
-  // const getData = ()=>{
-  //   setTimeout(() => {
-  //     setData({
-  //       datos: [ ...data.datos,
-  //           {
-  //             "id": "01",
-  //             "curso": "Introducción al diseño UX",
-  //             "user": "Florencia Pistan",
-  //             "imgUser":"https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png",
-  //             "comentario": "Es un curso completo con informacion util para proyectos",
-  //             "fecha": "2020-10-06",
-  //             "calificacion": 5
-  //           },
-  //           {
-  //             "id": "02",
-  //             "curso": "Caligrafía inglesa de la A a la Z",
-  //             "user": "Gabriel Moreira",
-  //             "imgUser":"https://c7.uihere.com/files/536/216/964/technical-support-computer-icons-user-avatar-avatar.jpg",
-  //             "comentario": "Me parecio un curso super interesante y con informacion muy completa",
-  //             "fecha": "2020-09-06",
-  //             "calificacion": 4
-  //           },
-  //           {
-  //             "id": "03",
-  //             "curso": "Desarrollo Web Responsive HTML y CSS",
-  //             "user": "Rodrigo",
-  //             "imgUser":"https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png",
-  //             "comentario": "Estuvo muy bueno y el material para cada tema esta muy completo",
-  //             "fecha": "2020-08-05",
-  //             "calificacion": 3
-  //           }
-  //       ]
-  //     })
-  //     setLoading(false)
-  //   }, 3000);
-  // }
 
   return (
     <>
@@ -156,13 +145,18 @@ export default function Reviews() {
         </div>
         <div className="container">
           <div className="row" id="reviewList">
-            {loading ? <h3>Loading...</h3> : <ReviewList data={data.datos} />}
+            {loading ? <h3>Loading...</h3> : <ReviewList data={data} />}
           </div>
-          <div className="row">
-            <button className="btn btn-danger mx-auto" onClick={showReview}>
-              Nueva Review
-            </button>
-          </div>
+          {token && (
+            <div className="row">
+              <button
+                className="btn btn-danger mx-auto mt-3"
+                onClick={showReview}
+              >
+                Nueva Review
+              </button>
+            </div>
+          )}
           {visibilidad ? (
             <Review
               handleChange={handleChange}

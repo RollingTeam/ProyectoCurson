@@ -8,51 +8,9 @@ export default function Review({
   hiddenReview,
   cleanReview,
 }) {
-  // let fec;
-  // const getFecha = ()=>{
-  //     let dia= new Date().getDate()
-  //     let mes= new Date().getMonth()+1
-  //     let anio= new Date().getFullYear()
-  //     return fec =`${anio}-${mes}-${dia}`
-  // }
-
-  // useEffect(() => {
-  //     getFecha()
-  // })
-
   return (
     <div>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <div className="row mt-3">
-          <div className="col-md-5">
-            <div className="form-group d-flex justify-content-center">
-              <label className="color-rosa">Nombre:</label>
-            </div>
-            <div className="form-group d-flex justify-content-center">
-              <input
-                type="text"
-                className="input-review"
-                name="user"
-                onChange={handleChange}
-                value={formValues.user}
-              />
-            </div>
-          </div>
-          <div className="col-md-5">
-            <div className="form-group d-flex justify-content-center">
-              <label className="color-rosa">Fecha:</label>
-            </div>
-            <div className="form-group d-flex justify-content-center">
-              <input
-                type="date"
-                className="input-review"
-                name="fecha"
-                onChange={handleChange}
-                value={formValues.fecha}
-              />
-            </div>
-          </div>
-        </div>
         <div className="row">
           <div className="col-md-5">
             <div className="form-group d-flex justify-content-center">
