@@ -46,7 +46,7 @@ export default function CursosDestacados() {
   };
 
   return (
-    <div className="container-fluid my-5">
+    <div className="container-fluid my-5" id="destacados">
       <div className="bd-negro d-flex justify-content-center my-5">
         <label className="size-titulo">Cursos Destacados</label>
       </div>
