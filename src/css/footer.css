@@ -1,0 +1,13 @@
+*{
+    padding: 0px;
+    
+}
+.bg-negro{
+    background-color: black;
+}
+ul li{
+    list-style-type: none;
+}
+.estilo-icon{
+    margin: 5px;
+}

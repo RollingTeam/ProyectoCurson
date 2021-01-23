@@ -1,0 +1,17 @@
+/* BOTONES DE TODOS LOS CURSOS*/
+.btn-primary-curso{
+    padding: 0.3rem 1rem !important;
+    background-color: #E53253 !important;
+    color: #FFFFFF !important;
+    border: 1rem 1rem !important;
+}
+.btn-primary-curso:hover{
+    padding: 0.3rem 1rem !important;
+    background-color: #8D99AE !important;
+    color: #FFFFFF !important;
+    border: 1rem 1rem !important;
+}
+.boton{
+    background-color: #2B2D42 !important;
+    color: #4FB99F !important;
+}

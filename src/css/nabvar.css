@@ -1,0 +1,44 @@
+
+.navbar-flex{
+  display: flex;
+  justify-content: space-between;
+}
+/* Color Class */
+.bg-blanco{
+  background-color: #EDF2F4;
+}
+
+
+/* Nav Section */
+.p-s-logo{
+  margin-right: 10rem;
+  font-size: 1.60rem;
+}
+.p-s-logo:hover{
+  text-decoration: none;
+}
+.bd-oscuro{
+  border-bottom: 1px solid #2B2D42;
+}
+
+.nav-menuHamb:focus{
+  outline: none;
+}
+@media (min-width: 1199.98px) { 
+  .admin-login{
+      margin-left: 16rem;
+  }
+}
+.ocultarUser{
+  display:none
+}
+
+.logo{
+  width: 45%;
+  height: 45%;
+}
+
+.menu-usuario {
+  border-radius: 50%;
+}
+

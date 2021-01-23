@@ -1,6 +1,0 @@
-# ProyectoCurson
-Repositorio creado para el desarrollo en equipo de CursOn utilizando React Js y Bootstrap 4.5
-
-***Curson** es un sitio web que tiene como finalidad ser un nexo entre aquellos que tienen un curso para ofrecer y por otro lado, para quienes desean aprender algo nuevo sobre una especialidad.*
-
-Proyecto desarrollado por Belén, Florencia, Gabriel, Leandro y Rodrigo. Estudiantes de Full Stack Web Dev en RollingCode School, Argentina.
