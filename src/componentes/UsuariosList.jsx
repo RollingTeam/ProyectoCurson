@@ -57,22 +57,34 @@ export default function UsuariosList({ usuarios }) {
                                                     let valor = window.confirm(`¿Deseas suspender a ${usuario.userName}?`)
                                                     console.log(valor)
                                                     if (valor) {
-                                                        try {
-                                                            await fetch(
+                                                        if (
+                                                            usuario.role !== "ADMIN_ROLE" ||
+                                                            validarAdminUsers()
+                                                          ) {
+                                                            try {
+                                                              await fetch(
                                                                 // `http://localhost:3005/usuarios/${usuario._id}`,
                                                                 `https://afternoon-fjord-84174.herokuapp.com/usuarios/${usuario._id}`,
                                                                 {
-                                                                    method: "DELETE",
-                                                                    headers: {
-                                                                        "Content-type": "application/json; charset=UTF-8",
-                                                                        token: `${token}`
-                                                                    },
+                                                                  method: "DELETE",
+                                                                  headers: {
+                                                                    "Content-type":
+                                                                      "application/json; charset=UTF-8",
+                                                                    token: `${token}`,
+                                                                  },
                                                                 }
+                                                              );
+                                                              alert(
+                                                                "El usuario fue deshabilitado correctamente"
+                                                              );
+                                                            } catch (error) {
+                                                              console.warn(error);
+                                                            }
+                                                          } else {
+                                                            alert(
+                                                              "Al menos un usuario de tipo ADMIN debe estar habilitado"
                                                             );
-                                                            alert("El usuario fue eliminado correctamente");
-                                                        } catch (error) {
-                                                            console.warn(error);
-                                                        }
+                                                          }
                                                     }
                                                 }}
                                             />
