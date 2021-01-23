@@ -13,20 +13,20 @@ export default function PublicarCurso(props) {
   const [ingreso, setIngreso] = useState({
     token: "",
     id: "",
-});
+  });
 
- useEffect(() => {
+  useEffect(() => {
     if (ingreso.token.length > 0) {
       localStorage.setItem("id", JSON.stringify(ingreso.id));
-      
+
     }
   }, [ingreso]);
 
-  
-    
 
-    //---------- Estados de los modales--------//
-  const [openModal, setOpenModal] = useState(false);  
+
+
+  //---------- Estados de los modales--------//
+  const [openModal, setOpenModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openRegisterModal, setOpenRegisterModal] = useState(false);
 
@@ -47,14 +47,14 @@ export default function PublicarCurso(props) {
     setOpenLoginModal(false);
   };
 
-   const modalRegisterOpen = () =>{
-     setOpenLoginModal(false)
-     setOpenRegisterModal(true)
-     }
+  const modalRegisterOpen = () => {
+    setOpenLoginModal(false)
+    setOpenRegisterModal(true)
+  }
 
-     const modalRegisterClose = () =>{
-     setOpenRegisterModal(false)
-    }
+  const modalRegisterClose = () => {
+    setOpenRegisterModal(false)
+  }
 
   return (
     <div className="container my-5" id="mainPublicarContainer">
@@ -90,13 +90,13 @@ export default function PublicarCurso(props) {
                 Publicar Curso
               </Button>
             ) : (
-              <Button
-                className="btn cursonBtn ml-2 "
-                onClick={modalLoginOpen}
-              >
-                Log in
-              </Button>
-            )}
+                <Button
+                  className="btn cursonBtn ml-2 "
+                  onClick={modalLoginOpen}
+                >
+                  Log in
+                </Button>
+              )}
             {openLoginModal && (
               <Modal>
                 <LogIn

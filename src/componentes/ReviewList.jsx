@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/reviews.css";
-import { FaStar , FaRegStar } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 export default function ReviewList({ data }) {
   const [lista, setLista] = useState([]);
@@ -13,9 +13,9 @@ export default function ReviewList({ data }) {
       });
     }
     console.log(data)
-      lista = data.filter((r, index) => {
-        return index < 4;
-      });
+    lista = data.filter((r, index) => {
+      return index < 4;
+    });
     setLista(lista);
   }, [data]);
 
@@ -27,7 +27,7 @@ export default function ReviewList({ data }) {
             <div className="card card-multicolor">
               <div className="row no-gutters d-flex justify-content-center">
                 <div className="col-10 col-md-4 d-flex justify-content-center align-items-center">
-                  <img src={review.img} className="BadgesListItem__avatar mt-2" alt="..." />
+                  <img src={review.img} className="BadgesListItem__avatar mt-2" alt="avatar usuario" />
                 </div>
                 <div className="col-10 col-md-8">
                   <div className="card-body">
@@ -43,47 +43,47 @@ export default function ReviewList({ data }) {
                     </p>
                     <p className="card-text">
                       <span className="float-right">
-                          {review.calificacion===1 && 
+                        {review.calificacion === 1 &&
                           (<>
-                          <FaStar className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
+                            <FaStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
                           </>)}
-                          {review.calificacion===2 && 
+                        {review.calificacion === 2 &&
                           (<>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
                           </>)}
-                          {review.calificacion===3 && 
+                        {review.calificacion === 3 &&
                           (<>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
                           </>)}
-                          {review.calificacion===4 && 
+                        {review.calificacion === 4 &&
                           (<>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaRegStar  className="estilo-icon"/>
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaRegStar className="estilo-icon" />
                           </>)}
-                          {review.calificacion===5 && 
+                        {review.calificacion === 5 &&
                           (<>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
-                          <FaStar className="estilo-icon"/>
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
+                            <FaStar className="estilo-icon" />
                           </>)}
-                       </span> 
+                      </span>
                     </p>
                   </div>
                 </div>

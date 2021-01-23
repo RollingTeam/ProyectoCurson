@@ -21,7 +21,6 @@ export default function NcursoModal(props) {
         <div className="modal-content">
           <div className="modal-header">
             <img src={Logo} alt="logo-curson" className="logo-modal" />
-            {/* <h5 className="modal-title">Formulario de solicitud</h5> */}
             <button
               type="button"
               onClick={props.handleCloseModal}

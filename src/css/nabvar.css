@@ -20,29 +20,7 @@
 .bd-oscuro{
   border-bottom: 1px solid #2B2D42;
 }
-/* .item-nav-r:hover{
-  text-decoration: none;
-  color:#EF233C;
-}
-.item-nav-d:hover{
-  text-decoration: none;
-  color:#2B2D42;
-}
-.icon-login{
-  border-color: #8D99AE;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  color:#EF233C;
-  background-color: #FFFFFF;
-}
-.icon-login:focus{
-  outline: none;
-}
-.icon-login:hover{
-  text-decoration: none;
-  color: #8D99AE;
-} */
+
 .nav-menuHamb:focus{
   outline: none;
 }
