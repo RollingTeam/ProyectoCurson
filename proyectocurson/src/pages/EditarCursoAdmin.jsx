@@ -31,8 +31,8 @@ export default function EditarCursoAdmin(props) {
 
   const getDataId = async () => {
     try {
-      // const resp = await fetch(`http://localhost:3005/curso/${cursoId}`, {
-        const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
+      const resp = await fetch(`http://localhost:3005/curso/${cursoId}`, {
+        // const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -68,8 +68,8 @@ export default function EditarCursoAdmin(props) {
     e.preventDefault();
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      // await fetch(`http://localhost:3005/curso/${cursoId}`, {
-        await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
+      await fetch(`http://localhost:3005/curso/${cursoId}`, {
+        // await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
         method: "PUT",
         body: JSON.stringify(actualizado),
         headers: {
@@ -86,8 +86,8 @@ export default function EditarCursoAdmin(props) {
   const borrarCurso = async (e) => {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      // await fetch(`http://localhost:3005/curso/${cursoId}`, {
-        await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
+      await fetch(`http://localhost:3005/curso/${cursoId}`, {
+        // await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
         method: "DELETE",
         headers: {
           token: `${token}`,
@@ -103,8 +103,8 @@ export default function EditarCursoAdmin(props) {
     e.preventDefault();
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      // await fetch(`http://localhost:3005/curso/${cursoId}`, {
-        await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
+      await fetch(`http://localhost:3005/curso/${cursoId}`, {
+        // await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
         method: "PUT",
         body: JSON.stringify({
           estado: true,

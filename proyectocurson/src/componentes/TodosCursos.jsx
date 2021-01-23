@@ -48,8 +48,8 @@ export default function TodosCursos() {
       // envío los parámetros para la paginacion y defino el desde con el valor
       // del estado page
       const resp = await fetch(
-        // `http://localhost:3005/curso?limite=6&desde=${page}`,
-        `https://afternoon-fjord-84174.herokuapp.com/curso?limite=6&desde=${page}`,
+        `http://localhost:3005/curso?limite=6&desde=${page}`,
+        // `https://afternoon-fjord-84174.herokuapp.com/curso?limite=6&desde=${page}`,
         {
           method: "GET",
           headers: {

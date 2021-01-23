@@ -77,8 +77,8 @@ export default function Reviews() {
   const getUser = async () => {
     let id = JSON.parse(localStorage.getItem("id"));
     try {
-      // const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
-      const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
+      const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+      // const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
       const data = await resp.json();
       console.log(data);
       const hash = md5(data.usuario.email);
@@ -107,8 +107,8 @@ export default function Reviews() {
       getUser();
       e.preventDefault();
       try {
-        // await fetch("http://localhost:3005/review", {
-          await fetch("https://afternoon-fjord-84174.herokuapp.com/review", {
+        await fetch("http://localhost:3005/review", {
+          // await fetch("https://afternoon-fjord-84174.herokuapp.com/review", {
           method: "POST",
           body: JSON.stringify(reviewForm.form),
           headers: {
@@ -127,8 +127,8 @@ export default function Reviews() {
 
   const getData = async () => {
     try {
-      // const resp = await fetch("http://localhost:3005/review", {
-        const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/review", {
+      const resp = await fetch("http://localhost:3005/review", {
+        // const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/review", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

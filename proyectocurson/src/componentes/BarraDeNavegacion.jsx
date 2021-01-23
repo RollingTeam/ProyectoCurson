@@ -44,8 +44,8 @@ export default function BarraDeNavegacion(props) {
     const consultarRole = async() => {
         let id = JSON.parse(localStorage.getItem('id'))
         try {
-            // const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
-            const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
+            const resp = await fetch(`http://localhost:3005/usuarios/${id}`);
+            // const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`);
             const data = await resp.json();
             console.log(data)
             setUsuarioRole(data.usuario.role)

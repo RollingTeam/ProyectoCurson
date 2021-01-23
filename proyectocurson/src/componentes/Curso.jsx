@@ -18,8 +18,8 @@ export default function Curso({_id}) {
 
  const getDataId = async () => {
   try {
-    // const resp = await fetch(`http://localhost:3005/curso/${_id}`,{
-      const resp = await fetch(` https://afternoon-fjord-84174.herokuapp.com/curso/${_id}`,{
+    const resp = await fetch(`http://localhost:3005/curso/${_id}`,{
+      // const resp = await fetch(` https://afternoon-fjord-84174.herokuapp.com/curso/${_id}`,{
       method: 'GET',
       headers:{
         "Content-type": "application/json; charset=UTF-8"

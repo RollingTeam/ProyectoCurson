@@ -21,8 +21,8 @@ export default function ModalVerDetalleCurso(props) {
   });
   const getDataId = async () => {
     try {
-      // const resp = await fetch(`http://localhost:3005/curso/${cursoId}`,{
-        const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`,{
+      const resp = await fetch(`http://localhost:3005/curso/${cursoId}`,{
+        // const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`,{
         method: 'GET',
         headers:{
           "Content-type": "application/json; charset=UTF-8"

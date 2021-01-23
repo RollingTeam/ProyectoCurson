@@ -12,8 +12,8 @@ export default function EditarCategoriaAdmin(props) {
   const getDataId = async () => {
     try {
       const resp = await fetch(
-        // `http://localhost:3005/categoria/${categoriaId}`,
-        `https://afternoon-fjord-84174.herokuapp.com/categoria/${categoriaId}`,
+        `http://localhost:3005/categoria/${categoriaId}`,
+        // `https://afternoon-fjord-84174.herokuapp.com/categoria/${categoriaId}`,
         {
           method: "GET",
           headers: {
@@ -48,8 +48,8 @@ export default function EditarCategoriaAdmin(props) {
     e.preventDefault();
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      // await fetch(`http://localhost:3005/categoria/${categoriaId}`, {
-        await fetch(`https://afternoon-fjord-84174.herokuapp.com/categoria/${categoriaId}`, {
+      await fetch(`http://localhost:3005/categoria/${categoriaId}`, {
+        // await fetch(`https://afternoon-fjord-84174.herokuapp.com/categoria/${categoriaId}`, {
         method: "PUT",
         body: JSON.stringify(actualizada),
         headers: {
@@ -67,8 +67,8 @@ export default function EditarCategoriaAdmin(props) {
     e.preventDefault();
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      // await fetch(`http://localhost:3005/categoria/${categoriaId}`, {
-        await fetch(`https://afternoon-fjord-84174.herokuapp.com/categoria/${categoriaId}`, {
+      await fetch(`http://localhost:3005/categoria/${categoriaId}`, {
+        // await fetch(`https://afternoon-fjord-84174.herokuapp.com/categoria/${categoriaId}`, {
         method: "PUT",
         body: JSON.stringify({
           estado: true,
