@@ -5,15 +5,18 @@ import { FaUserCog } from "react-icons/fa";
 
 export default function UsuariosList({ usuarios }) {
   const validarAdminUsers = () => {
+      console.log("entre a la funcion de validar")
     let admin = 0;
     for (let i = 0; i < usuarios.length; i++) {
-      if (usuarios[i].role === "ADMIN_ROLE") {
+      if (usuarios[i].role === "ADMIN_ROLE" && usuarios[i].estado === true) {
         admin += 1;
       }
     }
     if (admin > 1) {
+        console.log("vine por el if")
       return true;
     } else {
+        console.log("vine por el else")
       return false;
     }
   };
