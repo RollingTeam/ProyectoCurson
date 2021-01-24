@@ -46,8 +46,8 @@ export default function CursosPorCategoria() {
 
   useEffect(() => {
     getCategoria()
-    .then((response) => setCat(response))
-    .catch((error) => console.log(error));
+      .then((response) => setCat(response))
+      .catch((error) => console.log(error));
     if (catValue !== "") {
       getCursosXCategoria(catValue, page);
     } else {
@@ -127,7 +127,7 @@ export default function CursosPorCategoria() {
         }
       );
       const data = await resp.json();
-        console.log(data.cursos)
+      console.log(data.cursos)
       //Almaceno en el estado lista los datos obtenidos
       return {
         datos: data.cursos,
@@ -179,15 +179,15 @@ export default function CursosPorCategoria() {
                 return <CursoInfo _id={curso._id} />;
               })}
             </div>
-            <div className="row text-center mb-4 display-flex justify-content-center my-2">
-              <button className="btn btn-dark mr-2" onClick={despaginando}>
-                <i className="fa fa-angle-double-left" aria-hidden="true"></i>
-              </button>
-              <button className="btn btn-dark" onClick={paginando}>
-                <i className="fa fa-angle-double-right" aria-hidden="true"></i>
-              </button>
-            </div>
           </div>
+        </div>
+        <div className="container mt-4 d-flex justify-content-center">
+          <button className="btn btn-dark mr-2" onClick={despaginando}>
+            <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+          </button>
+          <button className="btn btn-dark" onClick={paginando}>
+            <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>

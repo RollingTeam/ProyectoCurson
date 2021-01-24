@@ -58,7 +58,7 @@ export default function TodosCursos() {
         }
       );
       const data = await resp.json();
-  
+
       //Almaceno en el estado lista los datos obtenidos
       return {
         datos: data.cursos,
@@ -86,13 +86,13 @@ export default function TodosCursos() {
             return <CursoInfo _id={curso._id} />;
           })}
         </div>
-        <div className="container d-flex justify-content-center">
-        <button className="btn btn-dark mr-2" onClick={despaginando}>
-          <i className="fa fa-angle-double-left" aria-hidden="true"></i>
-        </button>
-        <button className="btn btn-dark" onClick={paginando}>
-          <i className="fa fa-angle-double-right" aria-hidden="true"></i>
-        </button>
+        <div className="container mt-4 d-flex justify-content-center">
+          <button className="btn btn-dark mr-2" onClick={despaginando}>
+            <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+          </button>
+          <button className="btn btn-dark" onClick={paginando}>
+            <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
