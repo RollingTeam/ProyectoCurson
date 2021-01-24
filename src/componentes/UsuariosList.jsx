@@ -1,7 +1,7 @@
 import React from 'react'
-import { FaUserAltSlash } from "react-icons/fa";
-import { FaUserCheck } from "react-icons/fa";
-import { FaUserCog } from "react-icons/fa";
+import { ImUserMinus } from "react-icons/im";
+import { ImUserCheck } from "react-icons/im";
+import { FaUserShield } from "react-icons/fa";
 
 export default function UsuariosList({ usuarios }) {
 
@@ -50,7 +50,7 @@ export default function UsuariosList({ usuarios }) {
                                     </td>
                                     <td>
                                         {usuario.estado ? (
-                                            <FaUserAltSlash
+                                            <ImUserMinus
                                                 className="icons-table icons-table__delete"
                                                 onClick={async (e) => {
                                                     let token = JSON.parse(localStorage.getItem("token"));
@@ -77,7 +77,7 @@ export default function UsuariosList({ usuarios }) {
                                                 }}
                                             />
                                         ) : (
-                                                <FaUserCheck
+                                                <ImUserCheck
                                                     className="icons-table icons_table_approve"
                                                     onClick={async (e) => {
                                                         let token = JSON.parse(localStorage.getItem("token"));
@@ -101,7 +101,7 @@ export default function UsuariosList({ usuarios }) {
                                                     }}
                                                 />
                                             )}
-                                        <FaUserCog
+                                        <FaUserShield
                                             className="icons-table icons_table_admin"
                                             onClick={async (e) => {
                                                 let token = JSON.parse(localStorage.getItem("token"));
