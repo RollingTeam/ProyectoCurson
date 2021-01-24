@@ -27,7 +27,7 @@ export default function ReviewList({ data }) {
             <div className="card card-multicolor">
               <div className="row no-gutters d-flex justify-content-center">
                 <div className="col-10 col-md-4 d-flex justify-content-center align-items-center">
-                  <img src={review.img} className="BadgesListItem__avatar mt-2" alt="avatar usuario" />
+                  <img src={review.img} className="BadgesListItem__avatar ml-2 mt-2 img-fluid" alt="avatar usuario" />
                 </div>
                 <div className="col-10 col-md-8">
                   <div className="card-body">
