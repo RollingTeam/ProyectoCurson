@@ -5,7 +5,6 @@ import { FaUserCog } from "react-icons/fa";
 
 export default function UsuariosList({ usuarios }) {
   const validarAdminUsers = () => {
-      console.log("entre a la funcion de validar")
     let admin = 0;
     for (let i = 0; i < usuarios.length; i++) {
       if (usuarios[i].role === "ADMIN_ROLE" && usuarios[i].estado === true) {
@@ -13,10 +12,8 @@ export default function UsuariosList({ usuarios }) {
       }
     }
     if (admin > 1) {
-        console.log("vine por el if")
       return true;
     } else {
-        console.log("vine por el else")
       return false;
     }
   };
@@ -66,7 +63,6 @@ export default function UsuariosList({ usuarios }) {
                           let valor = window.confirm(
                             `¿Deseas suspender a ${usuario.userName}?`
                           );
-                          console.log(valor);
                           if (valor) {
                             if (
                               usuario.role !== "ADMIN_ROLE" ||
