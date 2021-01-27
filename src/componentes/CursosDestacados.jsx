@@ -16,8 +16,6 @@ export default function CursosDestacados() {
     getCursos();
   }, [page]);
 
-  console.log(lista.datos)
-
   const getCursos = async (page) => {
     try {
       const resp = await fetch(
