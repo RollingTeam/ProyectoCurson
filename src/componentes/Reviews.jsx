@@ -6,6 +6,7 @@ import md5 from "md5";
 import Spinner from 'react-bootstrap/Spinner'
 
 export default function Reviews({ingreso}) {
+  const token = JSON.parse(localStorage.getItem("token")) || "";
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [visibilidad, setVisibilidad] = useState(false);
@@ -150,7 +151,7 @@ export default function Reviews({ingreso}) {
           <div className="row" id="reviewList">
             {loading ?  <Spinner animation="grow" variant="dark" className="mx-auto m-4" /> : <ReviewList data={data} />}
           </div>
-          {ingreso.token && (
+          {((ingreso.token || token) && !visibilidad) && (
             <div className="row">
               <button
                 className="btn btn-danger mx-auto mt-3"
