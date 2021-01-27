@@ -12,7 +12,6 @@ export default function ReviewList({ data }) {
         return b.created_at - a.created_at
       });
     }
-    console.log(data)
     lista = data.filter((r, index) => {
       return index < 4;
     });
@@ -22,9 +21,9 @@ export default function ReviewList({ data }) {
   return (
     <>
       {lista.map((review) => {
-        return (
+        return(
           <div key={review.id} className="col-md-6 mt-3">
-            <div className="card card-multicolor">
+            <div key={review.id} className="card card-multicolor">
               <div className="row no-gutters d-flex justify-content-center">
                 <div className="col-10 col-md-4 d-flex justify-content-center align-items-center">
                   <img src={review.img} className="BadgesListItem__avatar mt-2" alt="avatar usuario" />

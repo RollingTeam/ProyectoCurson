@@ -11,7 +11,7 @@ export default function Review({
   return (
     <div>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <div className="row">
+        <div className="row mt-2">
           <div className="col-md-5">
             <div className="form-group d-flex justify-content-center">
               <label className="color-rosa">Nombre del Curso:</label>
