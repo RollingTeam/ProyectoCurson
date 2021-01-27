@@ -6,8 +6,6 @@ import md5 from "md5";
 import Spinner from 'react-bootstrap/Spinner'
 
 export default function Reviews({ingreso}) {
-
-  const token = JSON.parse(localStorage.getItem("token")) || "";
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [visibilidad, setVisibilidad] = useState(false);
