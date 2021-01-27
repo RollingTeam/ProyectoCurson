@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import BarraDeNavegacion from '../componentes/BarraDeNavegacion'
 import CursosDestacados from '../componentes/CursosDestacados'
 import Categorias from '../componentes/Categorias'
@@ -9,15 +9,19 @@ import WelcomeCarousel from '../componentes/WelcomeCarousel'
 import WelcomeMobile from '../componentes/WelcomeMobile'
 
 export default function LandingPage() {
+        const [ingreso, setIngreso] = useState({
+        token: "",
+        id: "",
+    });
     return (
         <>
-            <BarraDeNavegacion />
-            <WelcomeCarousel />
+            <BarraDeNavegacion ingreso={ingreso} setIngreso={setIngreso}/>
+            <WelcomeCarousel/>
             <WelcomeMobile />
             <CursosDestacados />
             <Categorias />
             <PublicarCurso />
-            <Reviews />
+            <Reviews ingreso={ingreso}/>
             <Footer />
         </>
     )
