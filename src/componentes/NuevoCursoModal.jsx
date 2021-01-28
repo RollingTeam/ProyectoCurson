@@ -194,7 +194,7 @@ export default function NcursoModal(props) {
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="btn cursonBtn">
+                <button type="submit" className="btn btn-danger">
                   Enviar solicitud
                 </button>
               </div>

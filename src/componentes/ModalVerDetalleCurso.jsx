@@ -22,9 +22,9 @@ export default function ModalVerDetalleCurso(props) {
   const getDataId = async () => {
     try {
       // const resp = await fetch(`http://localhost:3005/curso/${cursoId}`,{
-        const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`,{
+      const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/curso/${cursoId}`, {
         method: 'GET',
-        headers:{
+        headers: {
           "Content-type": "application/json; charset=UTF-8"
         },
       });
@@ -86,12 +86,12 @@ export default function ModalVerDetalleCurso(props) {
               <div className="modal-footer justify-content-center">
                 <button
                   type="button"
-                  className="btn btn-primary-curso"
+                  className="btn btn-danger"
                   data-dismiss="modal"
                 >
                   Inscribirse
                 </button>
-                <button type="button" className="btn btn-primary-curso">
+                <button type="button" className="btn btn-danger">
                   Agregar a mis favoritos
                 </button>
               </div>

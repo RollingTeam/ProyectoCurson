@@ -86,12 +86,12 @@ export default function PublicarCurso(props) {
         <div className="row text-center mb-4 ">
           <div className="col ">
             {token ? (
-              <Button className="btn cursonBtn" onClick={handleOpenModal}>
+              <Button className="btn btn-danger" onClick={handleOpenModal}>
                 Publicar Curso
               </Button>
             ) : (
                 <Button
-                  className="btn cursonBtn ml-2 "
+                  className="btn btn-danger ml-2 "
                   onClick={modalLoginOpen}
                 >
                   Log in

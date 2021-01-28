@@ -62,7 +62,7 @@ export default function Curso({ _id }) {
           <p className="card-text">{cursoForm.form.descripcion}</p>
           <Link
             to={`${cursoForm.form._id}`}
-            className="btn btn-primary-curso float-right text-decoration-none"
+            className="btn btn-danger float-right text-decoration-none"
           >
             Ver Mas
           </Link>

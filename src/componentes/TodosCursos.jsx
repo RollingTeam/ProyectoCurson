@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CursoInfo from "./CursoInfo";
 import "../css/cursos.css";
-import "../css/botones.css";
 
 export default function TodosCursos() {
   const [page, setPage] = useState(0);

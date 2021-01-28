@@ -9,7 +9,7 @@ export default function ContenidoDestacado() {
                     <h5 className="card-title"><strong>Este es un curso dedico a la manufactura de telas rupestres siempre y cuando</strong></h5>
                     <span className="badge badge-primary">Primary</span>
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" className="btn-primary-curso float-right">Ver Más</button>
+                    <button type="button" className="btn btn-danger float-right">Ver Más</button>
                 </div>
             </div>
             </div>
