@@ -11,15 +11,9 @@ import Button from 'react-bootstrap/Button'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import {Link} from 'react-router-dom'
 
-export default function BarraDeNavegacion(props) {
+export default function BarraDeNavegacion({ingreso, setIngreso}) {
 
     const token = JSON.parse(localStorage.getItem("token")) || "";
-
-    const [ingreso, setIngreso] = useState({
-        token: "",
-        id: "",
-    });
-
     useEffect(() => {
         if (ingreso.token.length > 0) {
           localStorage.setItem("id", JSON.stringify(ingreso.id));

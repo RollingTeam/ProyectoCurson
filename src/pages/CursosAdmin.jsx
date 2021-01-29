@@ -1,5 +1,5 @@
 import React from "react";
-import CursosInfo from "../componentes/CursosInfo";
+// import CursosInfo from "../componentes/CursosInfo";
 import CursosListAdmin from "../componentes/CursosListAdmin";
 import NavbarAdminHome from "../componentes/NavbarAdminHome";
 

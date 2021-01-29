@@ -62,64 +62,64 @@ export default function CursosListAdmin() {
   return (
     <>
       {lista.loading ? (
-        <Spinner animation="grow" variant="dark" className="mx-auto m-4" />
+        <Spinner animation="grow" variant="dark" className="mx-auto d-flex justify-content-center align-item-center m-4" />
       ) : (
-        <>
-          <hr />
-          <div className="row mt-4">
-            <div className="col">
-              <h3>Lista de Cursos</h3>
+          <>
+            <hr />
+            <div className="row mt-4">
+              <div className="col">
+                <h3>Lista de Cursos</h3>
+              </div>
             </div>
-          </div>
-          <div className="row mt-4 text-center d-flex justify-content-center">
-            <table className="table">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col">Curso</th>
-                  <th scope="col">Categoria</th>
-                  <th scope="col">Nivel</th>
-                  <th scope="col">Cupo</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {lista.datos.map((curso) => {
-                  return (
-                    <tr key={curso._id} className="text-center">
-                      <th scope="row">{curso.nombre}</th>
-                      <td>{curso.categoria.nombre}</td>
-                      <th>{curso.nivel}</th>
-                      <td>{curso.cupo}</td>
-                      <td>
-                        {curso.estado ? (
-                          <span className="text-success">Activo</span>
-                        ) : (
-                          <span className="text-danger">Inactivo</span>
-                        )}
-                      </td>
-                      <td>
-                        <Link
-                          to={`cursoDetails/${curso._id}`}
-                          className="btn btn-dark mx-1 text-decoration-none"
-                        >
-                          Ver/Editar
+            <div className="row mt-4 text-center d-flex justify-content-center">
+              <table className="table">
+                <thead className="thead-dark">
+                  <tr>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Cupo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {lista.datos.map((curso) => {
+                    return (
+                      <tr key={curso._id} className="text-center">
+                        <th scope="row">{curso.nombre}</th>
+                        <td>{curso.categoria.nombre}</td>
+                        <th>{curso.nivel}</th>
+                        <td>{curso.cupo}</td>
+                        <td>
+                          {curso.estado ? (
+                            <span className="text-success">Activo</span>
+                          ) : (
+                              <span className="text-danger">Inactivo</span>
+                            )}
+                        </td>
+                        <td>
+                          <Link
+                            to={`cursoDetails/${curso._id}`}
+                            className="btn btn-dark mx-1 text-decoration-none"
+                          >
+                            Ver/Editar
                         </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <button className="btn btn-dark mr-2" onClick={despaginando}>
-              <i className="fa fa-angle-double-left" aria-hidden="true"></i>
-            </button>
-            <button className="btn btn-dark" onClick={paginando}>
-              <i className="fa fa-angle-double-right" aria-hidden="true"></i>
-            </button>
-          </div>
-        </>
-      )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <button className="btn btn-dark mr-2" onClick={despaginando}>
+                <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+              </button>
+              <button className="btn btn-dark" onClick={paginando}>
+                <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </>
+        )}
     </>
   );
 }
