@@ -1,18 +1,100 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Logo from "../img/logo-navbar.png";
 
 import "../css/modal.css";
 
 export default function NcursoModal(props) {
-  const { register, errors, handleSubmit } = useForm();
+  const [solicitudForm, setSolicitudForm] = useState({
+    form: {
+      nombre: "",
+      descripcion: "",
+      categoria: "",
+      nivel: "",
+      cupo: "",
+      duracion: "",
+      img: "",
+      contacto: "",
+    },
+  });
 
+  const { register, errors} = useForm();
   const [NuevoCurso, setNuevoCurso] = useState([]);
+  const [cat, setCat] = useState([]);
+  const [activeCat, setActiveCat] = useState([]);
+  
+  useEffect(() => {
+    getCategoria();
+  }, []);
+
+  useEffect(() => {
+    let categorias = cat.filter((c) => {
+      return c.estado === true;
+    });
+    setActiveCat(categorias);
+  }, [cat]);
 
   const onSubmit = (data, e) => {
     console.log(data);
     e.target.reset();
     setNuevoCurso([...NuevoCurso, data]);
+  };
+
+  const handleChange = (e) => {
+    setSolicitudForm({
+      form: {
+        ...solicitudForm.form,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  const getCategoria = async () => {
+    try {
+      // const resp = await fetch("http://localhost:3005/categoria", {
+        const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/categoria", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      const data = await resp.json();
+      setCat(data.categorias);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    if (
+      solicitudForm.form.nombre == "" ||
+      solicitudForm.form.descripcion == "" ||
+      solicitudForm.form.cupo == "" ||
+      solicitudForm.form.nivel == "" ||
+      solicitudForm.form.contacto == "" ||
+      solicitudForm.form.duracion == "" ||
+      solicitudForm.form.img==""
+    ) {
+      alert("Debes completar todos los Campos");
+    } else {
+      let token = JSON.parse(localStorage.getItem("token"));
+      e.preventDefault();
+      try {
+        // const resp = await fetch("http://localhost:3005/solicitud", {
+          const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/solicitud", {
+          method: "POST",
+          body: JSON.stringify(solicitudForm.form),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            token: `${token}`,
+          },
+        });
+        const data = await resp.json();
+        console.log(data)
+      } catch (error) {
+        console.warn(error);
+      }
+    }
   };
 
   return (
@@ -32,14 +114,17 @@ export default function NcursoModal(props) {
           </div>
 
           <div className="modal-body">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <input
-                  name="nombreCurso"
+                  name="nombre"
                   type="text"
                   className="form-control"
-                  id="nombreCursoInput"
-                  placeholder="¿Nombre del curso?"
+                  placeholder="Nombre del curso"
+                  onChange={handleChange}
+                  value={solicitudForm.form.nombre}
+                  required
+                  autoComplete="off"
                   ref={register({
                     required: {
                       value: true,
@@ -56,11 +141,12 @@ export default function NcursoModal(props) {
 
               <div className="form-group">
                 <textarea
-                  name="contenidoCurso"
-                  id="contenidoCursoInput"
+                  name="descripcion"
                   className="form-control"
                   rows="3"
                   placeholder="¿De que se trata el curso?"
+                  onChange={handleChange}
+                  value={solicitudForm.form.descripcion}
                   ref={register({
                     required: {
                       value: true,
@@ -68,20 +154,21 @@ export default function NcursoModal(props) {
                     },
                   })}
                 ></textarea>
-                {errors.contenidoCurso && (
+                {errors.descripcion && (
                   <span className="text-danger text-small d-block mb-2">
-                    {errors.contenidoCurso.message}
+                    {errors.descripcion.message}
                   </span>
                 )}
               </div>
 
               <div className="form-group">
                 <input
-                  name="duracionCurso"
+                  name="duracion"
                   type="number"
                   className="form-control"
-                  id="duracionCursoInput"
                   placeholder="Duración (horas)"
+                  onChange={handleChange}
+                  value={solicitudForm.form.duracion}
                   ref={register({
                     required: {
                       value: true,
@@ -89,20 +176,21 @@ export default function NcursoModal(props) {
                     },
                   })}
                 />
-                {errors.duracionCurso && (
+                {errors.duracion && (
                   <span className="text-danger text-small d-block mb-2">
-                    {errors.duracionCurso.message}
+                    {errors.duracion.message}
                   </span>
                 )}
               </div>
 
               <div className="form-group">
                 <input
-                  name="cuposCurso"
+                  name="cupo"
                   type="number"
                   className="form-control"
-                  id="cuposCursoInput"
                   placeholder="Cupo máximo"
+                  onChange={handleChange}
+                  value={solicitudForm.form.cupo}
                   ref={register({
                     required: {
                       value: true,
@@ -110,9 +198,9 @@ export default function NcursoModal(props) {
                     },
                   })}
                 />
-                {errors.cuposCurso && (
+                {errors.cupo && (
                   <span className="text-danger text-small d-block mb-2">
-                    {errors.cuposCurso.message}
+                    {errors.cupo.message}
                   </span>
                 )}
               </div>
@@ -120,20 +208,19 @@ export default function NcursoModal(props) {
               <div className="form-group">
                 <label>Categoría del curso</label>
                 <select
-                  name="categoriaCurso"
+                  name="categoria"
                   ref={register}
                   className="form-control"
-                  id="categoriaCursoInput"
+                  onChange={handleChange}
+                  value={solicitudForm.form.categoria._id}
                 >
-                  <option>Tecnología</option>
-                  <option>Hogar</option>
-                  <option>Arte</option>
-                  <option>Salud</option>
-                  <option>Marketing</option>
+                   {activeCat.map((cat) => {
+                      return <option value={cat._id}>{cat.nombre}</option>;
+                    })}
                 </select>
-                {errors.categoriaCurso && (
+                {errors.categoria && (
                   <span className="text-danger text-small d-block mb-2">
-                    {errors.categoriaCurso.message}
+                    {errors.categoria.message}
                   </span>
                 )}
               </div>
@@ -141,7 +228,9 @@ export default function NcursoModal(props) {
               <div className="form-group">
                 <label>Nivel del Curso</label>
                 <select
-                  name="nivelCurso"
+                  name="nivel"
+                  onChange={handleChange}
+                  value={solicitudForm.form.nivel}
                   ref={register({
                     required: {
                       value: true,
@@ -149,15 +238,14 @@ export default function NcursoModal(props) {
                     },
                   })}
                   className="form-control"
-                  id="dificultadCursoInput"
                 >
-                  <option>Principiante</option>
+                  <option>Basico</option>
                   <option>Intermedio</option>
                   <option>Avanzado</option>
                 </select>
-                {errors.nivelCurso && (
+                {errors.nivel && (
                   <span className="text-danger text-small d-block mb-2">
-                    {errors.nivelCurso.message}
+                    {errors.nivel.message}
                   </span>
                 )}
               </div>
@@ -166,10 +254,12 @@ export default function NcursoModal(props) {
                 <label>Imagen de portada del curso:</label>
 
                 <input
-                  name="imagenCurso"
-                  type="text"
+                  name="img"
+                  type="url"
                   className="form-control"
-                  id="imagenCursoInput"
+                  onChange={handleChange}
+                  value={solicitudForm.form.img}
+                  autoComplete="off"
                   placeholder="Ingrese la URL de la imagen"
                   ref={register({
                     required: {
@@ -179,9 +269,35 @@ export default function NcursoModal(props) {
                   })}
                 />
 
-                {errors.imagenCurso && (
+                {errors.img && (
                   <span className="text-danger text-small d-block mb-2">
-                    {errors.imagenCurso.message}
+                    {errors.img.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="form-group">
+                <label>Contacto del curso:</label>
+
+                <input
+                  name="contacto"
+                  type="url"
+                  className="form-control"
+                  placeholder="Contacto"
+                  onChange={handleChange}
+                  value={solicitudForm.form.contacto}
+                  autoComplete="off"
+                  ref={register({
+                    required: {
+                      value: true,
+                      message: "Campo obligatorio",
+                    },
+                  })}
+                />
+
+                {errors.contacto && (
+                  <span className="text-danger text-small d-block mb-2">
+                    {errors.contacto.message}
                   </span>
                 )}
               </div>
