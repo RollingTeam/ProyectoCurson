@@ -11,6 +11,8 @@ import LandingPage from '../pages/LandingPage'
 import FormNuevaCategoriaAdmin from "../pages/FormNuevaCategoriaAdmin";
 import TablaCategoriasAdmin from "../pages/TablaCategoriasAdmin";
 import EditarCategoriaAdmin from "../pages/EditarCategoriaAdmin";
+import EditarSolicitud from "../pages/EditarSolicitud";
+import TablaSolicitudesAdmin from "../pages/TablaSolicitudesAdmin";
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
         <Route exact path="/admin/nuevaCategoria" component={FormNuevaCategoriaAdmin} />
         <Route exact path="/admin/categoriaDetails/:categoriaId" component={EditarCategoriaAdmin} />
         <Route exact path="/cursos/:cursoId" component={ModalVerDetalleCurso} />
+        <Route exact path="/admin/solicitud/:solicitudId" component={EditarSolicitud} />
+        <Route exact path="/admin/solicitudes" component={TablaSolicitudesAdmin} />
         <Route component={Error404} />
       </Switch>
     </BrowserRouter>

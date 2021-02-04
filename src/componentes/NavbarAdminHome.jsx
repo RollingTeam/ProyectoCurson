@@ -27,7 +27,7 @@ export default function NavbarAdminHome() {
                             <NavDropdown.Item className="text-style" href="/admin/nuevaCategoria">Nueva Categoria</NavDropdown.Item>
                             <NavDropdown.Item className="text-style" href="/admin/categorias">Ver Categorias</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className="text-style" href="#">Solicitudes</Nav.Link>
+                        <Nav.Link className="text-style" href="/admin/solicitudes">Solicitudes</Nav.Link>
                     </Nav>
                     <UserMenu />
                 </Navbar.Collapse>
