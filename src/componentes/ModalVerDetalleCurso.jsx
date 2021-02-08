@@ -41,6 +41,43 @@ export default function ModalVerDetalleCurso(props) {
     getDataId();
   }, []);
 
+  const agregarAFav = async()=>{
+    const id = JSON.parse(localStorage.getItem("id"));
+    const token = JSON.parse(localStorage.getItem("token")) || "";
+    if(id){  
+      try {
+        const resp = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`, {
+          method: 'GET',
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          },
+        });
+        const dataUser = await resp.json();
+        // await fetch(`http://localhost:3005/usuarios/${id}`,{
+        await fetch(
+          `https://afternoon-fjord-84174.herokuapp.com/usuarios/${id}`,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              misFavoritos: [...dataUser.usuario.misFavoritos,
+              cursoId]
+            }),
+            headers: {
+              "Content-type":
+                "application/json; charset=UTF-8",
+                token: `${token}`,
+            },
+          }
+        );
+        alert(`El curso fue agregado a Favoritos`);
+      } catch (error) {
+        console.warn(error);
+      }
+    }else{
+      alert("Necesitas Iniciar Sesion para guardar en Favoritos")
+    }
+  }
+
   return (
     <Modal>
       <div className="Modal">
@@ -84,14 +121,7 @@ export default function ModalVerDetalleCurso(props) {
                 </div>
               </div>
               <div className="modal-footer justify-content-center">
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Inscribirse
-                </button>
-                <button type="button" className="btn btn-danger">
+                <button type="button" className="btn btn-danger" onClick={agregarAFav}>
                   Agregar a mis favoritos
                 </button>
               </div>
