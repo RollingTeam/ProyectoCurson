@@ -1,13 +1,13 @@
-import React, { useState }from 'react'
+import React, { useState } from 'react'
 import Logo from "../img/logo-navbar.png"
 import Alert from 'react-bootstrap/Alert'
 
-export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) {
+export default function LogIn({ modalRegisterOpen, modalLoginClose, setIngreso }) {
 
     const [usuario, setUsuario] = useState({
-        credenciales:{
-        email:"",
-        password:""
+        credenciales: {
+            email: "",
+            password: ""
         }
     })
 
@@ -20,9 +20,9 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) 
 
     const handleChangeLogin = (e) => {
         setUsuario({
-        credenciales:{
-            ...usuario.credenciales,
-            [e.target.name] : e.target.value
+            credenciales: {
+                ...usuario.credenciales,
+                [e.target.name]: e.target.value
             }
         });
     };
@@ -37,26 +37,26 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) 
 
         try {
             // const resp = await fetch("http://localhost:3005/login", {
-                const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/login", {
+            const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/login", {
                 method: "POST",
                 body: JSON.stringify(usuario.credenciales),
                 headers: {
-                "Content-type": "application/json; charset=UTF-8",
+                    "Content-type": "application/json; charset=UTF-8",
                 },
             });
 
             const data = await resp.json()
 
-            if(data.ok){
+            if (data.ok) {
                 setLogin({
                     token: data.token,
                     error: null,
                     ok: true,
-                    loading: false,  
+                    loading: false,
                 });
-                
+
                 localStorage.setItem("token", JSON.stringify(data.token));
-                
+
                 setIngreso({
                     token: JSON.parse(localStorage.getItem('token')),
                     id: data.usuario._id
@@ -70,7 +70,7 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) 
                     error: data.err.message,
                     ok: false,
                     loading: false,
-                  });
+                });
             }
         } catch (error) {
             console.warn(error)
@@ -85,29 +85,29 @@ export default function LogIn({modalRegisterOpen, modalLoginClose, setIngreso}) 
                     <div className="modal-dialog">
                         <div className="modal-content text-center">
                             <div className="modal-header">
-                                <img src={Logo} alt="logo-curson" className="logo-modal"/>
+                                <img src={Logo} alt="logo-curson" className="logo-modal" />
                                 <button type="button" className="close" data-dismiss="modal" onClick={modalLoginClose} aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={handleSubmit}>
                                     <div className="form-group">
-                                        <input type="email" name="email" value={usuario.credenciales.email} onChange={handleChangeLogin} className="form-control" placeholder="Ingresa tu email" autoComplete="off"/>
+                                        <input type="email" name="email" value={usuario.credenciales.email} onChange={handleChangeLogin} className="form-control" placeholder="Ingresa tu email" autoComplete="off" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" name="password" value={usuario.credenciales.password} onChange={handleChangeLogin} className="form-control" placeholder="Contraseña" autoComplete="off"/>
-                                    </div> 
-                                    {login.ok === false && 
-                                    <Alert variant="warning">
-                                        {login.error}
-                                    </Alert>
+                                        <input type="password" name="password" value={usuario.credenciales.password} onChange={handleChangeLogin} className="form-control" placeholder="Contraseña" autoComplete="off" />
+                                    </div>
+                                    {login.ok === false &&
+                                        <Alert variant="warning">
+                                            {login.error}
+                                        </Alert>
                                     }
                                     <div className="modal-footer">
                                         <button type="submit" className="btn btn-danger btn-block">Ingresar</button>
+                                        <button className="btn btn-block btn-outline-dark" onClick={modalRegisterOpen}>¿No eres usuario? Resgistrate</button>
                                     </div>
                                 </form>
-                                <button className="btn btn-outline-dark" onClick = {modalRegisterOpen}>¿No eres usuario? Resgistrate</button>
                             </div>
                         </div>
                     </div>
