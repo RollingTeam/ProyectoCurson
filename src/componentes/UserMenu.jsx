@@ -14,7 +14,7 @@ export default function UserMenu({LogOut, usuarioRole}) {
                     {usuarioRole === 'ADMIN_ROLE' &&
                         <Dropdown.Item href="/admin">Sección Admin</Dropdown.Item>
                     }
-                    <Dropdown.Item href="#/action-1">Mis cursos</Dropdown.Item>
+                    <Dropdown.Item href="/misFavoritos">Mis Favoritos</Dropdown.Item>
                     <Dropdown.Item onClick={LogOut}>Log Out</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

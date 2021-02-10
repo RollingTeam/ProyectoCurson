@@ -13,6 +13,7 @@ import TablaCategoriasAdmin from "../pages/TablaCategoriasAdmin";
 import EditarCategoriaAdmin from "../pages/EditarCategoriaAdmin";
 import EditarSolicitud from "../pages/EditarSolicitud";
 import TablaSolicitudesAdmin from "../pages/TablaSolicitudesAdmin";
+import MisFavoritos from "../pages/MisFavoritos";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route exact path="/cursos/:cursoId" component={ModalVerDetalleCurso} />
         <Route exact path="/admin/solicitud/:solicitudId" component={EditarSolicitud} />
         <Route exact path="/admin/solicitudes" component={TablaSolicitudesAdmin} />
+        <Route exact path="/misFavoritos" component={MisFavoritos} />
         <Route component={Error404} />
       </Switch>
     </BrowserRouter>
