@@ -9,6 +9,14 @@ export default function EditarCategoriaAdmin(props) {
     estado: true,
   });
 
+  useEffect(() => {
+    let validacion = JSON.parse(localStorage.getItem('role')) || "";
+    if(validacion !== 'ADMIN_ROLE'){
+        alert('No estas autorizado para ingresar a esta sección. Serás redireccionado al Inicio.');
+        props.history.push('/')
+    }
+}, [])
+
   const getDataId = async () => {
     try {
       const resp = await fetch(

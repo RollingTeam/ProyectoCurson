@@ -59,7 +59,8 @@ export default function LogIn({ modalRegisterOpen, modalLoginClose, setIngreso }
 
                 setIngreso({
                     token: JSON.parse(localStorage.getItem('token')),
-                    id: data.usuario._id
+                    id: data.usuario._id,
+                    role: data.usuario.role,
                 })
 
                 modalLoginClose()

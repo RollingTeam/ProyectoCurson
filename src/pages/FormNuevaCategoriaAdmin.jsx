@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CrearCategoria from "../componentes/CrearCategoria";
 import NavbarAdminHome from "../componentes/NavbarAdminHome";
 
 
 export default function FormNuevaCategoriaAdmin(props) {
+
+  useEffect(() => {
+    let validacion = JSON.parse(localStorage.getItem('role')) || "";
+    if(validacion !== 'ADMIN_ROLE'){
+        alert('No estas autorizado para ingresar a esta sección. Serás redireccionado al Inicio.');
+        props.history.push('/')
+    }
+}, [])
+
   const [catForm, setCatForm] = useState({
     form: {
       nombre: "",

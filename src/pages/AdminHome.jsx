@@ -3,10 +3,18 @@ import NavbarAdminHome from '../componentes/NavbarAdminHome'
 import UsuariosList from '../componentes/UsuariosList'
 import {getUsuarios} from '../helpers/getUsuarios'
 
-export default function AdminHome() {
+export default function AdminHome(props) {
 
-    const [usuarios, setUsuarios] = useState([]); 
+    const [usuarios, setUsuarios] = useState([]);
 
+    useEffect(() => {
+        let validacion = JSON.parse(localStorage.getItem('role')) || "";
+        if(validacion !== 'ADMIN_ROLE'){
+            alert('No estas autorizado para ingresar a esta sección. Serás redireccionado al Inicio.');
+            props.history.push('/')
+        }
+    }, [])
+    
     useEffect(() => {
         getUsuarios()
         .then((response)=>setUsuarios(response))
