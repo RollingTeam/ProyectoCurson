@@ -12,6 +12,7 @@ export default function LandingPage() {
         const [ingreso, setIngreso] = useState({
         token: "",
         id: "",
+        role: "",
     });
     return (
         <>

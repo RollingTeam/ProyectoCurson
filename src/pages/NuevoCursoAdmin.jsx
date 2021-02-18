@@ -3,6 +3,15 @@ import NewCursoAdmin from "../componentes/NewCursoAdmin";
 import NavbarAdminHome from "../componentes/NavbarAdminHome";
 
 export default function NuevoCursoAdmin(props) {
+
+  useEffect(() => {
+    let validacion = JSON.parse(localStorage.getItem('role')) || "";
+    if(validacion !== 'ADMIN_ROLE'){
+        alert('No estas autorizado para ingresar a esta sección. Serás redireccionado al Inicio.');
+        props.history.push('/')
+    }
+}, [])
+
   const [cursoForm, setCursoForm] = useState({
     form: {
       nombre: "",

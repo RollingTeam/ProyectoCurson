@@ -6,6 +6,14 @@ import { getCategoria } from "../helpers/Categorias";
 export default function EditarSolicitud(props) {
   const solicitudId = props.match.params.solicitudId;
 
+  useEffect(() => {
+    let validacion = JSON.parse(localStorage.getItem('role')) || "";
+    if(validacion !== 'ADMIN_ROLE'){
+        alert('No estas autorizado para ingresar a esta sección. Serás redireccionado al Inicio.');
+        props.history.push('/')
+    }
+}, [])
+
   const [actualizada, setActualizada] = useState({
     nombre: "",
     estado: true,

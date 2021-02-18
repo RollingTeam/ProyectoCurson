@@ -8,6 +8,14 @@ import { getCategoria } from "../helpers/Categorias";
 export default function EditarCursoAdmin(props) {
   const [openModal, setOpenModal] = useState(false);
 
+  useEffect(() => {
+    let validacion = JSON.parse(localStorage.getItem('role')) || "";
+    if(validacion !== 'ADMIN_ROLE'){
+        alert('No estas autorizado para ingresar a esta sección. Serás redireccionado al Inicio.');
+        props.history.push('/')
+    }
+}, [])
+
   const handleOpenModal = () => {
     setOpenModal(true);
   };

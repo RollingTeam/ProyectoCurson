@@ -18,6 +18,7 @@ export default function BarraDeNavegacion({ingreso, setIngreso}) {
         if (ingreso.token.length > 0) {
           localStorage.setItem("id", JSON.stringify(ingreso.id));
           consultarRole();
+          localStorage.setItem('role', JSON.stringify(ingreso.role))
         }
       }, [ingreso]);
 
@@ -25,9 +26,11 @@ export default function BarraDeNavegacion({ingreso, setIngreso}) {
       const LogOut = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('id')
+        localStorage.removeItem('role')
         setIngreso({
             token: "",
             id: "",
+            role: "",
         })
     };
 
