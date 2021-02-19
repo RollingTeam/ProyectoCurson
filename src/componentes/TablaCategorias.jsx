@@ -27,8 +27,8 @@ export default function TablaCategorias({ cat }) {
                     {categoria.estado ? (
                       <span className="text-success">Activa</span>
                     ) : (
-                      <span className="text-danger">Inactiva</span>
-                    )}
+                        <span className="text-danger">Inactiva</span>
+                      )}
                   </td>
                   <td>
                     {categoria.estado && (
@@ -48,7 +48,7 @@ export default function TablaCategorias({ cat }) {
                                 },
                               }
                             );
-                            alert("La categoria fue eliminada correctamente");
+                            alert("La categoria fue suspendida correctamente");
                           } catch (error) {
                             console.warn(error);
                           }
