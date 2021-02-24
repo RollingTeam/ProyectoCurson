@@ -82,7 +82,7 @@ export default function TodosCursos() {
       <div className="container">
         <div className="row">
           {lista.datos.map((curso) => {
-            return <CursoInfo _id={curso._id} />;
+            return <CursoInfo _id={curso._id} key={curso._id}/>;
           })}
         </div>
         <div className="container mt-4 d-flex justify-content-center">

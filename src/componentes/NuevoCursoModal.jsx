@@ -215,7 +215,7 @@ export default function NcursoModal(props) {
                   value={solicitudForm.form.categoria._id}
                 >
                    {activeCat.map((cat) => {
-                      return <option value={cat._id}>{cat.nombre}</option>;
+                      return <option key={cat._id} value={cat._id}>{cat.nombre}</option>;
                     })}
                 </select>
                 {errors.categoria && (

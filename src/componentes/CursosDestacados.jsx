@@ -52,7 +52,7 @@ export default function CursosDestacados() {
       <div className="container">
         <div className="row">
           {lista.datos.map((curso) => {
-            return <Curso _id={curso._id} />;
+            return <Curso _id={curso._id} key={curso._id}/>;
           })}
         </div>
       </div>
