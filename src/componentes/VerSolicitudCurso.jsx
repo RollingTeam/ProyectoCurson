@@ -75,7 +75,7 @@ export default function VerSolicitudCurso({
                     value={formValues.categoria._id}
                   >
                     {categorias.map((cat) => {
-                      return <option value={cat._id}>{cat.nombre}</option>;
+                      return <option key={cat._id} value={cat._id}>{cat.nombre}</option>;
                     })}
                   </select>
                 </div>

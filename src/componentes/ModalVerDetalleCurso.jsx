@@ -29,6 +29,7 @@ export default function ModalVerDetalleCurso(props) {
         },
       });
       const data = await resp.json();
+      console.log(data)
       setCursoForm({
         form: data.curso,
       });
@@ -117,7 +118,7 @@ export default function ModalVerDetalleCurso(props) {
                   <p>{cursoForm.form.descripcion}</p>
                 </div>
                 <div className="text-center">
-                  Contacto:<a href="link">{cursoForm.form.contacto}</a>
+                  Contacto:<a href={cursoForm.form.contacto}>{cursoForm.form.contacto}</a>
                 </div>
               </div>
               <div className="modal-footer justify-content-center">

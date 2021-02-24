@@ -176,7 +176,7 @@ export default function CursosPorCategoria() {
           <div className="col-10 col-md-10 col-lg-10">
             <div className="row">
               {lista.datos.map((curso, _id) => {
-                return <CursoInfo _id={curso._id} />;
+                return <CursoInfo _id={curso._id} key={curso._id}/>;
               })}
             </div>
           </div>

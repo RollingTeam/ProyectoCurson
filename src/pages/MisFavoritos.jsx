@@ -71,7 +71,7 @@ export default function MisFavoritos() {
           <div className="container">
             <div className="row">
               {cursos.map((curso) => {
-                return <CursoInfo _id={curso._id} />;
+                return <CursoInfo key={curso._id} _id={curso._id} />;
               })}
             </div>
           </div>
