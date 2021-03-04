@@ -22,8 +22,8 @@ export default function ReviewList({ data }) {
     <>
       {lista.map((review) => {
         return(
-          <div key={review.id} className="col-md-6 mt-3">
-            <div key={review.id} className="card card-multicolor">
+          <div key={review._id} className="col-md-6 mt-3">
+            <div className="card card-multicolor">
               <div className="row no-gutters d-flex justify-content-center">
                 <div className="col-10 col-md-4 d-flex justify-content-center align-items-center">
                   <img src={review.img} className="BadgesListItem__avatar ml-2 mt-2 img-fluid" alt="avatar usuario" />

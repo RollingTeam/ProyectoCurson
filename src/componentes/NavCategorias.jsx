@@ -55,11 +55,13 @@ export default function NavCategorias() {
               </li>
               <li className="nav-item active mx-5">
                 <DropdownButton className="btn-categorias" title="Mas...">
-                  {arrayCat.map((categoria, _id) => {
+                  {arrayCat.map((categoria) => {
                     return (
+                      <div key={categoria._id}>
                       <Dropdown.Item eventKey={categoria._id}>
                         {categoria.nombre}
                       </Dropdown.Item>
+                      </div>
                     );
                   })}
                 </DropdownButton>
