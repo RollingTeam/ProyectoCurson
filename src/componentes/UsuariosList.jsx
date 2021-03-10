@@ -41,7 +41,7 @@ export default function UsuariosList({ usuarios }) {
               return (
                 <tr key={usuario._id} className="text-center">
                   <td>{`${usuario.nombre} ${usuario.apellido}`}</td>
-                  <td>{usuario.userName}</td>
+                  <td>{usuario.email}</td>
                   <td>
                     {usuario.role === "ADMIN_ROLE"
                       ? "Administrador"
@@ -61,7 +61,7 @@ export default function UsuariosList({ usuarios }) {
                         onClick={async (e) => {
                           let token = JSON.parse(localStorage.getItem("token"));
                           let valor = window.confirm(
-                            `¿Deseas suspender a ${usuario.userName}?`
+                            `¿Deseas suspender a ${usuario.email}?`
                           );
                           if (valor) {
                             if (
@@ -117,7 +117,7 @@ export default function UsuariosList({ usuarios }) {
                                   },
                                 }
                               );
-                              alert(`Diste de alta a ${usuario.userName}!`);
+                              alert(`Diste de alta a ${usuario.email}!`);
                             } catch (error) {
                               console.warn(error);
                             }
@@ -146,7 +146,7 @@ export default function UsuariosList({ usuarios }) {
                             }
                           );
                           alert(
-                            `Ahora ${usuario.userName} es un administrador!`
+                            `Ahora ${usuario.email} es un administrador!`
                           );
                         } catch (error) {
                           console.warn(error);

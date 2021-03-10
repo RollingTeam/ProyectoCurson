@@ -9,7 +9,6 @@ export default function Register({ modalRegisterClose, setIngreso }) {
         formulario: {
             nombre: "",
             apellido: "",
-            userName: "",
             email: "",
             password: "",
         }
@@ -55,72 +54,83 @@ export default function Register({ modalRegisterClose, setIngreso }) {
         if (registro.formulario.password === repetir.contraseña.passwordRepetir) {
 
             try {
-                // const resp = await fetch("http://localhost:3005/usuarios", {
-                const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/usuarios", {
-                    method: "POST",
-                    body: JSON.stringify(registro.formulario),
+
+                const res = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuario/${registro.formulario.email}`, {
+                    method: "GET",
                     headers: {
                         "Content-type": "application/json; charset=UTF-8",
                     },
                 });
 
-                const data = await resp.json()
-
-                let credenciales = {
-                    email: registro.formulario.email,
-                    password: registro.formulario.password
-                }
-
-                alert('Te has registrado con exito!')
-
-                if (data.ok) {
-
-                    setLogin({
-                        loading: true,
+                const dataUser = await res.json()
+                if (dataUser.usuario === null) {
+                    // const resp = await fetch("http://localhost:3005/usuarios", {
+                    const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/usuarios", {
+                        method: "POST",
+                        body: JSON.stringify(registro.formulario),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8",
+                        },
                     });
 
-                    try {
-                        // const resp = await fetch("http://localhost:3005/login", {
-                        const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/login", {
-                            method: "POST",
-                            body: JSON.stringify(credenciales),
-                            headers: {
-                                "Content-type": "application/json; charset=UTF-8",
-                            },
+                    const data = await resp.json()
+                    let credenciales = {
+                        email: registro.formulario.email,
+                        password: registro.formulario.password
+                    }
+                    alert('Te has registrado con exito!')
+                    modalRegisterClose();
+                    if (data.ok) {
+
+                        setLogin({
+                            loading: true,
                         });
 
-                        const data = await resp.json()
-
-                        if (data.ok) {
-                            setLogin({
-                                token: data.token,
-                                error: null,
-                                ok: true,
-                                loading: false,
+                        try {
+                            // const resp = await fetch("http://localhost:3005/login", {
+                            const resp = await fetch("https://afternoon-fjord-84174.herokuapp.com/login", {
+                                method: "POST",
+                                body: JSON.stringify(credenciales),
+                                headers: {
+                                    "Content-type": "application/json; charset=UTF-8",
+                                },
                             });
 
-                            localStorage.setItem("token", JSON.stringify(data.token));
+                            const data = await resp.json()
 
-                            setIngreso({
-                                token: JSON.parse(localStorage.getItem('token')),
-                                id: data.usuario._id
-                            })
+                            if (data.ok) {
+                                setLogin({
+                                    token: data.token,
+                                    error: null,
+                                    ok: true,
+                                    loading: false,
+                                });
 
-                            modalRegisterClose()
+                                localStorage.setItem("token", JSON.stringify(data.token));
 
-                        } else {
-                            setLogin({
-                                token: "",
-                                error: data.err.message,
-                                ok: false,
-                                loading: false,
-                            });
+                                setIngreso({
+                                    token: JSON.parse(localStorage.getItem('token')),
+                                    id: data.usuario._id
+                                })
+
+                                modalRegisterClose()
+
+                            } else {
+                                setLogin({
+                                    token: "",
+                                    error: data.err.message,
+                                    ok: false,
+                                    loading: false,
+                                });
+                            }
+                        } catch (error) {
+                            console.warn(error)
                         }
-                    } catch (error) {
-                        console.warn(error)
                     }
+                } else {
+                    alert("El email ingresado ya existe para una cuenta de Curson")
+                    modalRegisterClose()
                 }
-
             } catch (error) {
                 console.warn(error)
             }
@@ -145,15 +155,11 @@ export default function Register({ modalRegisterClose, setIngreso }) {
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label>Nombre:</label>
-                                    <input type="text" name="nombre"  maxLength="20" value={registro.formulario.nombre} onChange={handleChange} className="form-control" autoComplete="off" required />
+                                    <input type="text" name="nombre" maxLength="20" value={registro.formulario.nombre} onChange={handleChange} className="form-control" autoComplete="off" required />
                                 </div>
                                 <div className="form-group">
                                     <label>Apellido:</label>
-                                    <input type="text" name="apellido"  maxLength="20" value={registro.formulario.apellido} onChange={handleChange} className="form-control" autoComplete="off" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Usuario:</label>
-                                    <input type="text" name="userName"  maxLength="20" value={registro.formulario.userName} onChange={handleChange} className="form-control" autoComplete="off" required />
+                                    <input type="text" name="apellido" maxLength="20" value={registro.formulario.apellido} onChange={handleChange} className="form-control" autoComplete="off" required />
                                 </div>
                                 <div className="form-group">
                                     <label>E-mail</label>
@@ -161,7 +167,7 @@ export default function Register({ modalRegisterClose, setIngreso }) {
                                 </div>
                                 <div className="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" name="password"  minLength="8" maxLength="20" value={registro.formulario.password} onChange={handleChange} className="form-control" autoComplete="off" required />
+                                    <input type="password" name="password" minLength="8" maxLength="20" value={registro.formulario.password} onChange={handleChange} className="form-control" autoComplete="off" required />
                                 </div>
                                 <div className="form-group">
                                     <label>Repetir contraseña</label>

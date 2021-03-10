@@ -90,6 +90,7 @@ export default function NcursoModal(props) {
           },
         });
         const data = await resp.json();
+        alert("Tu solicitud para la creacion del curso: "+ solicitudForm.form.nombre +" fue enviada" )
         console.log(data)
       } catch (error) {
         console.warn(error);

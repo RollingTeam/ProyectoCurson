@@ -9,11 +9,7 @@ export const getUsuarios = async() => {
               });
             
             const data = await resp.json()
-
-            // console.log(data.usuarios)
-          
             return data.usuarios
-
         } catch (error) {
             return error
         }
