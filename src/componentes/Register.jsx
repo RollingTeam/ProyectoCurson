@@ -5,6 +5,8 @@ export default function Register({ modalRegisterClose, setIngreso }) {
 
     //------------- Estados -------------//
 
+    const [statusButton, setStatusButton] = useState (true)
+
     const [registro, setRegistro] = useState({
         formulario: {
             nombre: "",
@@ -30,7 +32,6 @@ export default function Register({ modalRegisterClose, setIngreso }) {
 
     //------------- Control de estados -------------//
 
-
     const handleChangeRepetir = (e) => {
         setRepetir({
             contraseña: {
@@ -50,9 +51,8 @@ export default function Register({ modalRegisterClose, setIngreso }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         if (registro.formulario.password === repetir.contraseña.passwordRepetir) {
-
+            setStatusButton(false);
             try {
 
                 const res = await fetch(`https://afternoon-fjord-84174.herokuapp.com/usuario/${registro.formulario.email}`, {
@@ -97,7 +97,6 @@ export default function Register({ modalRegisterClose, setIngreso }) {
                             });
 
                             const data = await resp.json()
-
                             if (data.ok) {
                                 setLogin({
                                     token: data.token,
@@ -174,7 +173,7 @@ export default function Register({ modalRegisterClose, setIngreso }) {
                                     <input type="password" name="passwordRepetir" minLength="8" maxLength="20" value={repetir.contraseña.passwordRepetir} onChange={handleChangeRepetir} className="form-control" autoComplete="off" required />
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="submit" className="btn btn-danger btn-block">Registrarse</button>
+                                    <button type="submit" className="btn btn-danger btn-block" disabled= {!statusButton}>Registrarse</button>
                                 </div>
                             </form>
                         </div>
